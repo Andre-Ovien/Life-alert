@@ -1,0 +1,4520 @@
+[
+  {
+    "state_id": "A01-S00",
+    "screen_id": "A01",
+    "screen_name": "Welcome + service scope",
+    "surface": "Shared access",
+    "state": "base",
+    "trace": "PRD \u00a7\u00a72,4; READY-01",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "A01-S01",
+    "screen_id": "A01",
+    "screen_name": "Welcome + service scope",
+    "surface": "Shared access",
+    "state": "loading",
+    "trace": "PRD \u00a7\u00a72,4; READY-01",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A01-S02",
+    "screen_id": "A01",
+    "screen_name": "Welcome + service scope",
+    "surface": "Shared access",
+    "state": "offline",
+    "trace": "PRD \u00a7\u00a72,4; READY-01",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A01-S03",
+    "screen_id": "A01",
+    "screen_name": "Welcome + service scope",
+    "surface": "Shared access",
+    "state": "coverage information unavailable",
+    "trace": "PRD \u00a7\u00a72,4; READY-01",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A01-S04",
+    "screen_id": "A01",
+    "screen_name": "Welcome + service scope",
+    "surface": "Shared access",
+    "state": "returning linked child bypass",
+    "trace": "PRD \u00a7\u00a72,4; READY-01",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A02-S00",
+    "screen_id": "A02",
+    "screen_name": "Adult sign in",
+    "surface": "Shared access",
+    "state": "base",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "A02-S01",
+    "screen_id": "A02",
+    "screen_name": "Adult sign in",
+    "surface": "Shared access",
+    "state": "submitting",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A02-S02",
+    "screen_id": "A02",
+    "screen_name": "Adult sign in",
+    "surface": "Shared access",
+    "state": "invalid credentials",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A02-S03",
+    "screen_id": "A02",
+    "screen_name": "Adult sign in",
+    "surface": "Shared access",
+    "state": "rate limited",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A02-S04",
+    "screen_id": "A02",
+    "screen_name": "Adult sign in",
+    "surface": "Shared access",
+    "state": "offline",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A02-S05",
+    "screen_id": "A02",
+    "screen_name": "Adult sign in",
+    "surface": "Shared access",
+    "state": "adult session expired",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A03-S00",
+    "screen_id": "A03",
+    "screen_name": "Create family account",
+    "surface": "Shared access",
+    "state": "base",
+    "trace": "FAM-01, FAM-02; PRD \u00a78",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "A03-S01",
+    "screen_id": "A03",
+    "screen_name": "Create family account",
+    "surface": "Shared access",
+    "state": "field validation",
+    "trace": "FAM-01, FAM-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A03-S02",
+    "screen_id": "A03",
+    "screen_name": "Create family account",
+    "surface": "Shared access",
+    "state": "account already exists",
+    "trace": "FAM-01, FAM-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A03-S03",
+    "screen_id": "A03",
+    "screen_name": "Create family account",
+    "surface": "Shared access",
+    "state": "submitting",
+    "trace": "FAM-01, FAM-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A03-S04",
+    "screen_id": "A03",
+    "screen_name": "Create family account",
+    "surface": "Shared access",
+    "state": "result unknown",
+    "trace": "FAM-01, FAM-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A03-S05",
+    "screen_id": "A03",
+    "screen_name": "Create family account",
+    "surface": "Shared access",
+    "state": "offline",
+    "trace": "FAM-01, FAM-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A04-S00",
+    "screen_id": "A04",
+    "screen_name": "Verify contact",
+    "surface": "Shared access",
+    "state": "base",
+    "trace": "FAM-02; PRD \u00a78",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "A04-S01",
+    "screen_id": "A04",
+    "screen_name": "Verify contact",
+    "surface": "Shared access",
+    "state": "verification pending",
+    "trace": "FAM-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A04-S02",
+    "screen_id": "A04",
+    "screen_name": "Verify contact",
+    "surface": "Shared access",
+    "state": "invalid code",
+    "trace": "FAM-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A04-S03",
+    "screen_id": "A04",
+    "screen_name": "Verify contact",
+    "surface": "Shared access",
+    "state": "expired code",
+    "trace": "FAM-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A04-S04",
+    "screen_id": "A04",
+    "screen_name": "Verify contact",
+    "surface": "Shared access",
+    "state": "throttled",
+    "trace": "FAM-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A04-S05",
+    "screen_id": "A04",
+    "screen_name": "Verify contact",
+    "surface": "Shared access",
+    "state": "verified",
+    "trace": "FAM-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A04-S06",
+    "screen_id": "A04",
+    "screen_name": "Verify contact",
+    "surface": "Shared access",
+    "state": "offline",
+    "trace": "FAM-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A05-S00",
+    "screen_id": "A05",
+    "screen_name": "Recover access",
+    "surface": "Shared access",
+    "state": "base",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "A05-S01",
+    "screen_id": "A05",
+    "screen_name": "Recover access",
+    "surface": "Shared access",
+    "state": "generic recovery submitted",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A05-S02",
+    "screen_id": "A05",
+    "screen_name": "Recover access",
+    "surface": "Shared access",
+    "state": "throttled",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A05-S03",
+    "screen_id": "A05",
+    "screen_name": "Recover access",
+    "surface": "Shared access",
+    "state": "recovery unavailable",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A05-S04",
+    "screen_id": "A05",
+    "screen_name": "Recover access",
+    "surface": "Shared access",
+    "state": "offline",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A06-S00",
+    "screen_id": "A06",
+    "screen_name": "Complete recovery",
+    "surface": "Shared access",
+    "state": "base",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "A06-S01",
+    "screen_id": "A06",
+    "screen_name": "Complete recovery",
+    "surface": "Shared access",
+    "state": "expired token",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A06-S02",
+    "screen_id": "A06",
+    "screen_name": "Complete recovery",
+    "surface": "Shared access",
+    "state": "used token",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A06-S03",
+    "screen_id": "A06",
+    "screen_name": "Complete recovery",
+    "surface": "Shared access",
+    "state": "invalid credential",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A06-S04",
+    "screen_id": "A06",
+    "screen_name": "Complete recovery",
+    "surface": "Shared access",
+    "state": "success",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A06-S05",
+    "screen_id": "A06",
+    "screen_name": "Complete recovery",
+    "surface": "Shared access",
+    "state": "interrupted",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "A06-S06",
+    "screen_id": "A06",
+    "screen_name": "Complete recovery",
+    "surface": "Shared access",
+    "state": "offline",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G01-S00",
+    "screen_id": "G01",
+    "screen_name": "Family home",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "READY-01; INC-03, INC-04; SUB-02",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "G01-S01",
+    "screen_id": "G01",
+    "screen_name": "Family home",
+    "surface": "Parent / caregiver",
+    "state": "no children",
+    "trace": "READY-01; INC-03, INC-04; SUB-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G01-S02",
+    "screen_id": "G01",
+    "screen_name": "Family home",
+    "surface": "Parent / caregiver",
+    "state": "multiple children",
+    "trace": "READY-01; INC-03, INC-04; SUB-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G01-S03",
+    "screen_id": "G01",
+    "screen_name": "Family home",
+    "surface": "Parent / caregiver",
+    "state": "active incident",
+    "trace": "READY-01; INC-03, INC-04; SUB-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G01-S04",
+    "screen_id": "G01",
+    "screen_name": "Family home",
+    "surface": "Parent / caregiver",
+    "state": "stale status",
+    "trace": "READY-01; INC-03, INC-04; SUB-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G01-S05",
+    "screen_id": "G01",
+    "screen_name": "Family home",
+    "surface": "Parent / caregiver",
+    "state": "inactive entitlement",
+    "trace": "READY-01; INC-03, INC-04; SUB-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G01-S06",
+    "screen_id": "G01",
+    "screen_name": "Family home",
+    "surface": "Parent / caregiver",
+    "state": "no entitlement data",
+    "trace": "READY-01; INC-03, INC-04; SUB-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G01-S07",
+    "screen_id": "G01",
+    "screen_name": "Family home",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "READY-01; INC-03, INC-04; SUB-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G02-S00",
+    "screen_id": "G02",
+    "screen_name": "Readiness checklist",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "READY-01; DEV-01; LOC-01; SUB-01",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "G02-S01",
+    "screen_id": "G02",
+    "screen_name": "Readiness checklist",
+    "surface": "Parent / caregiver",
+    "state": "incomplete readiness",
+    "trace": "READY-01; DEV-01; LOC-01; SUB-01",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G02-S02",
+    "screen_id": "G02",
+    "screen_name": "Readiness checklist",
+    "surface": "Parent / caregiver",
+    "state": "ready facts saved",
+    "trace": "READY-01; DEV-01; LOC-01; SUB-01",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G02-S03",
+    "screen_id": "G02",
+    "screen_name": "Readiness checklist",
+    "surface": "Parent / caregiver",
+    "state": "coverage unknown",
+    "trace": "READY-01; DEV-01; LOC-01; SUB-01",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G02-S04",
+    "screen_id": "G02",
+    "screen_name": "Readiness checklist",
+    "surface": "Parent / caregiver",
+    "state": "permission denied",
+    "trace": "READY-01; DEV-01; LOC-01; SUB-01",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G02-S05",
+    "screen_id": "G02",
+    "screen_name": "Readiness checklist",
+    "surface": "Parent / caregiver",
+    "state": "entitlement unknown",
+    "trace": "READY-01; DEV-01; LOC-01; SUB-01",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G02-S06",
+    "screen_id": "G02",
+    "screen_name": "Readiness checklist",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "READY-01; DEV-01; LOC-01; SUB-01",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G03-S00",
+    "screen_id": "G03",
+    "screen_name": "Updates inbox",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "INC-03, INC-04; PRD \u00a78",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "G03-S01",
+    "screen_id": "G03",
+    "screen_name": "Updates inbox",
+    "surface": "Parent / caregiver",
+    "state": "loading",
+    "trace": "INC-03, INC-04; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G03-S02",
+    "screen_id": "G03",
+    "screen_name": "Updates inbox",
+    "surface": "Parent / caregiver",
+    "state": "empty",
+    "trace": "INC-03, INC-04; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G03-S03",
+    "screen_id": "G03",
+    "screen_name": "Updates inbox",
+    "surface": "Parent / caregiver",
+    "state": "refresh error",
+    "trace": "INC-03, INC-04; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G03-S04",
+    "screen_id": "G03",
+    "screen_name": "Updates inbox",
+    "surface": "Parent / caregiver",
+    "state": "offline stale cache",
+    "trace": "INC-03, INC-04; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "G03-S05",
+    "screen_id": "G03",
+    "screen_name": "Updates inbox",
+    "surface": "Parent / caregiver",
+    "state": "access revoked",
+    "trace": "INC-03, INC-04; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H01-S00",
+    "screen_id": "H01",
+    "screen_name": "Household + caregiver access",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "FAM-01, FAM-02",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "H01-S01",
+    "screen_id": "H01",
+    "screen_name": "Household + caregiver access",
+    "surface": "Parent / caregiver",
+    "state": "empty invites",
+    "trace": "FAM-01, FAM-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H01-S02",
+    "screen_id": "H01",
+    "screen_name": "Household + caregiver access",
+    "surface": "Parent / caregiver",
+    "state": "pending invitation",
+    "trace": "FAM-01, FAM-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H01-S03",
+    "screen_id": "H01",
+    "screen_name": "Household + caregiver access",
+    "surface": "Parent / caregiver",
+    "state": "accepted membership",
+    "trace": "FAM-01, FAM-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H01-S04",
+    "screen_id": "H01",
+    "screen_name": "Household + caregiver access",
+    "surface": "Parent / caregiver",
+    "state": "revoked membership",
+    "trace": "FAM-01, FAM-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H01-S05",
+    "screen_id": "H01",
+    "screen_name": "Household + caregiver access",
+    "surface": "Parent / caregiver",
+    "state": "authority unresolved",
+    "trace": "FAM-01, FAM-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H01-S06",
+    "screen_id": "H01",
+    "screen_name": "Household + caregiver access",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "FAM-01, FAM-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H02-S00",
+    "screen_id": "H02",
+    "screen_name": "Invite caregiver",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "FAM-02; AT-13",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "H02-S01",
+    "screen_id": "H02",
+    "screen_name": "Invite caregiver",
+    "surface": "Parent / caregiver",
+    "state": "invalid contact",
+    "trace": "FAM-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H02-S02",
+    "screen_id": "H02",
+    "screen_name": "Invite caregiver",
+    "surface": "Parent / caregiver",
+    "state": "send pending",
+    "trace": "FAM-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H02-S03",
+    "screen_id": "H02",
+    "screen_name": "Invite caregiver",
+    "surface": "Parent / caregiver",
+    "state": "duplicate invitation",
+    "trace": "FAM-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H02-S04",
+    "screen_id": "H02",
+    "screen_name": "Invite caregiver",
+    "surface": "Parent / caregiver",
+    "state": "expired invitation",
+    "trace": "FAM-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H02-S05",
+    "screen_id": "H02",
+    "screen_name": "Invite caregiver",
+    "surface": "Parent / caregiver",
+    "state": "send failure",
+    "trace": "FAM-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H02-S06",
+    "screen_id": "H02",
+    "screen_name": "Invite caregiver",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "FAM-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H03-S00",
+    "screen_id": "H03",
+    "screen_name": "Caregiver scope + authority",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "FAM-02; ACC-03, ACC-06",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "H03-S01",
+    "screen_id": "H03",
+    "screen_name": "Caregiver scope + authority",
+    "surface": "Parent / caregiver",
+    "state": "scoped caregiver rights",
+    "trace": "FAM-02; ACC-03, ACC-06",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H03-S02",
+    "screen_id": "H03",
+    "screen_name": "Caregiver scope + authority",
+    "surface": "Parent / caregiver",
+    "state": "authority verification pending",
+    "trace": "FAM-02; ACC-03, ACC-06",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H03-S03",
+    "screen_id": "H03",
+    "screen_name": "Caregiver scope + authority",
+    "surface": "Parent / caregiver",
+    "state": "authority expired",
+    "trace": "FAM-02; ACC-03, ACC-06",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H03-S04",
+    "screen_id": "H03",
+    "screen_name": "Caregiver scope + authority",
+    "surface": "Parent / caregiver",
+    "state": "grant revoked",
+    "trace": "FAM-02; ACC-03, ACC-06",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H03-S05",
+    "screen_id": "H03",
+    "screen_name": "Caregiver scope + authority",
+    "surface": "Parent / caregiver",
+    "state": "contested authority",
+    "trace": "FAM-02; ACC-03, ACC-06",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H03-S06",
+    "screen_id": "H03",
+    "screen_name": "Caregiver scope + authority",
+    "surface": "Parent / caregiver",
+    "state": "saving",
+    "trace": "FAM-02; ACC-03, ACC-06",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H03-S07",
+    "screen_id": "H03",
+    "screen_name": "Caregiver scope + authority",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "FAM-02; ACC-03, ACC-06",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H04-S00",
+    "screen_id": "H04",
+    "screen_name": "Accept invitation",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "FAM-02; AT-13",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "H04-S01",
+    "screen_id": "H04",
+    "screen_name": "Accept invitation",
+    "surface": "Parent / caregiver",
+    "state": "wrong account",
+    "trace": "FAM-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H04-S02",
+    "screen_id": "H04",
+    "screen_name": "Accept invitation",
+    "surface": "Parent / caregiver",
+    "state": "expired invitation",
+    "trace": "FAM-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H04-S03",
+    "screen_id": "H04",
+    "screen_name": "Accept invitation",
+    "surface": "Parent / caregiver",
+    "state": "already used",
+    "trace": "FAM-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H04-S04",
+    "screen_id": "H04",
+    "screen_name": "Accept invitation",
+    "surface": "Parent / caregiver",
+    "state": "revoked invitation",
+    "trace": "FAM-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H04-S05",
+    "screen_id": "H04",
+    "screen_name": "Accept invitation",
+    "surface": "Parent / caregiver",
+    "state": "accepted",
+    "trace": "FAM-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "H04-S06",
+    "screen_id": "H04",
+    "screen_name": "Accept invitation",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "FAM-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F01-S00",
+    "screen_id": "F01",
+    "screen_name": "Children directory",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "FAM-01; CARE-01; AT-13",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "F01-S01",
+    "screen_id": "F01",
+    "screen_name": "Children directory",
+    "surface": "Parent / caregiver",
+    "state": "loading",
+    "trace": "FAM-01; CARE-01; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F01-S02",
+    "screen_id": "F01",
+    "screen_name": "Children directory",
+    "surface": "Parent / caregiver",
+    "state": "empty",
+    "trace": "FAM-01; CARE-01; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F01-S03",
+    "screen_id": "F01",
+    "screen_name": "Children directory",
+    "surface": "Parent / caregiver",
+    "state": "multiple children",
+    "trace": "FAM-01; CARE-01; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F01-S04",
+    "screen_id": "F01",
+    "screen_name": "Children directory",
+    "surface": "Parent / caregiver",
+    "state": "read denied",
+    "trace": "FAM-01; CARE-01; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F01-S05",
+    "screen_id": "F01",
+    "screen_name": "Children directory",
+    "surface": "Parent / caregiver",
+    "state": "refresh error",
+    "trace": "FAM-01; CARE-01; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F01-S06",
+    "screen_id": "F01",
+    "screen_name": "Children directory",
+    "surface": "Parent / caregiver",
+    "state": "offline stale list",
+    "trace": "FAM-01; CARE-01; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F02-S00",
+    "screen_id": "F02",
+    "screen_name": "Child overview",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "CARE-01, CARE-02; READY-01",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "F02-S01",
+    "screen_id": "F02",
+    "screen_name": "Child overview",
+    "surface": "Parent / caregiver",
+    "state": "incomplete profile",
+    "trace": "CARE-01, CARE-02; READY-01",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F02-S02",
+    "screen_id": "F02",
+    "screen_name": "Child overview",
+    "surface": "Parent / caregiver",
+    "state": "profile update time unknown",
+    "trace": "CARE-01, CARE-02; READY-01",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F02-S03",
+    "screen_id": "F02",
+    "screen_name": "Child overview",
+    "surface": "Parent / caregiver",
+    "state": "active incident",
+    "trace": "CARE-01, CARE-02; READY-01",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F02-S04",
+    "screen_id": "F02",
+    "screen_name": "Child overview",
+    "surface": "Parent / caregiver",
+    "state": "access revoked",
+    "trace": "CARE-01, CARE-02; READY-01",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F02-S05",
+    "screen_id": "F02",
+    "screen_name": "Child overview",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "CARE-01, CARE-02; READY-01",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F03-S00",
+    "screen_id": "F03",
+    "screen_name": "Care profile editor",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "CARE-01, CARE-02; AT-13",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "F03-S01",
+    "screen_id": "F03",
+    "screen_name": "Care profile editor",
+    "surface": "Parent / caregiver",
+    "state": "new child",
+    "trace": "CARE-01, CARE-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F03-S02",
+    "screen_id": "F03",
+    "screen_name": "Care profile editor",
+    "surface": "Parent / caregiver",
+    "state": "editing existing child",
+    "trace": "CARE-01, CARE-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F03-S03",
+    "screen_id": "F03",
+    "screen_name": "Care profile editor",
+    "surface": "Parent / caregiver",
+    "state": "field validation",
+    "trace": "CARE-01, CARE-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F03-S04",
+    "screen_id": "F03",
+    "screen_name": "Care profile editor",
+    "surface": "Parent / caregiver",
+    "state": "unsaved changes",
+    "trace": "CARE-01, CARE-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F03-S05",
+    "screen_id": "F03",
+    "screen_name": "Care profile editor",
+    "surface": "Parent / caregiver",
+    "state": "saving",
+    "trace": "CARE-01, CARE-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F03-S06",
+    "screen_id": "F03",
+    "screen_name": "Care profile editor",
+    "surface": "Parent / caregiver",
+    "state": "save conflict",
+    "trace": "CARE-01, CARE-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F03-S07",
+    "screen_id": "F03",
+    "screen_name": "Care profile editor",
+    "surface": "Parent / caregiver",
+    "state": "save failed",
+    "trace": "CARE-01, CARE-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F03-S08",
+    "screen_id": "F03",
+    "screen_name": "Care profile editor",
+    "surface": "Parent / caregiver",
+    "state": "save outcome unknown",
+    "trace": "CARE-01, CARE-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F03-S09",
+    "screen_id": "F03",
+    "screen_name": "Care profile editor",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "CARE-01, CARE-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F04-S00",
+    "screen_id": "F04",
+    "screen_name": "Emergency contacts",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "CARE-01; FAM-02; ACC-06",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "F04-S01",
+    "screen_id": "F04",
+    "screen_name": "Emergency contacts",
+    "surface": "Parent / caregiver",
+    "state": "empty contacts",
+    "trace": "CARE-01; FAM-02; ACC-06",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F04-S02",
+    "screen_id": "F04",
+    "screen_name": "Emergency contacts",
+    "surface": "Parent / caregiver",
+    "state": "incomplete contact",
+    "trace": "CARE-01; FAM-02; ACC-06",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F04-S03",
+    "screen_id": "F04",
+    "screen_name": "Emergency contacts",
+    "surface": "Parent / caregiver",
+    "state": "saving",
+    "trace": "CARE-01; FAM-02; ACC-06",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F04-S04",
+    "screen_id": "F04",
+    "screen_name": "Emergency contacts",
+    "surface": "Parent / caregiver",
+    "state": "unverified channel",
+    "trace": "CARE-01; FAM-02; ACC-06",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F04-S05",
+    "screen_id": "F04",
+    "screen_name": "Emergency contacts",
+    "surface": "Parent / caregiver",
+    "state": "contact authority absent",
+    "trace": "CARE-01; FAM-02; ACC-06",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F04-S06",
+    "screen_id": "F04",
+    "screen_name": "Emergency contacts",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "CARE-01; FAM-02; ACC-06",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F05-S00",
+    "screen_id": "F05",
+    "screen_name": "Saved places + location",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "F05-S01",
+    "screen_id": "F05",
+    "screen_name": "Saved places + location",
+    "surface": "Parent / caregiver",
+    "state": "empty places",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F05-S02",
+    "screen_id": "F05",
+    "screen_name": "Saved places + location",
+    "surface": "Parent / caregiver",
+    "state": "location denied",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F05-S03",
+    "screen_id": "F05",
+    "screen_name": "Saved places + location",
+    "surface": "Parent / caregiver",
+    "state": "location missing",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F05-S04",
+    "screen_id": "F05",
+    "screen_name": "Saved places + location",
+    "surface": "Parent / caregiver",
+    "state": "location stale",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F05-S05",
+    "screen_id": "F05",
+    "screen_name": "Saved places + location",
+    "surface": "Parent / caregiver",
+    "state": "location inaccurate",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F05-S06",
+    "screen_id": "F05",
+    "screen_name": "Saved places + location",
+    "surface": "Parent / caregiver",
+    "state": "saved address fallback",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F05-S07",
+    "screen_id": "F05",
+    "screen_name": "Saved places + location",
+    "surface": "Parent / caregiver",
+    "state": "outside coverage",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "F05-S08",
+    "screen_id": "F05",
+    "screen_name": "Saved places + location",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D01-S00",
+    "screen_id": "D01",
+    "screen_name": "Linked devices",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "DEV-01, DEV-02; AT-15",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "D01-S01",
+    "screen_id": "D01",
+    "screen_name": "Linked devices",
+    "surface": "Parent / caregiver",
+    "state": "empty",
+    "trace": "DEV-01, DEV-02; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D01-S02",
+    "screen_id": "D01",
+    "screen_name": "Linked devices",
+    "surface": "Parent / caregiver",
+    "state": "pairing pending",
+    "trace": "DEV-01, DEV-02; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D01-S03",
+    "screen_id": "D01",
+    "screen_name": "Linked devices",
+    "surface": "Parent / caregiver",
+    "state": "device revoked",
+    "trace": "DEV-01, DEV-02; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D01-S04",
+    "screen_id": "D01",
+    "screen_name": "Linked devices",
+    "surface": "Parent / caregiver",
+    "state": "device status unknown",
+    "trace": "DEV-01, DEV-02; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D01-S05",
+    "screen_id": "D01",
+    "screen_name": "Linked devices",
+    "surface": "Parent / caregiver",
+    "state": "device status stale",
+    "trace": "DEV-01, DEV-02; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D01-S06",
+    "screen_id": "D01",
+    "screen_name": "Linked devices",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "DEV-01, DEV-02; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D02-S00",
+    "screen_id": "D02",
+    "screen_name": "Link a child device",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "DEV-01, DEV-02",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "D02-S01",
+    "screen_id": "D02",
+    "screen_name": "Link a child device",
+    "surface": "Parent / caregiver",
+    "state": "pairing pending",
+    "trace": "DEV-01, DEV-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D02-S02",
+    "screen_id": "D02",
+    "screen_name": "Link a child device",
+    "surface": "Parent / caregiver",
+    "state": "expired challenge",
+    "trace": "DEV-01, DEV-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D02-S03",
+    "screen_id": "D02",
+    "screen_name": "Link a child device",
+    "surface": "Parent / caregiver",
+    "state": "used challenge",
+    "trace": "DEV-01, DEV-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D02-S04",
+    "screen_id": "D02",
+    "screen_name": "Link a child device",
+    "surface": "Parent / caregiver",
+    "state": "wrong child",
+    "trace": "DEV-01, DEV-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D02-S05",
+    "screen_id": "D02",
+    "screen_name": "Link a child device",
+    "surface": "Parent / caregiver",
+    "state": "pairing failed",
+    "trace": "DEV-01, DEV-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D02-S06",
+    "screen_id": "D02",
+    "screen_name": "Link a child device",
+    "surface": "Parent / caregiver",
+    "state": "pairing interrupted",
+    "trace": "DEV-01, DEV-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D02-S07",
+    "screen_id": "D02",
+    "screen_name": "Link a child device",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "DEV-01, DEV-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D03-S00",
+    "screen_id": "D03",
+    "screen_name": "Device access detail",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "DEV-01; AT-15",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "D03-S01",
+    "screen_id": "D03",
+    "screen_name": "Device access detail",
+    "surface": "Parent / caregiver",
+    "state": "active device",
+    "trace": "DEV-01; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D03-S02",
+    "screen_id": "D03",
+    "screen_name": "Device access detail",
+    "surface": "Parent / caregiver",
+    "state": "lost device revoke confirmation",
+    "trace": "DEV-01; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D03-S03",
+    "screen_id": "D03",
+    "screen_name": "Device access detail",
+    "surface": "Parent / caregiver",
+    "state": "revoking",
+    "trace": "DEV-01; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D03-S04",
+    "screen_id": "D03",
+    "screen_name": "Device access detail",
+    "surface": "Parent / caregiver",
+    "state": "device revoked",
+    "trace": "DEV-01; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D03-S05",
+    "screen_id": "D03",
+    "screen_name": "Device access detail",
+    "surface": "Parent / caregiver",
+    "state": "revocation outcome unknown",
+    "trace": "DEV-01; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D03-S06",
+    "screen_id": "D03",
+    "screen_name": "Device access detail",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "DEV-01; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D04-S00",
+    "screen_id": "D04",
+    "screen_name": "Child experience preferences",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "CARE-01; DEV-02; PRD \u00a7\u00a74,14",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "D04-S01",
+    "screen_id": "D04",
+    "screen_name": "Child experience preferences",
+    "surface": "Parent / caregiver",
+    "state": "preferences unset",
+    "trace": "CARE-01; DEV-02; PRD \u00a7\u00a74,14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D04-S02",
+    "screen_id": "D04",
+    "screen_name": "Child experience preferences",
+    "surface": "Parent / caregiver",
+    "state": "non-reader adaptation",
+    "trace": "CARE-01; DEV-02; PRD \u00a7\u00a74,14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D04-S03",
+    "screen_id": "D04",
+    "screen_name": "Child experience preferences",
+    "surface": "Parent / caregiver",
+    "state": "assistive control adaptation",
+    "trace": "CARE-01; DEV-02; PRD \u00a7\u00a74,14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D04-S04",
+    "screen_id": "D04",
+    "screen_name": "Child experience preferences",
+    "surface": "Parent / caregiver",
+    "state": "saving",
+    "trace": "CARE-01; DEV-02; PRD \u00a7\u00a74,14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D04-S05",
+    "screen_id": "D04",
+    "screen_name": "Child experience preferences",
+    "surface": "Parent / caregiver",
+    "state": "device capability unsupported",
+    "trace": "CARE-01; DEV-02; PRD \u00a7\u00a74,14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "D04-S06",
+    "screen_id": "D04",
+    "screen_name": "Child experience preferences",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "CARE-01; DEV-02; PRD \u00a7\u00a74,14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M01-S00",
+    "screen_id": "M01",
+    "screen_name": "Care recordings library",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "M01-S01",
+    "screen_id": "M01",
+    "screen_name": "Care recordings library",
+    "surface": "Parent / caregiver",
+    "state": "loading",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M01-S02",
+    "screen_id": "M01",
+    "screen_name": "Care recordings library",
+    "surface": "Parent / caregiver",
+    "state": "empty",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M01-S03",
+    "screen_id": "M01",
+    "screen_name": "Care recordings library",
+    "surface": "Parent / caregiver",
+    "state": "upload pending",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M01-S04",
+    "screen_id": "M01",
+    "screen_name": "Care recordings library",
+    "surface": "Parent / caregiver",
+    "state": "audio unavailable",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M01-S05",
+    "screen_id": "M01",
+    "screen_name": "Care recordings library",
+    "surface": "Parent / caregiver",
+    "state": "audience access denied",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M01-S06",
+    "screen_id": "M01",
+    "screen_name": "Care recordings library",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M02-S00",
+    "screen_id": "M02",
+    "screen_name": "Create a recording",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "MEDIA-01, MEDIA-02",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "M02-S01",
+    "screen_id": "M02",
+    "screen_name": "Create a recording",
+    "surface": "Parent / caregiver",
+    "state": "microphone permission denied",
+    "trace": "MEDIA-01, MEDIA-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M02-S02",
+    "screen_id": "M02",
+    "screen_name": "Create a recording",
+    "surface": "Parent / caregiver",
+    "state": "recording",
+    "trace": "MEDIA-01, MEDIA-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M02-S03",
+    "screen_id": "M02",
+    "screen_name": "Create a recording",
+    "surface": "Parent / caregiver",
+    "state": "paused",
+    "trace": "MEDIA-01, MEDIA-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M02-S04",
+    "screen_id": "M02",
+    "screen_name": "Create a recording",
+    "surface": "Parent / caregiver",
+    "state": "interrupted",
+    "trace": "MEDIA-01, MEDIA-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M02-S05",
+    "screen_id": "M02",
+    "screen_name": "Create a recording",
+    "surface": "Parent / caregiver",
+    "state": "upload progress",
+    "trace": "MEDIA-01, MEDIA-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M02-S06",
+    "screen_id": "M02",
+    "screen_name": "Create a recording",
+    "surface": "Parent / caregiver",
+    "state": "upload failed",
+    "trace": "MEDIA-01, MEDIA-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M02-S07",
+    "screen_id": "M02",
+    "screen_name": "Create a recording",
+    "surface": "Parent / caregiver",
+    "state": "upload outcome unknown",
+    "trace": "MEDIA-01, MEDIA-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M02-S08",
+    "screen_id": "M02",
+    "screen_name": "Create a recording",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "MEDIA-01, MEDIA-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M02-S09",
+    "screen_id": "M02",
+    "screen_name": "Create a recording",
+    "surface": "Parent / caregiver",
+    "state": "invalid audio",
+    "trace": "MEDIA-01, MEDIA-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M03-S00",
+    "screen_id": "M03",
+    "screen_name": "Recording details + audience",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "M03-S01",
+    "screen_id": "M03",
+    "screen_name": "Recording details + audience",
+    "surface": "Parent / caregiver",
+    "state": "loading",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M03-S02",
+    "screen_id": "M03",
+    "screen_name": "Recording details + audience",
+    "surface": "Parent / caregiver",
+    "state": "audience comfort only",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M03-S03",
+    "screen_id": "M03",
+    "screen_name": "Recording details + audience",
+    "surface": "Parent / caregiver",
+    "state": "audience responder only",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M03-S04",
+    "screen_id": "M03",
+    "screen_name": "Recording details + audience",
+    "surface": "Parent / caregiver",
+    "state": "audience both explicit",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M03-S05",
+    "screen_id": "M03",
+    "screen_name": "Recording details + audience",
+    "surface": "Parent / caregiver",
+    "state": "audience changed",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M03-S06",
+    "screen_id": "M03",
+    "screen_name": "Recording details + audience",
+    "surface": "Parent / caregiver",
+    "state": "playback interrupted",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M03-S07",
+    "screen_id": "M03",
+    "screen_name": "Recording details + audience",
+    "surface": "Parent / caregiver",
+    "state": "audio revoked",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M03-S08",
+    "screen_id": "M03",
+    "screen_name": "Recording details + audience",
+    "surface": "Parent / caregiver",
+    "state": "delete request pending",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "M03-S09",
+    "screen_id": "M03",
+    "screen_name": "Recording details + audience",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B01-S00",
+    "screen_id": "B01",
+    "screen_name": "Subscription + entitlement",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "SUB-01, SUB-02; AT-08, AT-09, AT-10",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "B01-S01",
+    "screen_id": "B01",
+    "screen_name": "Subscription + entitlement",
+    "surface": "Parent / caregiver",
+    "state": "active subscription",
+    "trace": "SUB-01, SUB-02; AT-08, AT-09, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B01-S02",
+    "screen_id": "B01",
+    "screen_name": "Subscription + entitlement",
+    "surface": "Parent / caregiver",
+    "state": "expired subscription",
+    "trace": "SUB-01, SUB-02; AT-08, AT-09, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B01-S03",
+    "screen_id": "B01",
+    "screen_name": "Subscription + entitlement",
+    "surface": "Parent / caregiver",
+    "state": "no subscription data",
+    "trace": "SUB-01, SUB-02; AT-08, AT-09, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B01-S04",
+    "screen_id": "B01",
+    "screen_name": "Subscription + entitlement",
+    "surface": "Parent / caregiver",
+    "state": "entitlement unknown",
+    "trace": "SUB-01, SUB-02; AT-08, AT-09, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B01-S05",
+    "screen_id": "B01",
+    "screen_name": "Subscription + entitlement",
+    "surface": "Parent / caregiver",
+    "state": "renewal pending",
+    "trace": "SUB-01, SUB-02; AT-08, AT-09, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B01-S06",
+    "screen_id": "B01",
+    "screen_name": "Subscription + entitlement",
+    "surface": "Parent / caregiver",
+    "state": "accepted incident after expiry",
+    "trace": "SUB-01, SUB-02; AT-08, AT-09, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B01-S07",
+    "screen_id": "B01",
+    "screen_name": "Subscription + entitlement",
+    "surface": "Parent / caregiver",
+    "state": "outside coverage with active plan",
+    "trace": "SUB-01, SUB-02; AT-08, AT-09, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B01-S08",
+    "screen_id": "B01",
+    "screen_name": "Subscription + entitlement",
+    "surface": "Parent / caregiver",
+    "state": "offline with active plan",
+    "trace": "SUB-01, SUB-02; AT-08, AT-09, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B02-S00",
+    "screen_id": "B02",
+    "screen_name": "Plan + renewal review",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "SUB-01; PRD \u00a7\u00a76,12",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "B02-S01",
+    "screen_id": "B02",
+    "screen_name": "Plan + renewal review",
+    "surface": "Parent / caregiver",
+    "state": "plans configured",
+    "trace": "SUB-01; PRD \u00a7\u00a76,12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B02-S02",
+    "screen_id": "B02",
+    "screen_name": "Plan + renewal review",
+    "surface": "Parent / caregiver",
+    "state": "pricing unavailable",
+    "trace": "SUB-01; PRD \u00a7\u00a76,12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B02-S03",
+    "screen_id": "B02",
+    "screen_name": "Plan + renewal review",
+    "surface": "Parent / caregiver",
+    "state": "no eligible plan",
+    "trace": "SUB-01; PRD \u00a7\u00a76,12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B02-S04",
+    "screen_id": "B02",
+    "screen_name": "Plan + renewal review",
+    "surface": "Parent / caregiver",
+    "state": "terms not approved",
+    "trace": "SUB-01; PRD \u00a7\u00a76,12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B02-S05",
+    "screen_id": "B02",
+    "screen_name": "Plan + renewal review",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "SUB-01; PRD \u00a7\u00a76,12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B03-S00",
+    "screen_id": "B03",
+    "screen_name": "Billing handoff + result",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "SUB-01; AT-08, AT-10",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "B03-S01",
+    "screen_id": "B03",
+    "screen_name": "Billing handoff + result",
+    "surface": "Parent / caregiver",
+    "state": "checkout launched",
+    "trace": "SUB-01; AT-08, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B03-S02",
+    "screen_id": "B03",
+    "screen_name": "Billing handoff + result",
+    "surface": "Parent / caregiver",
+    "state": "payment failed",
+    "trace": "SUB-01; AT-08, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B03-S03",
+    "screen_id": "B03",
+    "screen_name": "Billing handoff + result",
+    "surface": "Parent / caregiver",
+    "state": "checkout cancelled",
+    "trace": "SUB-01; AT-08, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B03-S04",
+    "screen_id": "B03",
+    "screen_name": "Billing handoff + result",
+    "surface": "Parent / caregiver",
+    "state": "payment pending",
+    "trace": "SUB-01; AT-08, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B03-S05",
+    "screen_id": "B03",
+    "screen_name": "Billing handoff + result",
+    "surface": "Parent / caregiver",
+    "state": "checkout interrupted",
+    "trace": "SUB-01; AT-08, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B03-S06",
+    "screen_id": "B03",
+    "screen_name": "Billing handoff + result",
+    "surface": "Parent / caregiver",
+    "state": "provider result unknown",
+    "trace": "SUB-01; AT-08, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B03-S07",
+    "screen_id": "B03",
+    "screen_name": "Billing handoff + result",
+    "surface": "Parent / caregiver",
+    "state": "verified entitlement success",
+    "trace": "SUB-01; AT-08, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B03-S08",
+    "screen_id": "B03",
+    "screen_name": "Billing handoff + result",
+    "surface": "Parent / caregiver",
+    "state": "restore access entry if applicable",
+    "trace": "SUB-01; AT-08, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B03-S09",
+    "screen_id": "B03",
+    "screen_name": "Billing handoff + result",
+    "surface": "Parent / caregiver",
+    "state": "restore pending or failed if applicable",
+    "trace": "SUB-01; AT-08, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B03-S10",
+    "screen_id": "B03",
+    "screen_name": "Billing handoff + result",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "SUB-01; AT-08, AT-10",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B04-S00",
+    "screen_id": "B04",
+    "screen_name": "Billing history + documents",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "SUB-01; PRD \u00a7\u00a76,8",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "B04-S01",
+    "screen_id": "B04",
+    "screen_name": "Billing history + documents",
+    "surface": "Parent / caregiver",
+    "state": "loading",
+    "trace": "SUB-01; PRD \u00a7\u00a76,8",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B04-S02",
+    "screen_id": "B04",
+    "screen_name": "Billing history + documents",
+    "surface": "Parent / caregiver",
+    "state": "empty",
+    "trace": "SUB-01; PRD \u00a7\u00a76,8",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B04-S03",
+    "screen_id": "B04",
+    "screen_name": "Billing history + documents",
+    "surface": "Parent / caregiver",
+    "state": "invoice unavailable",
+    "trace": "SUB-01; PRD \u00a7\u00a76,8",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B04-S04",
+    "screen_id": "B04",
+    "screen_name": "Billing history + documents",
+    "surface": "Parent / caregiver",
+    "state": "refund pending",
+    "trace": "SUB-01; PRD \u00a7\u00a76,8",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B04-S05",
+    "screen_id": "B04",
+    "screen_name": "Billing history + documents",
+    "surface": "Parent / caregiver",
+    "state": "access denied",
+    "trace": "SUB-01; PRD \u00a7\u00a76,8",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "B04-S06",
+    "screen_id": "B04",
+    "screen_name": "Billing history + documents",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "SUB-01; PRD \u00a7\u00a76,8",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I01-S00",
+    "screen_id": "I01",
+    "screen_name": "Parent request context",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "I01-S01",
+    "screen_id": "I01",
+    "screen_name": "Parent request context",
+    "surface": "Parent / caregiver",
+    "state": "multiple children",
+    "trace": "INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I01-S02",
+    "screen_id": "I01",
+    "screen_name": "Parent request context",
+    "surface": "Parent / caregiver",
+    "state": "remote parent location warning",
+    "trace": "INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I01-S03",
+    "screen_id": "I01",
+    "screen_name": "Parent request context",
+    "surface": "Parent / caregiver",
+    "state": "location permission denied",
+    "trace": "INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I01-S04",
+    "screen_id": "I01",
+    "screen_name": "Parent request context",
+    "surface": "Parent / caregiver",
+    "state": "location missing",
+    "trace": "INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I01-S05",
+    "screen_id": "I01",
+    "screen_name": "Parent request context",
+    "surface": "Parent / caregiver",
+    "state": "location stale",
+    "trace": "INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I01-S06",
+    "screen_id": "I01",
+    "screen_name": "Parent request context",
+    "surface": "Parent / caregiver",
+    "state": "location inaccurate",
+    "trace": "INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I01-S07",
+    "screen_id": "I01",
+    "screen_name": "Parent request context",
+    "surface": "Parent / caregiver",
+    "state": "saved fallback",
+    "trace": "INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I01-S08",
+    "screen_id": "I01",
+    "screen_name": "Parent request context",
+    "surface": "Parent / caregiver",
+    "state": "outside service area",
+    "trace": "INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I01-S09",
+    "screen_id": "I01",
+    "screen_name": "Parent request context",
+    "surface": "Parent / caregiver",
+    "state": "entitlement expired",
+    "trace": "INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I01-S10",
+    "screen_id": "I01",
+    "screen_name": "Parent request context",
+    "surface": "Parent / caregiver",
+    "state": "entitlement unknown",
+    "trace": "INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I01-S11",
+    "screen_id": "I01",
+    "screen_name": "Parent request context",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I02-S00",
+    "screen_id": "I02",
+    "screen_name": "Request delivery feedback",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "I02-S01",
+    "screen_id": "I02",
+    "screen_name": "Request delivery feedback",
+    "surface": "Parent / caregiver",
+    "state": "sending",
+    "trace": "INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I02-S02",
+    "screen_id": "I02",
+    "screen_name": "Request delivery feedback",
+    "surface": "Parent / caregiver",
+    "state": "server received",
+    "trace": "INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I02-S03",
+    "screen_id": "I02",
+    "screen_name": "Request delivery feedback",
+    "surface": "Parent / caregiver",
+    "state": "delivery unconfirmed timeout",
+    "trace": "INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I02-S04",
+    "screen_id": "I02",
+    "screen_name": "Request delivery feedback",
+    "surface": "Parent / caregiver",
+    "state": "offline not sent",
+    "trace": "INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I02-S05",
+    "screen_id": "I02",
+    "screen_name": "Request delivery feedback",
+    "surface": "Parent / caregiver",
+    "state": "duplicate tap same request",
+    "trace": "INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I02-S06",
+    "screen_id": "I02",
+    "screen_name": "Request delivery feedback",
+    "surface": "Parent / caregiver",
+    "state": "coverage rejected",
+    "trace": "INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I02-S07",
+    "screen_id": "I02",
+    "screen_name": "Request delivery feedback",
+    "surface": "Parent / caregiver",
+    "state": "entitlement rejected",
+    "trace": "INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I02-S08",
+    "screen_id": "I02",
+    "screen_name": "Request delivery feedback",
+    "surface": "Parent / caregiver",
+    "state": "revoked credential",
+    "trace": "INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I02-S09",
+    "screen_id": "I02",
+    "screen_name": "Request delivery feedback",
+    "surface": "Parent / caregiver",
+    "state": "reconnect old queued action relevance review",
+    "trace": "INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I03-S00",
+    "screen_id": "I03",
+    "screen_name": "Live incident",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "I03-S01",
+    "screen_id": "I03",
+    "screen_name": "Live incident",
+    "surface": "Parent / caregiver",
+    "state": "coordinator unclaimed",
+    "trace": "INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I03-S02",
+    "screen_id": "I03",
+    "screen_name": "Live incident",
+    "surface": "Parent / caregiver",
+    "state": "coordinator claimed",
+    "trace": "INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I03-S03",
+    "screen_id": "I03",
+    "screen_name": "Live incident",
+    "surface": "Parent / caregiver",
+    "state": "no crew available",
+    "trace": "INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I03-S04",
+    "screen_id": "I03",
+    "screen_name": "Live incident",
+    "surface": "Parent / caregiver",
+    "state": "crew offered",
+    "trace": "INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I03-S05",
+    "screen_id": "I03",
+    "screen_name": "Live incident",
+    "surface": "Parent / caregiver",
+    "state": "crew declined or timed out",
+    "trace": "INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I03-S06",
+    "screen_id": "I03",
+    "screen_name": "Live incident",
+    "surface": "Parent / caregiver",
+    "state": "team accepted",
+    "trace": "INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I03-S07",
+    "screen_id": "I03",
+    "screen_name": "Live incident",
+    "surface": "Parent / caregiver",
+    "state": "team en route",
+    "trace": "INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I03-S08",
+    "screen_id": "I03",
+    "screen_name": "Live incident",
+    "surface": "Parent / caregiver",
+    "state": "team arrived",
+    "trace": "INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I03-S09",
+    "screen_id": "I03",
+    "screen_name": "Live incident",
+    "surface": "Parent / caregiver",
+    "state": "EMS provider unknown",
+    "trace": "INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I03-S10",
+    "screen_id": "I03",
+    "screen_name": "Live incident",
+    "surface": "Parent / caregiver",
+    "state": "offline stale status",
+    "trace": "INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I03-S11",
+    "screen_id": "I03",
+    "screen_name": "Live incident",
+    "surface": "Parent / caregiver",
+    "state": "subscription expires during incident",
+    "trace": "INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I03-S12",
+    "screen_id": "I03",
+    "screen_name": "Live incident",
+    "surface": "Parent / caregiver",
+    "state": "cancellation requested pending review",
+    "trace": "INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I04-S00",
+    "screen_id": "I04",
+    "screen_name": "Additional help + follow-up",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "INC-02, INC-09; AT-02; PRD \u00a714",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "I04-S01",
+    "screen_id": "I04",
+    "screen_name": "Additional help + follow-up",
+    "surface": "Parent / caregiver",
+    "state": "followup requires review",
+    "trace": "INC-02, INC-09; AT-02; PRD \u00a714",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I04-S02",
+    "screen_id": "I04",
+    "screen_name": "Additional help + follow-up",
+    "surface": "Parent / caregiver",
+    "state": "different incident location",
+    "trace": "INC-02, INC-09; AT-02; PRD \u00a714",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I04-S03",
+    "screen_id": "I04",
+    "screen_name": "Additional help + follow-up",
+    "surface": "Parent / caregiver",
+    "state": "separate emergency not independently handled",
+    "trace": "INC-02, INC-09; AT-02; PRD \u00a714",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I04-S04",
+    "screen_id": "I04",
+    "screen_name": "Additional help + follow-up",
+    "surface": "Parent / caregiver",
+    "state": "new request entitlement expired",
+    "trace": "INC-02, INC-09; AT-02; PRD \u00a714",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I04-S05",
+    "screen_id": "I04",
+    "screen_name": "Additional help + follow-up",
+    "surface": "Parent / caregiver",
+    "state": "sending",
+    "trace": "INC-02, INC-09; AT-02; PRD \u00a714",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I04-S06",
+    "screen_id": "I04",
+    "screen_name": "Additional help + follow-up",
+    "surface": "Parent / caregiver",
+    "state": "delivery unconfirmed",
+    "trace": "INC-02, INC-09; AT-02; PRD \u00a714",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I04-S07",
+    "screen_id": "I04",
+    "screen_name": "Additional help + follow-up",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "INC-02, INC-09; AT-02; PRD \u00a714",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I05-S00",
+    "screen_id": "I05",
+    "screen_name": "Incident history",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "INC-08, INC-09; PRD \u00a78",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "I05-S01",
+    "screen_id": "I05",
+    "screen_name": "Incident history",
+    "surface": "Parent / caregiver",
+    "state": "loading",
+    "trace": "INC-08, INC-09; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I05-S02",
+    "screen_id": "I05",
+    "screen_name": "Incident history",
+    "surface": "Parent / caregiver",
+    "state": "empty",
+    "trace": "INC-08, INC-09; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I05-S03",
+    "screen_id": "I05",
+    "screen_name": "Incident history",
+    "surface": "Parent / caregiver",
+    "state": "partial history",
+    "trace": "INC-08, INC-09; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I05-S04",
+    "screen_id": "I05",
+    "screen_name": "Incident history",
+    "surface": "Parent / caregiver",
+    "state": "access revoked",
+    "trace": "INC-08, INC-09; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I05-S05",
+    "screen_id": "I05",
+    "screen_name": "Incident history",
+    "surface": "Parent / caregiver",
+    "state": "offline stale history",
+    "trace": "INC-08, INC-09; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I06-S00",
+    "screen_id": "I06",
+    "screen_name": "Incident outcome detail",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "INC-07, INC-08; ACC-06; PRD \u00a714 closure",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "I06-S01",
+    "screen_id": "I06",
+    "screen_name": "Incident outcome detail",
+    "surface": "Parent / caregiver",
+    "state": "resolved assistance and handover",
+    "trace": "INC-07, INC-08; ACC-06; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I06-S02",
+    "screen_id": "I06",
+    "screen_name": "Incident outcome detail",
+    "surface": "Parent / caregiver",
+    "state": "cancelled after review",
+    "trace": "INC-07, INC-08; ACC-06; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I06-S03",
+    "screen_id": "I06",
+    "screen_name": "Incident outcome detail",
+    "surface": "Parent / caregiver",
+    "state": "EMS outcome uncertain",
+    "trace": "INC-07, INC-08; ACC-06; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I06-S04",
+    "screen_id": "I06",
+    "screen_name": "Incident outcome detail",
+    "surface": "Parent / caregiver",
+    "state": "outcome detail unavailable",
+    "trace": "INC-07, INC-08; ACC-06; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I06-S05",
+    "screen_id": "I06",
+    "screen_name": "Incident outcome detail",
+    "surface": "Parent / caregiver",
+    "state": "retention unavailable",
+    "trace": "INC-07, INC-08; ACC-06; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I06-S06",
+    "screen_id": "I06",
+    "screen_name": "Incident outcome detail",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "INC-07, INC-08; ACC-06; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I07-S00",
+    "screen_id": "I07",
+    "screen_name": "Temporary-care updates",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "ACC-01 through ACC-07; AT-16, AT-17",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "I07-S01",
+    "screen_id": "I07",
+    "screen_name": "Temporary-care updates",
+    "surface": "Parent / caregiver",
+    "state": "capacity review",
+    "trace": "ACC-01 through ACC-07; AT-16, AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I07-S02",
+    "screen_id": "I07",
+    "screen_name": "Temporary-care updates",
+    "surface": "Parent / caregiver",
+    "state": "no suitable place",
+    "trace": "ACC-01 through ACC-07; AT-16, AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I07-S03",
+    "screen_id": "I07",
+    "screen_name": "Temporary-care updates",
+    "surface": "Parent / caregiver",
+    "state": "authority unresolved",
+    "trace": "ACC-01 through ACC-07; AT-16, AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I07-S04",
+    "screen_id": "I07",
+    "screen_name": "Temporary-care updates",
+    "surface": "Parent / caregiver",
+    "state": "place reserved",
+    "trace": "ACC-01 through ACC-07; AT-16, AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I07-S05",
+    "screen_id": "I07",
+    "screen_name": "Temporary-care updates",
+    "surface": "Parent / caregiver",
+    "state": "intake recorded",
+    "trace": "ACC-01 through ACC-07; AT-16, AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I07-S06",
+    "screen_id": "I07",
+    "screen_name": "Temporary-care updates",
+    "surface": "Parent / caregiver",
+    "state": "temporary care active",
+    "trace": "ACC-01 through ACC-07; AT-16, AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I07-S07",
+    "screen_id": "I07",
+    "screen_name": "Temporary-care updates",
+    "surface": "Parent / caregiver",
+    "state": "authorized release recorded",
+    "trace": "ACC-01 through ACC-07; AT-16, AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I07-S08",
+    "screen_id": "I07",
+    "screen_name": "Temporary-care updates",
+    "surface": "Parent / caregiver",
+    "state": "placement unknown",
+    "trace": "ACC-01 through ACC-07; AT-16, AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I07-S09",
+    "screen_id": "I07",
+    "screen_name": "Temporary-care updates",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "ACC-01 through ACC-07; AT-16, AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I08-S00",
+    "screen_id": "I08",
+    "screen_name": "Care authorization + recipient check",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "FAM-02; ACC-03, ACC-06; AT-17",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "I08-S01",
+    "screen_id": "I08",
+    "screen_name": "Care authorization + recipient check",
+    "surface": "Parent / caregiver",
+    "state": "wrong person",
+    "trace": "FAM-02; ACC-03, ACC-06; AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I08-S02",
+    "screen_id": "I08",
+    "screen_name": "Care authorization + recipient check",
+    "surface": "Parent / caregiver",
+    "state": "authority missing",
+    "trace": "FAM-02; ACC-03, ACC-06; AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I08-S03",
+    "screen_id": "I08",
+    "screen_name": "Care authorization + recipient check",
+    "surface": "Parent / caregiver",
+    "state": "authority expired",
+    "trace": "FAM-02; ACC-03, ACC-06; AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I08-S04",
+    "screen_id": "I08",
+    "screen_name": "Care authorization + recipient check",
+    "surface": "Parent / caregiver",
+    "state": "contested consent",
+    "trace": "FAM-02; ACC-03, ACC-06; AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I08-S05",
+    "screen_id": "I08",
+    "screen_name": "Care authorization + recipient check",
+    "surface": "Parent / caregiver",
+    "state": "verification pending",
+    "trace": "FAM-02; ACC-03, ACC-06; AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I08-S06",
+    "screen_id": "I08",
+    "screen_name": "Care authorization + recipient check",
+    "surface": "Parent / caregiver",
+    "state": "verification failed",
+    "trace": "FAM-02; ACC-03, ACC-06; AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I08-S07",
+    "screen_id": "I08",
+    "screen_name": "Care authorization + recipient check",
+    "surface": "Parent / caregiver",
+    "state": "verified decision pending coordinator",
+    "trace": "FAM-02; ACC-03, ACC-06; AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "I08-S08",
+    "screen_id": "I08",
+    "screen_name": "Care authorization + recipient check",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "FAM-02; ACC-03, ACC-06; AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S01-S00",
+    "screen_id": "S01",
+    "screen_name": "Settings + service information",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "S01-S01",
+    "screen_id": "S01",
+    "screen_name": "Settings + service information",
+    "surface": "Parent / caregiver",
+    "state": "loading",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S01-S02",
+    "screen_id": "S01",
+    "screen_name": "Settings + service information",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S01-S03",
+    "screen_id": "S01",
+    "screen_name": "Settings + service information",
+    "surface": "Parent / caregiver",
+    "state": "configuration unavailable",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S01-S04",
+    "screen_id": "S01",
+    "screen_name": "Settings + service information",
+    "surface": "Parent / caregiver",
+    "state": "adult session expired",
+    "trace": "FAM-01; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S02-S00",
+    "screen_id": "S02",
+    "screen_name": "Account + security",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "FAM-01, FAM-02; PRD \u00a78",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "S02-S01",
+    "screen_id": "S02",
+    "screen_name": "Account + security",
+    "surface": "Parent / caregiver",
+    "state": "reauthentication",
+    "trace": "FAM-01, FAM-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S02-S02",
+    "screen_id": "S02",
+    "screen_name": "Account + security",
+    "surface": "Parent / caregiver",
+    "state": "unverified contact change",
+    "trace": "FAM-01, FAM-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S02-S03",
+    "screen_id": "S02",
+    "screen_name": "Account + security",
+    "surface": "Parent / caregiver",
+    "state": "change pending",
+    "trace": "FAM-01, FAM-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S02-S04",
+    "screen_id": "S02",
+    "screen_name": "Account + security",
+    "surface": "Parent / caregiver",
+    "state": "session expired",
+    "trace": "FAM-01, FAM-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S02-S05",
+    "screen_id": "S02",
+    "screen_name": "Account + security",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "FAM-01, FAM-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S03-S00",
+    "screen_id": "S03",
+    "screen_name": "Privacy + data requests",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "MEDIA-02; PRD \u00a78",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "S03-S01",
+    "screen_id": "S03",
+    "screen_name": "Privacy + data requests",
+    "surface": "Parent / caregiver",
+    "state": "data export request",
+    "trace": "MEDIA-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S03-S02",
+    "screen_id": "S03",
+    "screen_name": "Privacy + data requests",
+    "surface": "Parent / caregiver",
+    "state": "account deletion request",
+    "trace": "MEDIA-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S03-S03",
+    "screen_id": "S03",
+    "screen_name": "Privacy + data requests",
+    "surface": "Parent / caregiver",
+    "state": "correction request",
+    "trace": "MEDIA-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S03-S04",
+    "screen_id": "S03",
+    "screen_name": "Privacy + data requests",
+    "surface": "Parent / caregiver",
+    "state": "request pending",
+    "trace": "MEDIA-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S03-S05",
+    "screen_id": "S03",
+    "screen_name": "Privacy + data requests",
+    "surface": "Parent / caregiver",
+    "state": "legal hold review",
+    "trace": "MEDIA-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S03-S06",
+    "screen_id": "S03",
+    "screen_name": "Privacy + data requests",
+    "surface": "Parent / caregiver",
+    "state": "authority denied",
+    "trace": "MEDIA-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S03-S07",
+    "screen_id": "S03",
+    "screen_name": "Privacy + data requests",
+    "surface": "Parent / caregiver",
+    "state": "request failed",
+    "trace": "MEDIA-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S03-S08",
+    "screen_id": "S03",
+    "screen_name": "Privacy + data requests",
+    "surface": "Parent / caregiver",
+    "state": "request fulfilled",
+    "trace": "MEDIA-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S03-S09",
+    "screen_id": "S03",
+    "screen_name": "Privacy + data requests",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "MEDIA-02; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S04-S00",
+    "screen_id": "S04",
+    "screen_name": "Notification preferences",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "INC-03, INC-04; PRD \u00a78",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "S04-S01",
+    "screen_id": "S04",
+    "screen_name": "Notification preferences",
+    "surface": "Parent / caregiver",
+    "state": "notification permission denied",
+    "trace": "INC-03, INC-04; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S04-S02",
+    "screen_id": "S04",
+    "screen_name": "Notification preferences",
+    "surface": "Parent / caregiver",
+    "state": "unverified channel",
+    "trace": "INC-03, INC-04; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S04-S03",
+    "screen_id": "S04",
+    "screen_name": "Notification preferences",
+    "surface": "Parent / caregiver",
+    "state": "delivery unavailable",
+    "trace": "INC-03, INC-04; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S04-S04",
+    "screen_id": "S04",
+    "screen_name": "Notification preferences",
+    "surface": "Parent / caregiver",
+    "state": "saving",
+    "trace": "INC-03, INC-04; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S04-S05",
+    "screen_id": "S04",
+    "screen_name": "Notification preferences",
+    "surface": "Parent / caregiver",
+    "state": "offline",
+    "trace": "INC-03, INC-04; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S05-S00",
+    "screen_id": "S05",
+    "screen_name": "Support + account help",
+    "surface": "Parent / caregiver",
+    "state": "base",
+    "trace": "SUB-02; PRD \u00a7\u00a72,12",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "S05-S01",
+    "screen_id": "S05",
+    "screen_name": "Support + account help",
+    "surface": "Parent / caregiver",
+    "state": "support contact unavailable",
+    "trace": "SUB-02; PRD \u00a7\u00a72,12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S05-S02",
+    "screen_id": "S05",
+    "screen_name": "Support + account help",
+    "surface": "Parent / caregiver",
+    "state": "outside support hours",
+    "trace": "SUB-02; PRD \u00a7\u00a72,12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S05-S03",
+    "screen_id": "S05",
+    "screen_name": "Support + account help",
+    "surface": "Parent / caregiver",
+    "state": "offline help",
+    "trace": "SUB-02; PRD \u00a7\u00a72,12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S05-S04",
+    "screen_id": "S05",
+    "screen_name": "Support + account help",
+    "surface": "Parent / caregiver",
+    "state": "contact handoff failed",
+    "trace": "SUB-02; PRD \u00a7\u00a72,12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "S05-S05",
+    "screen_id": "S05",
+    "screen_name": "Support + account help",
+    "surface": "Parent / caregiver",
+    "state": "contact handoff unknown",
+    "trace": "SUB-02; PRD \u00a7\u00a72,12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C01-S00",
+    "screen_id": "C01",
+    "screen_name": "Child-device activation",
+    "surface": "Linked child",
+    "state": "base",
+    "trace": "DEV-01, DEV-02; AT-15",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "C01-S01",
+    "screen_id": "C01",
+    "screen_name": "Child-device activation",
+    "surface": "Linked child",
+    "state": "unlinked",
+    "trace": "DEV-01, DEV-02; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C01-S02",
+    "screen_id": "C01",
+    "screen_name": "Child-device activation",
+    "surface": "Linked child",
+    "state": "pairing pending",
+    "trace": "DEV-01, DEV-02; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C01-S03",
+    "screen_id": "C01",
+    "screen_name": "Child-device activation",
+    "surface": "Linked child",
+    "state": "expired challenge",
+    "trace": "DEV-01, DEV-02; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C01-S04",
+    "screen_id": "C01",
+    "screen_name": "Child-device activation",
+    "surface": "Linked child",
+    "state": "wrong child",
+    "trace": "DEV-01, DEV-02; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C01-S05",
+    "screen_id": "C01",
+    "screen_name": "Child-device activation",
+    "surface": "Linked child",
+    "state": "device revoked",
+    "trace": "DEV-01, DEV-02; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C01-S06",
+    "screen_id": "C01",
+    "screen_name": "Child-device activation",
+    "surface": "Linked child",
+    "state": "offline",
+    "trace": "DEV-01, DEV-02; AT-15",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C02-S00",
+    "screen_id": "C02",
+    "screen_name": "Accessible child help home",
+    "surface": "Linked child",
+    "state": "base",
+    "trace": "DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "C02-S01",
+    "screen_id": "C02",
+    "screen_name": "Accessible child help home",
+    "surface": "Linked child",
+    "state": "non-reader help adaptation",
+    "trace": "DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C02-S02",
+    "screen_id": "C02",
+    "screen_name": "Accessible child help home",
+    "surface": "Linked child",
+    "state": "assistive input adaptation",
+    "trace": "DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C02-S03",
+    "screen_id": "C02",
+    "screen_name": "Accessible child help home",
+    "surface": "Linked child",
+    "state": "active incident",
+    "trace": "DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C02-S04",
+    "screen_id": "C02",
+    "screen_name": "Accessible child help home",
+    "surface": "Linked child",
+    "state": "offline",
+    "trace": "DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C02-S05",
+    "screen_id": "C02",
+    "screen_name": "Accessible child help home",
+    "surface": "Linked child",
+    "state": "entitlement inactive",
+    "trace": "DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C02-S06",
+    "screen_id": "C02",
+    "screen_name": "Accessible child help home",
+    "surface": "Linked child",
+    "state": "outside coverage",
+    "trace": "DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C02-S07",
+    "screen_id": "C02",
+    "screen_name": "Accessible child help home",
+    "surface": "Linked child",
+    "state": "revoked device",
+    "trace": "DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C02-S08",
+    "screen_id": "C02",
+    "screen_name": "Accessible child help home",
+    "surface": "Linked child",
+    "state": "unlinked device",
+    "trace": "DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C02-S09",
+    "screen_id": "C02",
+    "screen_name": "Accessible child help home",
+    "surface": "Linked child",
+    "state": "ordinary calling unsupported",
+    "trace": "DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C03-S00",
+    "screen_id": "C03",
+    "screen_name": "Child request + response status",
+    "surface": "Linked child",
+    "state": "base",
+    "trace": "INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "C03-S01",
+    "screen_id": "C03",
+    "screen_name": "Child request + response status",
+    "surface": "Linked child",
+    "state": "local sending",
+    "trace": "INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C03-S02",
+    "screen_id": "C03",
+    "screen_name": "Child request + response status",
+    "surface": "Linked child",
+    "state": "delivery unconfirmed",
+    "trace": "INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C03-S03",
+    "screen_id": "C03",
+    "screen_name": "Child request + response status",
+    "surface": "Linked child",
+    "state": "server received",
+    "trace": "INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C03-S04",
+    "screen_id": "C03",
+    "screen_name": "Child request + response status",
+    "surface": "Linked child",
+    "state": "coordinator owner claimed",
+    "trace": "INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C03-S05",
+    "screen_id": "C03",
+    "screen_name": "Child request + response status",
+    "surface": "Linked child",
+    "state": "crew offered",
+    "trace": "INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C03-S06",
+    "screen_id": "C03",
+    "screen_name": "Child request + response status",
+    "surface": "Linked child",
+    "state": "team assigned",
+    "trace": "INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C03-S07",
+    "screen_id": "C03",
+    "screen_name": "Child request + response status",
+    "surface": "Linked child",
+    "state": "team en route",
+    "trace": "INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C03-S08",
+    "screen_id": "C03",
+    "screen_name": "Child request + response status",
+    "surface": "Linked child",
+    "state": "followup review",
+    "trace": "INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C03-S09",
+    "screen_id": "C03",
+    "screen_name": "Child request + response status",
+    "surface": "Linked child",
+    "state": "accidental tap cancellation requested",
+    "trace": "INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C03-S10",
+    "screen_id": "C03",
+    "screen_name": "Child request + response status",
+    "surface": "Linked child",
+    "state": "offline stale status",
+    "trace": "INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C03-S11",
+    "screen_id": "C03",
+    "screen_name": "Child request + response status",
+    "surface": "Linked child",
+    "state": "revoked device",
+    "trace": "INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C04-S00",
+    "screen_id": "C04",
+    "screen_name": "Comfort activity",
+    "surface": "Linked child",
+    "state": "base",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "C04-S01",
+    "screen_id": "C04",
+    "screen_name": "Comfort activity",
+    "surface": "Linked child",
+    "state": "no comfort content",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C04-S02",
+    "screen_id": "C04",
+    "screen_name": "Comfort activity",
+    "surface": "Linked child",
+    "state": "audio unavailable",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C04-S03",
+    "screen_id": "C04",
+    "screen_name": "Comfort activity",
+    "surface": "Linked child",
+    "state": "playback interrupted",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C04-S04",
+    "screen_id": "C04",
+    "screen_name": "Comfort activity",
+    "surface": "Linked child",
+    "state": "offline cache not approved",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C04-S05",
+    "screen_id": "C04",
+    "screen_name": "Comfort activity",
+    "surface": "Linked child",
+    "state": "audience revoked",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "C04-S06",
+    "screen_id": "C04",
+    "screen_name": "Comfort activity",
+    "surface": "Linked child",
+    "state": "non-audio alternative",
+    "trace": "MEDIA-01, MEDIA-02; AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "O01-S00",
+    "screen_id": "O01",
+    "screen_name": "Staff access + role landing",
+    "surface": "Staff access",
+    "state": "base",
+    "trace": "PRD \u00a7\u00a73,8",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "O01-S01",
+    "screen_id": "O01",
+    "screen_name": "Staff access + role landing",
+    "surface": "Staff access",
+    "state": "no authorized role",
+    "trace": "PRD \u00a7\u00a73,8",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "O01-S02",
+    "screen_id": "O01",
+    "screen_name": "Staff access + role landing",
+    "surface": "Staff access",
+    "state": "region mismatch",
+    "trace": "PRD \u00a7\u00a73,8",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "O01-S03",
+    "screen_id": "O01",
+    "screen_name": "Staff access + role landing",
+    "surface": "Staff access",
+    "state": "MFA pending",
+    "trace": "PRD \u00a7\u00a73,8",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "O01-S04",
+    "screen_id": "O01",
+    "screen_name": "Staff access + role landing",
+    "surface": "Staff access",
+    "state": "session expired",
+    "trace": "PRD \u00a7\u00a73,8",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "O01-S05",
+    "screen_id": "O01",
+    "screen_name": "Staff access + role landing",
+    "surface": "Staff access",
+    "state": "offline",
+    "trace": "PRD \u00a7\u00a73,8",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q01-S00",
+    "screen_id": "Q01",
+    "screen_name": "Regional incident queue",
+    "surface": "Coordinator",
+    "state": "base",
+    "trace": "INC-03 through INC-06; PRD \u00a714 coordination",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "Q01-S01",
+    "screen_id": "Q01",
+    "screen_name": "Regional incident queue",
+    "surface": "Coordinator",
+    "state": "loading",
+    "trace": "INC-03 through INC-06; PRD \u00a714 coordination",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q01-S02",
+    "screen_id": "Q01",
+    "screen_name": "Regional incident queue",
+    "surface": "Coordinator",
+    "state": "empty",
+    "trace": "INC-03 through INC-06; PRD \u00a714 coordination",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q01-S03",
+    "screen_id": "Q01",
+    "screen_name": "Regional incident queue",
+    "surface": "Coordinator",
+    "state": "unclaimed",
+    "trace": "INC-03 through INC-06; PRD \u00a714 coordination",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q01-S04",
+    "screen_id": "Q01",
+    "screen_name": "Regional incident queue",
+    "surface": "Coordinator",
+    "state": "no crew",
+    "trace": "INC-03 through INC-06; PRD \u00a714 coordination",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q01-S05",
+    "screen_id": "Q01",
+    "screen_name": "Regional incident queue",
+    "surface": "Coordinator",
+    "state": "overdue",
+    "trace": "INC-03 through INC-06; PRD \u00a714 coordination",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q01-S06",
+    "screen_id": "Q01",
+    "screen_name": "Regional incident queue",
+    "surface": "Coordinator",
+    "state": "review flag",
+    "trace": "INC-03 through INC-06; PRD \u00a714 coordination",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q01-S07",
+    "screen_id": "Q01",
+    "screen_name": "Regional incident queue",
+    "surface": "Coordinator",
+    "state": "offline stale feed",
+    "trace": "INC-03 through INC-06; PRD \u00a714 coordination",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q02-S00",
+    "screen_id": "Q02",
+    "screen_name": "Coordinator incident workspace",
+    "surface": "Coordinator",
+    "state": "base",
+    "trace": "INC-03, INC-08, LOC-01; PRD \u00a714",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "Q02-S01",
+    "screen_id": "Q02",
+    "screen_name": "Coordinator incident workspace",
+    "surface": "Coordinator",
+    "state": "unowned",
+    "trace": "INC-03, INC-08, LOC-01; PRD \u00a714",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q02-S02",
+    "screen_id": "Q02",
+    "screen_name": "Coordinator incident workspace",
+    "surface": "Coordinator",
+    "state": "owned by another",
+    "trace": "INC-03, INC-08, LOC-01; PRD \u00a714",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q02-S03",
+    "screen_id": "Q02",
+    "screen_name": "Coordinator incident workspace",
+    "surface": "Coordinator",
+    "state": "takeover reason",
+    "trace": "INC-03, INC-08, LOC-01; PRD \u00a714",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q02-S04",
+    "screen_id": "Q02",
+    "screen_name": "Coordinator incident workspace",
+    "surface": "Coordinator",
+    "state": "missing location",
+    "trace": "INC-03, INC-08, LOC-01; PRD \u00a714",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q02-S05",
+    "screen_id": "Q02",
+    "screen_name": "Coordinator incident workspace",
+    "surface": "Coordinator",
+    "state": "stale location",
+    "trace": "INC-03, INC-08, LOC-01; PRD \u00a714",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q02-S06",
+    "screen_id": "Q02",
+    "screen_name": "Coordinator incident workspace",
+    "surface": "Coordinator",
+    "state": "followup review",
+    "trace": "INC-03, INC-08, LOC-01; PRD \u00a714",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q02-S07",
+    "screen_id": "Q02",
+    "screen_name": "Coordinator incident workspace",
+    "surface": "Coordinator",
+    "state": "provider unknown",
+    "trace": "INC-03, INC-08, LOC-01; PRD \u00a714",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q02-S08",
+    "screen_id": "Q02",
+    "screen_name": "Coordinator incident workspace",
+    "surface": "Coordinator",
+    "state": "offline",
+    "trace": "INC-03, INC-08, LOC-01; PRD \u00a714",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q03-S00",
+    "screen_id": "Q03",
+    "screen_name": "Crew review + offers",
+    "surface": "Coordinator",
+    "state": "base",
+    "trace": "INC-05, INC-06; AT-06, AT-07",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "Q03-S01",
+    "screen_id": "Q03",
+    "screen_name": "Crew review + offers",
+    "surface": "Coordinator",
+    "state": "no available crew",
+    "trace": "INC-05, INC-06; AT-06, AT-07",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q03-S02",
+    "screen_id": "Q03",
+    "screen_name": "Crew review + offers",
+    "surface": "Coordinator",
+    "state": "offer pending",
+    "trace": "INC-05, INC-06; AT-06, AT-07",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q03-S03",
+    "screen_id": "Q03",
+    "screen_name": "Crew review + offers",
+    "surface": "Coordinator",
+    "state": "declined with reason",
+    "trace": "INC-05, INC-06; AT-06, AT-07",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q03-S04",
+    "screen_id": "Q03",
+    "screen_name": "Crew review + offers",
+    "surface": "Coordinator",
+    "state": "offer timed out",
+    "trace": "INC-05, INC-06; AT-06, AT-07",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q03-S05",
+    "screen_id": "Q03",
+    "screen_name": "Crew review + offers",
+    "surface": "Coordinator",
+    "state": "team accepted",
+    "trace": "INC-05, INC-06; AT-06, AT-07",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q03-S06",
+    "screen_id": "Q03",
+    "screen_name": "Crew review + offers",
+    "surface": "Coordinator",
+    "state": "availability changed",
+    "trace": "INC-05, INC-06; AT-06, AT-07",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q03-S07",
+    "screen_id": "Q03",
+    "screen_name": "Crew review + offers",
+    "surface": "Coordinator",
+    "state": "offline",
+    "trace": "INC-05, INC-06; AT-06, AT-07",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q04-S00",
+    "screen_id": "Q04",
+    "screen_name": "EMS handoff + evidence",
+    "surface": "Coordinator",
+    "state": "base",
+    "trace": "INC-04, INC-08; AT-11, AT-12",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "Q04-S01",
+    "screen_id": "Q04",
+    "screen_name": "EMS handoff + evidence",
+    "surface": "Coordinator",
+    "state": "handoff pending",
+    "trace": "INC-04, INC-08; AT-11, AT-12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q04-S02",
+    "screen_id": "Q04",
+    "screen_name": "EMS handoff + evidence",
+    "surface": "Coordinator",
+    "state": "provider receipt only",
+    "trace": "INC-04, INC-08; AT-11, AT-12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q04-S03",
+    "screen_id": "Q04",
+    "screen_name": "EMS handoff + evidence",
+    "surface": "Coordinator",
+    "state": "provider unknown",
+    "trace": "INC-04, INC-08; AT-11, AT-12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q04-S04",
+    "screen_id": "Q04",
+    "screen_name": "EMS handoff + evidence",
+    "surface": "Coordinator",
+    "state": "contact confirmed",
+    "trace": "INC-04, INC-08; AT-11, AT-12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q04-S05",
+    "screen_id": "Q04",
+    "screen_name": "EMS handoff + evidence",
+    "surface": "Coordinator",
+    "state": "dispatch confirmed",
+    "trace": "INC-04, INC-08; AT-11, AT-12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q04-S06",
+    "screen_id": "Q04",
+    "screen_name": "EMS handoff + evidence",
+    "surface": "Coordinator",
+    "state": "arrival confirmed",
+    "trace": "INC-04, INC-08; AT-11, AT-12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q04-S07",
+    "screen_id": "Q04",
+    "screen_name": "EMS handoff + evidence",
+    "surface": "Coordinator",
+    "state": "no dispatch",
+    "trace": "INC-04, INC-08; AT-11, AT-12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q04-S08",
+    "screen_id": "Q04",
+    "screen_name": "EMS handoff + evidence",
+    "surface": "Coordinator",
+    "state": "closed with evidence",
+    "trace": "INC-04, INC-08; AT-11, AT-12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q04-S09",
+    "screen_id": "Q04",
+    "screen_name": "EMS handoff + evidence",
+    "surface": "Coordinator",
+    "state": "offline",
+    "trace": "INC-04, INC-08; AT-11, AT-12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q05-S00",
+    "screen_id": "Q05",
+    "screen_name": "Outcome + response reconciliation",
+    "surface": "Coordinator",
+    "state": "base",
+    "trace": "INC-07, INC-08; ACC-06; AT-18; PRD \u00a714 closure",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "Q05-S01",
+    "screen_id": "Q05",
+    "screen_name": "Outcome + response reconciliation",
+    "surface": "Coordinator",
+    "state": "crew unreconciled",
+    "trace": "INC-07, INC-08; ACC-06; AT-18; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q05-S02",
+    "screen_id": "Q05",
+    "screen_name": "Outcome + response reconciliation",
+    "surface": "Coordinator",
+    "state": "EMS unknown",
+    "trace": "INC-07, INC-08; ACC-06; AT-18; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q05-S03",
+    "screen_id": "Q05",
+    "screen_name": "Outcome + response reconciliation",
+    "surface": "Coordinator",
+    "state": "placement unreconciled",
+    "trace": "INC-07, INC-08; ACC-06; AT-18; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q05-S04",
+    "screen_id": "Q05",
+    "screen_name": "Outcome + response reconciliation",
+    "surface": "Coordinator",
+    "state": "authority mismatch",
+    "trace": "INC-07, INC-08; ACC-06; AT-18; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q05-S05",
+    "screen_id": "Q05",
+    "screen_name": "Outcome + response reconciliation",
+    "surface": "Coordinator",
+    "state": "incomplete outcome",
+    "trace": "INC-07, INC-08; ACC-06; AT-18; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q05-S06",
+    "screen_id": "Q05",
+    "screen_name": "Outcome + response reconciliation",
+    "surface": "Coordinator",
+    "state": "cancellation review",
+    "trace": "INC-07, INC-08; ACC-06; AT-18; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q05-S07",
+    "screen_id": "Q05",
+    "screen_name": "Outcome + response reconciliation",
+    "surface": "Coordinator",
+    "state": "resolved after verified disposition",
+    "trace": "INC-07, INC-08; ACC-06; AT-18; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q05-S08",
+    "screen_id": "Q05",
+    "screen_name": "Outcome + response reconciliation",
+    "surface": "Coordinator",
+    "state": "offline",
+    "trace": "INC-07, INC-08; ACC-06; AT-18; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q06-S00",
+    "screen_id": "Q06",
+    "screen_name": "Unrouted incident review",
+    "surface": "Administration",
+    "state": "base",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "Q06-S01",
+    "screen_id": "Q06",
+    "screen_name": "Unrouted incident review",
+    "surface": "Administration",
+    "state": "loading",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q06-S02",
+    "screen_id": "Q06",
+    "screen_name": "Unrouted incident review",
+    "surface": "Administration",
+    "state": "empty",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q06-S03",
+    "screen_id": "Q06",
+    "screen_name": "Unrouted incident review",
+    "surface": "Administration",
+    "state": "missing location",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q06-S04",
+    "screen_id": "Q06",
+    "screen_name": "Unrouted incident review",
+    "surface": "Administration",
+    "state": "stale location",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q06-S05",
+    "screen_id": "Q06",
+    "screen_name": "Unrouted incident review",
+    "surface": "Administration",
+    "state": "ambiguous region",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q06-S06",
+    "screen_id": "Q06",
+    "screen_name": "Unrouted incident review",
+    "surface": "Administration",
+    "state": "no eligible region",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q06-S07",
+    "screen_id": "Q06",
+    "screen_name": "Unrouted incident review",
+    "surface": "Administration",
+    "state": "responsibility verified",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "Q06-S08",
+    "screen_id": "Q06",
+    "screen_name": "Unrouted incident review",
+    "surface": "Administration",
+    "state": "offline",
+    "trace": "LOC-01, LOC-02; AT-04, AT-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R01-S00",
+    "screen_id": "R01",
+    "screen_name": "Crew offers",
+    "surface": "Responder",
+    "state": "base",
+    "trace": "INC-05, INC-06; AT-06, AT-07",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "R01-S01",
+    "screen_id": "R01",
+    "screen_name": "Crew offers",
+    "surface": "Responder",
+    "state": "empty",
+    "trace": "INC-05, INC-06; AT-06, AT-07",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R01-S02",
+    "screen_id": "R01",
+    "screen_name": "Crew offers",
+    "surface": "Responder",
+    "state": "offer pending",
+    "trace": "INC-05, INC-06; AT-06, AT-07",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R01-S03",
+    "screen_id": "R01",
+    "screen_name": "Crew offers",
+    "surface": "Responder",
+    "state": "expired offer",
+    "trace": "INC-05, INC-06; AT-06, AT-07",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R01-S04",
+    "screen_id": "R01",
+    "screen_name": "Crew offers",
+    "surface": "Responder",
+    "state": "declined with reason",
+    "trace": "INC-05, INC-06; AT-06, AT-07",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R01-S05",
+    "screen_id": "R01",
+    "screen_name": "Crew offers",
+    "surface": "Responder",
+    "state": "accepted",
+    "trace": "INC-05, INC-06; AT-06, AT-07",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R01-S06",
+    "screen_id": "R01",
+    "screen_name": "Crew offers",
+    "surface": "Responder",
+    "state": "team already assigned elsewhere",
+    "trace": "INC-05, INC-06; AT-06, AT-07",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R01-S07",
+    "screen_id": "R01",
+    "screen_name": "Crew offers",
+    "surface": "Responder",
+    "state": "offline",
+    "trace": "INC-05, INC-06; AT-06, AT-07",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R02-S00",
+    "screen_id": "R02",
+    "screen_name": "Assigned response + care",
+    "surface": "Responder",
+    "state": "base",
+    "trace": "CARE-01; MEDIA-01; INC-04, INC-05; AT-13, AT-14",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "R02-S01",
+    "screen_id": "R02",
+    "screen_name": "Assigned response + care",
+    "surface": "Responder",
+    "state": "accepted",
+    "trace": "CARE-01; MEDIA-01; INC-04, INC-05; AT-13, AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R02-S02",
+    "screen_id": "R02",
+    "screen_name": "Assigned response + care",
+    "surface": "Responder",
+    "state": "en route",
+    "trace": "CARE-01; MEDIA-01; INC-04, INC-05; AT-13, AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R02-S03",
+    "screen_id": "R02",
+    "screen_name": "Assigned response + care",
+    "surface": "Responder",
+    "state": "arrived",
+    "trace": "CARE-01; MEDIA-01; INC-04, INC-05; AT-13, AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R02-S04",
+    "screen_id": "R02",
+    "screen_name": "Assigned response + care",
+    "surface": "Responder",
+    "state": "location update unknown",
+    "trace": "CARE-01; MEDIA-01; INC-04, INC-05; AT-13, AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R02-S05",
+    "screen_id": "R02",
+    "screen_name": "Assigned response + care",
+    "surface": "Responder",
+    "state": "care audio unavailable",
+    "trace": "CARE-01; MEDIA-01; INC-04, INC-05; AT-13, AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R02-S06",
+    "screen_id": "R02",
+    "screen_name": "Assigned response + care",
+    "surface": "Responder",
+    "state": "offline",
+    "trace": "CARE-01; MEDIA-01; INC-04, INC-05; AT-13, AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R02-S07",
+    "screen_id": "R02",
+    "screen_name": "Assigned response + care",
+    "surface": "Responder",
+    "state": "assignment access ended",
+    "trace": "CARE-01; MEDIA-01; INC-04, INC-05; AT-13, AT-14",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R03-S00",
+    "screen_id": "R03",
+    "screen_name": "Crew care handover",
+    "surface": "Responder",
+    "state": "base",
+    "trace": "INC-08; ACC-04, ACC-06; PRD \u00a714 closure",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "R03-S01",
+    "screen_id": "R03",
+    "screen_name": "Crew care handover",
+    "surface": "Responder",
+    "state": "recipient unverified",
+    "trace": "INC-08; ACC-04, ACC-06; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R03-S02",
+    "screen_id": "R03",
+    "screen_name": "Crew care handover",
+    "surface": "Responder",
+    "state": "handover pending",
+    "trace": "INC-08; ACC-04, ACC-06; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R03-S03",
+    "screen_id": "R03",
+    "screen_name": "Crew care handover",
+    "surface": "Responder",
+    "state": "incomplete assistance record",
+    "trace": "INC-08; ACC-04, ACC-06; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R03-S04",
+    "screen_id": "R03",
+    "screen_name": "Crew care handover",
+    "surface": "Responder",
+    "state": "submitted to coordinator",
+    "trace": "INC-08; ACC-04, ACC-06; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "R03-S05",
+    "screen_id": "R03",
+    "screen_name": "Crew care handover",
+    "surface": "Responder",
+    "state": "offline",
+    "trace": "INC-08; ACC-04, ACC-06; PRD \u00a714 closure",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T01-S00",
+    "screen_id": "T01",
+    "screen_name": "Facility + places overview",
+    "surface": "Accommodation",
+    "state": "base",
+    "trace": "ACC-01, ACC-02, ACC-07; AT-16",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "T01-S01",
+    "screen_id": "T01",
+    "screen_name": "Facility + places overview",
+    "surface": "Accommodation",
+    "state": "loading",
+    "trace": "ACC-01, ACC-02, ACC-07; AT-16",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T01-S02",
+    "screen_id": "T01",
+    "screen_name": "Facility + places overview",
+    "surface": "Accommodation",
+    "state": "empty",
+    "trace": "ACC-01, ACC-02, ACC-07; AT-16",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T01-S03",
+    "screen_id": "T01",
+    "screen_name": "Facility + places overview",
+    "surface": "Accommodation",
+    "state": "no suitable place",
+    "trace": "ACC-01, ACC-02, ACC-07; AT-16",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T01-S04",
+    "screen_id": "T01",
+    "screen_name": "Facility + places overview",
+    "surface": "Accommodation",
+    "state": "capacity full",
+    "trace": "ACC-01, ACC-02, ACC-07; AT-16",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T01-S05",
+    "screen_id": "T01",
+    "screen_name": "Facility + places overview",
+    "surface": "Accommodation",
+    "state": "stale capacity",
+    "trace": "ACC-01, ACC-02, ACC-07; AT-16",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T01-S06",
+    "screen_id": "T01",
+    "screen_name": "Facility + places overview",
+    "surface": "Accommodation",
+    "state": "staff unavailable",
+    "trace": "ACC-01, ACC-02, ACC-07; AT-16",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T01-S07",
+    "screen_id": "T01",
+    "screen_name": "Facility + places overview",
+    "surface": "Accommodation",
+    "state": "offline",
+    "trace": "ACC-01, ACC-02, ACC-07; AT-16",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T02-S00",
+    "screen_id": "T02",
+    "screen_name": "Placement suitability + authority",
+    "surface": "Coordinator",
+    "state": "base",
+    "trace": "ACC-01 through ACC-03, ACC-07; AT-16",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "T02-S01",
+    "screen_id": "T02",
+    "screen_name": "Placement suitability + authority",
+    "surface": "Coordinator",
+    "state": "no capacity",
+    "trace": "ACC-01 through ACC-03, ACC-07; AT-16",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T02-S02",
+    "screen_id": "T02",
+    "screen_name": "Placement suitability + authority",
+    "surface": "Coordinator",
+    "state": "authority unresolved",
+    "trace": "ACC-01 through ACC-03, ACC-07; AT-16",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T02-S03",
+    "screen_id": "T02",
+    "screen_name": "Placement suitability + authority",
+    "surface": "Coordinator",
+    "state": "reservation conflict",
+    "trace": "ACC-01 through ACC-03, ACC-07; AT-16",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T02-S04",
+    "screen_id": "T02",
+    "screen_name": "Placement suitability + authority",
+    "surface": "Coordinator",
+    "state": "reserved",
+    "trace": "ACC-01 through ACC-03, ACC-07; AT-16",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T02-S05",
+    "screen_id": "T02",
+    "screen_name": "Placement suitability + authority",
+    "surface": "Coordinator",
+    "state": "offline",
+    "trace": "ACC-01 through ACC-03, ACC-07; AT-16",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T03-S00",
+    "screen_id": "T03",
+    "screen_name": "Staff assignment + intake",
+    "surface": "Accommodation",
+    "state": "base",
+    "trace": "ACC-04, ACC-05",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "T03-S01",
+    "screen_id": "T03",
+    "screen_name": "Staff assignment + intake",
+    "surface": "Accommodation",
+    "state": "staff unassigned",
+    "trace": "ACC-04, ACC-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T03-S02",
+    "screen_id": "T03",
+    "screen_name": "Staff assignment + intake",
+    "surface": "Accommodation",
+    "state": "transport arrival pending",
+    "trace": "ACC-04, ACC-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T03-S03",
+    "screen_id": "T03",
+    "screen_name": "Staff assignment + intake",
+    "surface": "Accommodation",
+    "state": "intake discrepancy",
+    "trace": "ACC-04, ACC-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T03-S04",
+    "screen_id": "T03",
+    "screen_name": "Staff assignment + intake",
+    "surface": "Accommodation",
+    "state": "authority conflict",
+    "trace": "ACC-04, ACC-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T03-S05",
+    "screen_id": "T03",
+    "screen_name": "Staff assignment + intake",
+    "surface": "Accommodation",
+    "state": "intake complete",
+    "trace": "ACC-04, ACC-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T03-S06",
+    "screen_id": "T03",
+    "screen_name": "Staff assignment + intake",
+    "surface": "Accommodation",
+    "state": "offline",
+    "trace": "ACC-04, ACC-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T04-S00",
+    "screen_id": "T04",
+    "screen_name": "Active care + staff handover",
+    "surface": "Accommodation",
+    "state": "base",
+    "trace": "ACC-04, ACC-05; PRD \u00a78",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "T04-S01",
+    "screen_id": "T04",
+    "screen_name": "Active care + staff handover",
+    "surface": "Accommodation",
+    "state": "active care",
+    "trace": "ACC-04, ACC-05; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T04-S02",
+    "screen_id": "T04",
+    "screen_name": "Active care + staff handover",
+    "surface": "Accommodation",
+    "state": "shift change",
+    "trace": "ACC-04, ACC-05; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T04-S03",
+    "screen_id": "T04",
+    "screen_name": "Active care + staff handover",
+    "surface": "Accommodation",
+    "state": "care issue escalation",
+    "trace": "ACC-04, ACC-05; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T04-S04",
+    "screen_id": "T04",
+    "screen_name": "Active care + staff handover",
+    "surface": "Accommodation",
+    "state": "handover pending",
+    "trace": "ACC-04, ACC-05; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T04-S05",
+    "screen_id": "T04",
+    "screen_name": "Active care + staff handover",
+    "surface": "Accommodation",
+    "state": "access expired",
+    "trace": "ACC-04, ACC-05; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T04-S06",
+    "screen_id": "T04",
+    "screen_name": "Active care + staff handover",
+    "surface": "Accommodation",
+    "state": "offline",
+    "trace": "ACC-04, ACC-05; PRD \u00a78",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T05-S00",
+    "screen_id": "T05",
+    "screen_name": "Verified release + handover",
+    "surface": "Accommodation",
+    "state": "base",
+    "trace": "ACC-06; AT-17",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "T05-S01",
+    "screen_id": "T05",
+    "screen_name": "Verified release + handover",
+    "surface": "Accommodation",
+    "state": "wrong recipient",
+    "trace": "ACC-06; AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T05-S02",
+    "screen_id": "T05",
+    "screen_name": "Verified release + handover",
+    "surface": "Accommodation",
+    "state": "identity unverified",
+    "trace": "ACC-06; AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T05-S03",
+    "screen_id": "T05",
+    "screen_name": "Verified release + handover",
+    "surface": "Accommodation",
+    "state": "authority missing",
+    "trace": "ACC-06; AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T05-S04",
+    "screen_id": "T05",
+    "screen_name": "Verified release + handover",
+    "surface": "Accommodation",
+    "state": "contested release",
+    "trace": "ACC-06; AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T05-S05",
+    "screen_id": "T05",
+    "screen_name": "Verified release + handover",
+    "surface": "Accommodation",
+    "state": "approved release",
+    "trace": "ACC-06; AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T05-S06",
+    "screen_id": "T05",
+    "screen_name": "Verified release + handover",
+    "surface": "Accommodation",
+    "state": "released",
+    "trace": "ACC-06; AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "T05-S07",
+    "screen_id": "T05",
+    "screen_name": "Verified release + handover",
+    "surface": "Accommodation",
+    "state": "offline",
+    "trace": "ACC-06; AT-17",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N01-S00",
+    "screen_id": "N01",
+    "screen_name": "Service regions + provider configuration",
+    "surface": "Administration",
+    "state": "base",
+    "trace": "PRD \u00a7\u00a75,8,12; LOC-02",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "N01-S01",
+    "screen_id": "N01",
+    "screen_name": "Service regions + provider configuration",
+    "surface": "Administration",
+    "state": "disabled region",
+    "trace": "PRD \u00a7\u00a75,8,12; LOC-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N01-S02",
+    "screen_id": "N01",
+    "screen_name": "Service regions + provider configuration",
+    "surface": "Administration",
+    "state": "unapproved configuration",
+    "trace": "PRD \u00a7\u00a75,8,12; LOC-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N01-S03",
+    "screen_id": "N01",
+    "screen_name": "Service regions + provider configuration",
+    "surface": "Administration",
+    "state": "save failure",
+    "trace": "PRD \u00a7\u00a75,8,12; LOC-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N01-S04",
+    "screen_id": "N01",
+    "screen_name": "Service regions + provider configuration",
+    "surface": "Administration",
+    "state": "provider unavailable",
+    "trace": "PRD \u00a7\u00a75,8,12; LOC-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N01-S05",
+    "screen_id": "N01",
+    "screen_name": "Service regions + provider configuration",
+    "surface": "Administration",
+    "state": "simulation mode",
+    "trace": "PRD \u00a7\u00a75,8,12; LOC-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N01-S06",
+    "screen_id": "N01",
+    "screen_name": "Service regions + provider configuration",
+    "surface": "Administration",
+    "state": "offline",
+    "trace": "PRD \u00a7\u00a75,8,12; LOC-02",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N02-S00",
+    "screen_id": "N02",
+    "screen_name": "Staff roles + crews",
+    "surface": "Administration",
+    "state": "base",
+    "trace": "PRD \u00a7\u00a73,5,8,12; INC-05",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "N02-S01",
+    "screen_id": "N02",
+    "screen_name": "Staff roles + crews",
+    "surface": "Administration",
+    "state": "staff coverage missing",
+    "trace": "PRD \u00a7\u00a73,5,8,12; INC-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N02-S02",
+    "screen_id": "N02",
+    "screen_name": "Staff roles + crews",
+    "surface": "Administration",
+    "state": "qualification missing",
+    "trace": "PRD \u00a7\u00a73,5,8,12; INC-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N02-S03",
+    "screen_id": "N02",
+    "screen_name": "Staff roles + crews",
+    "surface": "Administration",
+    "state": "availability stale",
+    "trace": "PRD \u00a7\u00a73,5,8,12; INC-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N02-S04",
+    "screen_id": "N02",
+    "screen_name": "Staff roles + crews",
+    "surface": "Administration",
+    "state": "staff access revoked",
+    "trace": "PRD \u00a7\u00a73,5,8,12; INC-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N02-S05",
+    "screen_id": "N02",
+    "screen_name": "Staff roles + crews",
+    "surface": "Administration",
+    "state": "saving",
+    "trace": "PRD \u00a7\u00a73,5,8,12; INC-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N02-S06",
+    "screen_id": "N02",
+    "screen_name": "Staff roles + crews",
+    "surface": "Administration",
+    "state": "offline",
+    "trace": "PRD \u00a7\u00a73,5,8,12; INC-05",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N03-S00",
+    "screen_id": "N03",
+    "screen_name": "Commercial + entitlement administration",
+    "surface": "Administration",
+    "state": "base",
+    "trace": "SUB-01; PRD \u00a7\u00a76,12",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "N03-S01",
+    "screen_id": "N03",
+    "screen_name": "Commercial + entitlement administration",
+    "surface": "Administration",
+    "state": "billing unknown",
+    "trace": "SUB-01; PRD \u00a7\u00a76,12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N03-S02",
+    "screen_id": "N03",
+    "screen_name": "Commercial + entitlement administration",
+    "surface": "Administration",
+    "state": "active entitlement",
+    "trace": "SUB-01; PRD \u00a7\u00a76,12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N03-S03",
+    "screen_id": "N03",
+    "screen_name": "Commercial + entitlement administration",
+    "surface": "Administration",
+    "state": "expired entitlement",
+    "trace": "SUB-01; PRD \u00a7\u00a76,12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N03-S04",
+    "screen_id": "N03",
+    "screen_name": "Commercial + entitlement administration",
+    "surface": "Administration",
+    "state": "reconciliation pending",
+    "trace": "SUB-01; PRD \u00a7\u00a76,12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N03-S05",
+    "screen_id": "N03",
+    "screen_name": "Commercial + entitlement administration",
+    "surface": "Administration",
+    "state": "invalid interval",
+    "trace": "SUB-01; PRD \u00a7\u00a76,12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N03-S06",
+    "screen_id": "N03",
+    "screen_name": "Commercial + entitlement administration",
+    "surface": "Administration",
+    "state": "offline",
+    "trace": "SUB-01; PRD \u00a7\u00a76,12",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N04-S00",
+    "screen_id": "N04",
+    "screen_name": "Privacy + audit oversight",
+    "surface": "Administration",
+    "state": "base",
+    "trace": "PRD \u00a78; MEDIA-02; AT-13",
+    "note": "Base layout"
+  },
+  {
+    "state_id": "N04-S01",
+    "screen_id": "N04",
+    "screen_name": "Privacy + audit oversight",
+    "surface": "Administration",
+    "state": "audit unavailable",
+    "trace": "PRD \u00a78; MEDIA-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N04-S02",
+    "screen_id": "N04",
+    "screen_name": "Privacy + audit oversight",
+    "surface": "Administration",
+    "state": "access denied",
+    "trace": "PRD \u00a78; MEDIA-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N04-S03",
+    "screen_id": "N04",
+    "screen_name": "Privacy + audit oversight",
+    "surface": "Administration",
+    "state": "retention legal hold",
+    "trace": "PRD \u00a78; MEDIA-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N04-S04",
+    "screen_id": "N04",
+    "screen_name": "Privacy + audit oversight",
+    "surface": "Administration",
+    "state": "data request pending",
+    "trace": "PRD \u00a78; MEDIA-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  },
+  {
+    "state_id": "N04-S05",
+    "screen_id": "N04",
+    "screen_name": "Privacy + audit oversight",
+    "surface": "Administration",
+    "state": "offline",
+    "trace": "PRD \u00a78; MEDIA-02; AT-13",
+    "note": "Required design variant/annotation; not a separate product screen"
+  }
+]

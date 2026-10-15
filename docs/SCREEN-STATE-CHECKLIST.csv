@@ -1,0 +1,503 @@
+state_id,screen_id,screen_name,surface,state,trace,note
+A01-S00,A01,Welcome + service scope,Shared access,base,"PRD §§2,4; READY-01",Base layout
+A01-S01,A01,Welcome + service scope,Shared access,loading,"PRD §§2,4; READY-01",Required design variant/annotation; not a separate product screen
+A01-S02,A01,Welcome + service scope,Shared access,offline,"PRD §§2,4; READY-01",Required design variant/annotation; not a separate product screen
+A01-S03,A01,Welcome + service scope,Shared access,coverage information unavailable,"PRD §§2,4; READY-01",Required design variant/annotation; not a separate product screen
+A01-S04,A01,Welcome + service scope,Shared access,returning linked child bypass,"PRD §§2,4; READY-01",Required design variant/annotation; not a separate product screen
+A02-S00,A02,Adult sign in,Shared access,base,FAM-01; PRD §8,Base layout
+A02-S01,A02,Adult sign in,Shared access,submitting,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+A02-S02,A02,Adult sign in,Shared access,invalid credentials,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+A02-S03,A02,Adult sign in,Shared access,rate limited,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+A02-S04,A02,Adult sign in,Shared access,offline,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+A02-S05,A02,Adult sign in,Shared access,adult session expired,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+A03-S00,A03,Create family account,Shared access,base,"FAM-01, FAM-02; PRD §8",Base layout
+A03-S01,A03,Create family account,Shared access,field validation,"FAM-01, FAM-02; PRD §8",Required design variant/annotation; not a separate product screen
+A03-S02,A03,Create family account,Shared access,account already exists,"FAM-01, FAM-02; PRD §8",Required design variant/annotation; not a separate product screen
+A03-S03,A03,Create family account,Shared access,submitting,"FAM-01, FAM-02; PRD §8",Required design variant/annotation; not a separate product screen
+A03-S04,A03,Create family account,Shared access,result unknown,"FAM-01, FAM-02; PRD §8",Required design variant/annotation; not a separate product screen
+A03-S05,A03,Create family account,Shared access,offline,"FAM-01, FAM-02; PRD §8",Required design variant/annotation; not a separate product screen
+A04-S00,A04,Verify contact,Shared access,base,FAM-02; PRD §8,Base layout
+A04-S01,A04,Verify contact,Shared access,verification pending,FAM-02; PRD §8,Required design variant/annotation; not a separate product screen
+A04-S02,A04,Verify contact,Shared access,invalid code,FAM-02; PRD §8,Required design variant/annotation; not a separate product screen
+A04-S03,A04,Verify contact,Shared access,expired code,FAM-02; PRD §8,Required design variant/annotation; not a separate product screen
+A04-S04,A04,Verify contact,Shared access,throttled,FAM-02; PRD §8,Required design variant/annotation; not a separate product screen
+A04-S05,A04,Verify contact,Shared access,verified,FAM-02; PRD §8,Required design variant/annotation; not a separate product screen
+A04-S06,A04,Verify contact,Shared access,offline,FAM-02; PRD §8,Required design variant/annotation; not a separate product screen
+A05-S00,A05,Recover access,Shared access,base,FAM-01; PRD §8,Base layout
+A05-S01,A05,Recover access,Shared access,generic recovery submitted,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+A05-S02,A05,Recover access,Shared access,throttled,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+A05-S03,A05,Recover access,Shared access,recovery unavailable,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+A05-S04,A05,Recover access,Shared access,offline,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+A06-S00,A06,Complete recovery,Shared access,base,FAM-01; PRD §8,Base layout
+A06-S01,A06,Complete recovery,Shared access,expired token,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+A06-S02,A06,Complete recovery,Shared access,used token,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+A06-S03,A06,Complete recovery,Shared access,invalid credential,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+A06-S04,A06,Complete recovery,Shared access,success,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+A06-S05,A06,Complete recovery,Shared access,interrupted,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+A06-S06,A06,Complete recovery,Shared access,offline,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+G01-S00,G01,Family home,Parent / caregiver,base,"READY-01; INC-03, INC-04; SUB-02",Base layout
+G01-S01,G01,Family home,Parent / caregiver,no children,"READY-01; INC-03, INC-04; SUB-02",Required design variant/annotation; not a separate product screen
+G01-S02,G01,Family home,Parent / caregiver,multiple children,"READY-01; INC-03, INC-04; SUB-02",Required design variant/annotation; not a separate product screen
+G01-S03,G01,Family home,Parent / caregiver,active incident,"READY-01; INC-03, INC-04; SUB-02",Required design variant/annotation; not a separate product screen
+G01-S04,G01,Family home,Parent / caregiver,stale status,"READY-01; INC-03, INC-04; SUB-02",Required design variant/annotation; not a separate product screen
+G01-S05,G01,Family home,Parent / caregiver,inactive entitlement,"READY-01; INC-03, INC-04; SUB-02",Required design variant/annotation; not a separate product screen
+G01-S06,G01,Family home,Parent / caregiver,no entitlement data,"READY-01; INC-03, INC-04; SUB-02",Required design variant/annotation; not a separate product screen
+G01-S07,G01,Family home,Parent / caregiver,offline,"READY-01; INC-03, INC-04; SUB-02",Required design variant/annotation; not a separate product screen
+G02-S00,G02,Readiness checklist,Parent / caregiver,base,READY-01; DEV-01; LOC-01; SUB-01,Base layout
+G02-S01,G02,Readiness checklist,Parent / caregiver,incomplete readiness,READY-01; DEV-01; LOC-01; SUB-01,Required design variant/annotation; not a separate product screen
+G02-S02,G02,Readiness checklist,Parent / caregiver,ready facts saved,READY-01; DEV-01; LOC-01; SUB-01,Required design variant/annotation; not a separate product screen
+G02-S03,G02,Readiness checklist,Parent / caregiver,coverage unknown,READY-01; DEV-01; LOC-01; SUB-01,Required design variant/annotation; not a separate product screen
+G02-S04,G02,Readiness checklist,Parent / caregiver,permission denied,READY-01; DEV-01; LOC-01; SUB-01,Required design variant/annotation; not a separate product screen
+G02-S05,G02,Readiness checklist,Parent / caregiver,entitlement unknown,READY-01; DEV-01; LOC-01; SUB-01,Required design variant/annotation; not a separate product screen
+G02-S06,G02,Readiness checklist,Parent / caregiver,offline,READY-01; DEV-01; LOC-01; SUB-01,Required design variant/annotation; not a separate product screen
+G03-S00,G03,Updates inbox,Parent / caregiver,base,"INC-03, INC-04; PRD §8",Base layout
+G03-S01,G03,Updates inbox,Parent / caregiver,loading,"INC-03, INC-04; PRD §8",Required design variant/annotation; not a separate product screen
+G03-S02,G03,Updates inbox,Parent / caregiver,empty,"INC-03, INC-04; PRD §8",Required design variant/annotation; not a separate product screen
+G03-S03,G03,Updates inbox,Parent / caregiver,refresh error,"INC-03, INC-04; PRD §8",Required design variant/annotation; not a separate product screen
+G03-S04,G03,Updates inbox,Parent / caregiver,offline stale cache,"INC-03, INC-04; PRD §8",Required design variant/annotation; not a separate product screen
+G03-S05,G03,Updates inbox,Parent / caregiver,access revoked,"INC-03, INC-04; PRD §8",Required design variant/annotation; not a separate product screen
+H01-S00,H01,Household + caregiver access,Parent / caregiver,base,"FAM-01, FAM-02",Base layout
+H01-S01,H01,Household + caregiver access,Parent / caregiver,empty invites,"FAM-01, FAM-02",Required design variant/annotation; not a separate product screen
+H01-S02,H01,Household + caregiver access,Parent / caregiver,pending invitation,"FAM-01, FAM-02",Required design variant/annotation; not a separate product screen
+H01-S03,H01,Household + caregiver access,Parent / caregiver,accepted membership,"FAM-01, FAM-02",Required design variant/annotation; not a separate product screen
+H01-S04,H01,Household + caregiver access,Parent / caregiver,revoked membership,"FAM-01, FAM-02",Required design variant/annotation; not a separate product screen
+H01-S05,H01,Household + caregiver access,Parent / caregiver,authority unresolved,"FAM-01, FAM-02",Required design variant/annotation; not a separate product screen
+H01-S06,H01,Household + caregiver access,Parent / caregiver,offline,"FAM-01, FAM-02",Required design variant/annotation; not a separate product screen
+H02-S00,H02,Invite caregiver,Parent / caregiver,base,FAM-02; AT-13,Base layout
+H02-S01,H02,Invite caregiver,Parent / caregiver,invalid contact,FAM-02; AT-13,Required design variant/annotation; not a separate product screen
+H02-S02,H02,Invite caregiver,Parent / caregiver,send pending,FAM-02; AT-13,Required design variant/annotation; not a separate product screen
+H02-S03,H02,Invite caregiver,Parent / caregiver,duplicate invitation,FAM-02; AT-13,Required design variant/annotation; not a separate product screen
+H02-S04,H02,Invite caregiver,Parent / caregiver,expired invitation,FAM-02; AT-13,Required design variant/annotation; not a separate product screen
+H02-S05,H02,Invite caregiver,Parent / caregiver,send failure,FAM-02; AT-13,Required design variant/annotation; not a separate product screen
+H02-S06,H02,Invite caregiver,Parent / caregiver,offline,FAM-02; AT-13,Required design variant/annotation; not a separate product screen
+H03-S00,H03,Caregiver scope + authority,Parent / caregiver,base,"FAM-02; ACC-03, ACC-06",Base layout
+H03-S01,H03,Caregiver scope + authority,Parent / caregiver,scoped caregiver rights,"FAM-02; ACC-03, ACC-06",Required design variant/annotation; not a separate product screen
+H03-S02,H03,Caregiver scope + authority,Parent / caregiver,authority verification pending,"FAM-02; ACC-03, ACC-06",Required design variant/annotation; not a separate product screen
+H03-S03,H03,Caregiver scope + authority,Parent / caregiver,authority expired,"FAM-02; ACC-03, ACC-06",Required design variant/annotation; not a separate product screen
+H03-S04,H03,Caregiver scope + authority,Parent / caregiver,grant revoked,"FAM-02; ACC-03, ACC-06",Required design variant/annotation; not a separate product screen
+H03-S05,H03,Caregiver scope + authority,Parent / caregiver,contested authority,"FAM-02; ACC-03, ACC-06",Required design variant/annotation; not a separate product screen
+H03-S06,H03,Caregiver scope + authority,Parent / caregiver,saving,"FAM-02; ACC-03, ACC-06",Required design variant/annotation; not a separate product screen
+H03-S07,H03,Caregiver scope + authority,Parent / caregiver,offline,"FAM-02; ACC-03, ACC-06",Required design variant/annotation; not a separate product screen
+H04-S00,H04,Accept invitation,Parent / caregiver,base,FAM-02; AT-13,Base layout
+H04-S01,H04,Accept invitation,Parent / caregiver,wrong account,FAM-02; AT-13,Required design variant/annotation; not a separate product screen
+H04-S02,H04,Accept invitation,Parent / caregiver,expired invitation,FAM-02; AT-13,Required design variant/annotation; not a separate product screen
+H04-S03,H04,Accept invitation,Parent / caregiver,already used,FAM-02; AT-13,Required design variant/annotation; not a separate product screen
+H04-S04,H04,Accept invitation,Parent / caregiver,revoked invitation,FAM-02; AT-13,Required design variant/annotation; not a separate product screen
+H04-S05,H04,Accept invitation,Parent / caregiver,accepted,FAM-02; AT-13,Required design variant/annotation; not a separate product screen
+H04-S06,H04,Accept invitation,Parent / caregiver,offline,FAM-02; AT-13,Required design variant/annotation; not a separate product screen
+F01-S00,F01,Children directory,Parent / caregiver,base,FAM-01; CARE-01; AT-13,Base layout
+F01-S01,F01,Children directory,Parent / caregiver,loading,FAM-01; CARE-01; AT-13,Required design variant/annotation; not a separate product screen
+F01-S02,F01,Children directory,Parent / caregiver,empty,FAM-01; CARE-01; AT-13,Required design variant/annotation; not a separate product screen
+F01-S03,F01,Children directory,Parent / caregiver,multiple children,FAM-01; CARE-01; AT-13,Required design variant/annotation; not a separate product screen
+F01-S04,F01,Children directory,Parent / caregiver,read denied,FAM-01; CARE-01; AT-13,Required design variant/annotation; not a separate product screen
+F01-S05,F01,Children directory,Parent / caregiver,refresh error,FAM-01; CARE-01; AT-13,Required design variant/annotation; not a separate product screen
+F01-S06,F01,Children directory,Parent / caregiver,offline stale list,FAM-01; CARE-01; AT-13,Required design variant/annotation; not a separate product screen
+F02-S00,F02,Child overview,Parent / caregiver,base,"CARE-01, CARE-02; READY-01",Base layout
+F02-S01,F02,Child overview,Parent / caregiver,incomplete profile,"CARE-01, CARE-02; READY-01",Required design variant/annotation; not a separate product screen
+F02-S02,F02,Child overview,Parent / caregiver,profile update time unknown,"CARE-01, CARE-02; READY-01",Required design variant/annotation; not a separate product screen
+F02-S03,F02,Child overview,Parent / caregiver,active incident,"CARE-01, CARE-02; READY-01",Required design variant/annotation; not a separate product screen
+F02-S04,F02,Child overview,Parent / caregiver,access revoked,"CARE-01, CARE-02; READY-01",Required design variant/annotation; not a separate product screen
+F02-S05,F02,Child overview,Parent / caregiver,offline,"CARE-01, CARE-02; READY-01",Required design variant/annotation; not a separate product screen
+F03-S00,F03,Care profile editor,Parent / caregiver,base,"CARE-01, CARE-02; AT-13",Base layout
+F03-S01,F03,Care profile editor,Parent / caregiver,new child,"CARE-01, CARE-02; AT-13",Required design variant/annotation; not a separate product screen
+F03-S02,F03,Care profile editor,Parent / caregiver,editing existing child,"CARE-01, CARE-02; AT-13",Required design variant/annotation; not a separate product screen
+F03-S03,F03,Care profile editor,Parent / caregiver,field validation,"CARE-01, CARE-02; AT-13",Required design variant/annotation; not a separate product screen
+F03-S04,F03,Care profile editor,Parent / caregiver,unsaved changes,"CARE-01, CARE-02; AT-13",Required design variant/annotation; not a separate product screen
+F03-S05,F03,Care profile editor,Parent / caregiver,saving,"CARE-01, CARE-02; AT-13",Required design variant/annotation; not a separate product screen
+F03-S06,F03,Care profile editor,Parent / caregiver,save conflict,"CARE-01, CARE-02; AT-13",Required design variant/annotation; not a separate product screen
+F03-S07,F03,Care profile editor,Parent / caregiver,save failed,"CARE-01, CARE-02; AT-13",Required design variant/annotation; not a separate product screen
+F03-S08,F03,Care profile editor,Parent / caregiver,save outcome unknown,"CARE-01, CARE-02; AT-13",Required design variant/annotation; not a separate product screen
+F03-S09,F03,Care profile editor,Parent / caregiver,offline,"CARE-01, CARE-02; AT-13",Required design variant/annotation; not a separate product screen
+F04-S00,F04,Emergency contacts,Parent / caregiver,base,CARE-01; FAM-02; ACC-06,Base layout
+F04-S01,F04,Emergency contacts,Parent / caregiver,empty contacts,CARE-01; FAM-02; ACC-06,Required design variant/annotation; not a separate product screen
+F04-S02,F04,Emergency contacts,Parent / caregiver,incomplete contact,CARE-01; FAM-02; ACC-06,Required design variant/annotation; not a separate product screen
+F04-S03,F04,Emergency contacts,Parent / caregiver,saving,CARE-01; FAM-02; ACC-06,Required design variant/annotation; not a separate product screen
+F04-S04,F04,Emergency contacts,Parent / caregiver,unverified channel,CARE-01; FAM-02; ACC-06,Required design variant/annotation; not a separate product screen
+F04-S05,F04,Emergency contacts,Parent / caregiver,contact authority absent,CARE-01; FAM-02; ACC-06,Required design variant/annotation; not a separate product screen
+F04-S06,F04,Emergency contacts,Parent / caregiver,offline,CARE-01; FAM-02; ACC-06,Required design variant/annotation; not a separate product screen
+F05-S00,F05,Saved places + location,Parent / caregiver,base,"LOC-01, LOC-02; AT-04, AT-05",Base layout
+F05-S01,F05,Saved places + location,Parent / caregiver,empty places,"LOC-01, LOC-02; AT-04, AT-05",Required design variant/annotation; not a separate product screen
+F05-S02,F05,Saved places + location,Parent / caregiver,location denied,"LOC-01, LOC-02; AT-04, AT-05",Required design variant/annotation; not a separate product screen
+F05-S03,F05,Saved places + location,Parent / caregiver,location missing,"LOC-01, LOC-02; AT-04, AT-05",Required design variant/annotation; not a separate product screen
+F05-S04,F05,Saved places + location,Parent / caregiver,location stale,"LOC-01, LOC-02; AT-04, AT-05",Required design variant/annotation; not a separate product screen
+F05-S05,F05,Saved places + location,Parent / caregiver,location inaccurate,"LOC-01, LOC-02; AT-04, AT-05",Required design variant/annotation; not a separate product screen
+F05-S06,F05,Saved places + location,Parent / caregiver,saved address fallback,"LOC-01, LOC-02; AT-04, AT-05",Required design variant/annotation; not a separate product screen
+F05-S07,F05,Saved places + location,Parent / caregiver,outside coverage,"LOC-01, LOC-02; AT-04, AT-05",Required design variant/annotation; not a separate product screen
+F05-S08,F05,Saved places + location,Parent / caregiver,offline,"LOC-01, LOC-02; AT-04, AT-05",Required design variant/annotation; not a separate product screen
+D01-S00,D01,Linked devices,Parent / caregiver,base,"DEV-01, DEV-02; AT-15",Base layout
+D01-S01,D01,Linked devices,Parent / caregiver,empty,"DEV-01, DEV-02; AT-15",Required design variant/annotation; not a separate product screen
+D01-S02,D01,Linked devices,Parent / caregiver,pairing pending,"DEV-01, DEV-02; AT-15",Required design variant/annotation; not a separate product screen
+D01-S03,D01,Linked devices,Parent / caregiver,device revoked,"DEV-01, DEV-02; AT-15",Required design variant/annotation; not a separate product screen
+D01-S04,D01,Linked devices,Parent / caregiver,device status unknown,"DEV-01, DEV-02; AT-15",Required design variant/annotation; not a separate product screen
+D01-S05,D01,Linked devices,Parent / caregiver,device status stale,"DEV-01, DEV-02; AT-15",Required design variant/annotation; not a separate product screen
+D01-S06,D01,Linked devices,Parent / caregiver,offline,"DEV-01, DEV-02; AT-15",Required design variant/annotation; not a separate product screen
+D02-S00,D02,Link a child device,Parent / caregiver,base,"DEV-01, DEV-02",Base layout
+D02-S01,D02,Link a child device,Parent / caregiver,pairing pending,"DEV-01, DEV-02",Required design variant/annotation; not a separate product screen
+D02-S02,D02,Link a child device,Parent / caregiver,expired challenge,"DEV-01, DEV-02",Required design variant/annotation; not a separate product screen
+D02-S03,D02,Link a child device,Parent / caregiver,used challenge,"DEV-01, DEV-02",Required design variant/annotation; not a separate product screen
+D02-S04,D02,Link a child device,Parent / caregiver,wrong child,"DEV-01, DEV-02",Required design variant/annotation; not a separate product screen
+D02-S05,D02,Link a child device,Parent / caregiver,pairing failed,"DEV-01, DEV-02",Required design variant/annotation; not a separate product screen
+D02-S06,D02,Link a child device,Parent / caregiver,pairing interrupted,"DEV-01, DEV-02",Required design variant/annotation; not a separate product screen
+D02-S07,D02,Link a child device,Parent / caregiver,offline,"DEV-01, DEV-02",Required design variant/annotation; not a separate product screen
+D03-S00,D03,Device access detail,Parent / caregiver,base,DEV-01; AT-15,Base layout
+D03-S01,D03,Device access detail,Parent / caregiver,active device,DEV-01; AT-15,Required design variant/annotation; not a separate product screen
+D03-S02,D03,Device access detail,Parent / caregiver,lost device revoke confirmation,DEV-01; AT-15,Required design variant/annotation; not a separate product screen
+D03-S03,D03,Device access detail,Parent / caregiver,revoking,DEV-01; AT-15,Required design variant/annotation; not a separate product screen
+D03-S04,D03,Device access detail,Parent / caregiver,device revoked,DEV-01; AT-15,Required design variant/annotation; not a separate product screen
+D03-S05,D03,Device access detail,Parent / caregiver,revocation outcome unknown,DEV-01; AT-15,Required design variant/annotation; not a separate product screen
+D03-S06,D03,Device access detail,Parent / caregiver,offline,DEV-01; AT-15,Required design variant/annotation; not a separate product screen
+D04-S00,D04,Child experience preferences,Parent / caregiver,base,"CARE-01; DEV-02; PRD §§4,14",Base layout
+D04-S01,D04,Child experience preferences,Parent / caregiver,preferences unset,"CARE-01; DEV-02; PRD §§4,14",Required design variant/annotation; not a separate product screen
+D04-S02,D04,Child experience preferences,Parent / caregiver,non-reader adaptation,"CARE-01; DEV-02; PRD §§4,14",Required design variant/annotation; not a separate product screen
+D04-S03,D04,Child experience preferences,Parent / caregiver,assistive control adaptation,"CARE-01; DEV-02; PRD §§4,14",Required design variant/annotation; not a separate product screen
+D04-S04,D04,Child experience preferences,Parent / caregiver,saving,"CARE-01; DEV-02; PRD §§4,14",Required design variant/annotation; not a separate product screen
+D04-S05,D04,Child experience preferences,Parent / caregiver,device capability unsupported,"CARE-01; DEV-02; PRD §§4,14",Required design variant/annotation; not a separate product screen
+D04-S06,D04,Child experience preferences,Parent / caregiver,offline,"CARE-01; DEV-02; PRD §§4,14",Required design variant/annotation; not a separate product screen
+M01-S00,M01,Care recordings library,Parent / caregiver,base,"MEDIA-01, MEDIA-02; AT-14",Base layout
+M01-S01,M01,Care recordings library,Parent / caregiver,loading,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+M01-S02,M01,Care recordings library,Parent / caregiver,empty,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+M01-S03,M01,Care recordings library,Parent / caregiver,upload pending,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+M01-S04,M01,Care recordings library,Parent / caregiver,audio unavailable,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+M01-S05,M01,Care recordings library,Parent / caregiver,audience access denied,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+M01-S06,M01,Care recordings library,Parent / caregiver,offline,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+M02-S00,M02,Create a recording,Parent / caregiver,base,"MEDIA-01, MEDIA-02",Base layout
+M02-S01,M02,Create a recording,Parent / caregiver,microphone permission denied,"MEDIA-01, MEDIA-02",Required design variant/annotation; not a separate product screen
+M02-S02,M02,Create a recording,Parent / caregiver,recording,"MEDIA-01, MEDIA-02",Required design variant/annotation; not a separate product screen
+M02-S03,M02,Create a recording,Parent / caregiver,paused,"MEDIA-01, MEDIA-02",Required design variant/annotation; not a separate product screen
+M02-S04,M02,Create a recording,Parent / caregiver,interrupted,"MEDIA-01, MEDIA-02",Required design variant/annotation; not a separate product screen
+M02-S05,M02,Create a recording,Parent / caregiver,upload progress,"MEDIA-01, MEDIA-02",Required design variant/annotation; not a separate product screen
+M02-S06,M02,Create a recording,Parent / caregiver,upload failed,"MEDIA-01, MEDIA-02",Required design variant/annotation; not a separate product screen
+M02-S07,M02,Create a recording,Parent / caregiver,upload outcome unknown,"MEDIA-01, MEDIA-02",Required design variant/annotation; not a separate product screen
+M02-S08,M02,Create a recording,Parent / caregiver,offline,"MEDIA-01, MEDIA-02",Required design variant/annotation; not a separate product screen
+M02-S09,M02,Create a recording,Parent / caregiver,invalid audio,"MEDIA-01, MEDIA-02",Required design variant/annotation; not a separate product screen
+M03-S00,M03,Recording details + audience,Parent / caregiver,base,"MEDIA-01, MEDIA-02; AT-14",Base layout
+M03-S01,M03,Recording details + audience,Parent / caregiver,loading,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+M03-S02,M03,Recording details + audience,Parent / caregiver,audience comfort only,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+M03-S03,M03,Recording details + audience,Parent / caregiver,audience responder only,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+M03-S04,M03,Recording details + audience,Parent / caregiver,audience both explicit,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+M03-S05,M03,Recording details + audience,Parent / caregiver,audience changed,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+M03-S06,M03,Recording details + audience,Parent / caregiver,playback interrupted,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+M03-S07,M03,Recording details + audience,Parent / caregiver,audio revoked,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+M03-S08,M03,Recording details + audience,Parent / caregiver,delete request pending,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+M03-S09,M03,Recording details + audience,Parent / caregiver,offline,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+B01-S00,B01,Subscription + entitlement,Parent / caregiver,base,"SUB-01, SUB-02; AT-08, AT-09, AT-10",Base layout
+B01-S01,B01,Subscription + entitlement,Parent / caregiver,active subscription,"SUB-01, SUB-02; AT-08, AT-09, AT-10",Required design variant/annotation; not a separate product screen
+B01-S02,B01,Subscription + entitlement,Parent / caregiver,expired subscription,"SUB-01, SUB-02; AT-08, AT-09, AT-10",Required design variant/annotation; not a separate product screen
+B01-S03,B01,Subscription + entitlement,Parent / caregiver,no subscription data,"SUB-01, SUB-02; AT-08, AT-09, AT-10",Required design variant/annotation; not a separate product screen
+B01-S04,B01,Subscription + entitlement,Parent / caregiver,entitlement unknown,"SUB-01, SUB-02; AT-08, AT-09, AT-10",Required design variant/annotation; not a separate product screen
+B01-S05,B01,Subscription + entitlement,Parent / caregiver,renewal pending,"SUB-01, SUB-02; AT-08, AT-09, AT-10",Required design variant/annotation; not a separate product screen
+B01-S06,B01,Subscription + entitlement,Parent / caregiver,accepted incident after expiry,"SUB-01, SUB-02; AT-08, AT-09, AT-10",Required design variant/annotation; not a separate product screen
+B01-S07,B01,Subscription + entitlement,Parent / caregiver,outside coverage with active plan,"SUB-01, SUB-02; AT-08, AT-09, AT-10",Required design variant/annotation; not a separate product screen
+B01-S08,B01,Subscription + entitlement,Parent / caregiver,offline with active plan,"SUB-01, SUB-02; AT-08, AT-09, AT-10",Required design variant/annotation; not a separate product screen
+B02-S00,B02,Plan + renewal review,Parent / caregiver,base,"SUB-01; PRD §§6,12",Base layout
+B02-S01,B02,Plan + renewal review,Parent / caregiver,plans configured,"SUB-01; PRD §§6,12",Required design variant/annotation; not a separate product screen
+B02-S02,B02,Plan + renewal review,Parent / caregiver,pricing unavailable,"SUB-01; PRD §§6,12",Required design variant/annotation; not a separate product screen
+B02-S03,B02,Plan + renewal review,Parent / caregiver,no eligible plan,"SUB-01; PRD §§6,12",Required design variant/annotation; not a separate product screen
+B02-S04,B02,Plan + renewal review,Parent / caregiver,terms not approved,"SUB-01; PRD §§6,12",Required design variant/annotation; not a separate product screen
+B02-S05,B02,Plan + renewal review,Parent / caregiver,offline,"SUB-01; PRD §§6,12",Required design variant/annotation; not a separate product screen
+B03-S00,B03,Billing handoff + result,Parent / caregiver,base,"SUB-01; AT-08, AT-10",Base layout
+B03-S01,B03,Billing handoff + result,Parent / caregiver,checkout launched,"SUB-01; AT-08, AT-10",Required design variant/annotation; not a separate product screen
+B03-S02,B03,Billing handoff + result,Parent / caregiver,payment failed,"SUB-01; AT-08, AT-10",Required design variant/annotation; not a separate product screen
+B03-S03,B03,Billing handoff + result,Parent / caregiver,checkout cancelled,"SUB-01; AT-08, AT-10",Required design variant/annotation; not a separate product screen
+B03-S04,B03,Billing handoff + result,Parent / caregiver,payment pending,"SUB-01; AT-08, AT-10",Required design variant/annotation; not a separate product screen
+B03-S05,B03,Billing handoff + result,Parent / caregiver,checkout interrupted,"SUB-01; AT-08, AT-10",Required design variant/annotation; not a separate product screen
+B03-S06,B03,Billing handoff + result,Parent / caregiver,provider result unknown,"SUB-01; AT-08, AT-10",Required design variant/annotation; not a separate product screen
+B03-S07,B03,Billing handoff + result,Parent / caregiver,verified entitlement success,"SUB-01; AT-08, AT-10",Required design variant/annotation; not a separate product screen
+B03-S08,B03,Billing handoff + result,Parent / caregiver,restore access entry if applicable,"SUB-01; AT-08, AT-10",Required design variant/annotation; not a separate product screen
+B03-S09,B03,Billing handoff + result,Parent / caregiver,restore pending or failed if applicable,"SUB-01; AT-08, AT-10",Required design variant/annotation; not a separate product screen
+B03-S10,B03,Billing handoff + result,Parent / caregiver,offline,"SUB-01; AT-08, AT-10",Required design variant/annotation; not a separate product screen
+B04-S00,B04,Billing history + documents,Parent / caregiver,base,"SUB-01; PRD §§6,8",Base layout
+B04-S01,B04,Billing history + documents,Parent / caregiver,loading,"SUB-01; PRD §§6,8",Required design variant/annotation; not a separate product screen
+B04-S02,B04,Billing history + documents,Parent / caregiver,empty,"SUB-01; PRD §§6,8",Required design variant/annotation; not a separate product screen
+B04-S03,B04,Billing history + documents,Parent / caregiver,invoice unavailable,"SUB-01; PRD §§6,8",Required design variant/annotation; not a separate product screen
+B04-S04,B04,Billing history + documents,Parent / caregiver,refund pending,"SUB-01; PRD §§6,8",Required design variant/annotation; not a separate product screen
+B04-S05,B04,Billing history + documents,Parent / caregiver,access denied,"SUB-01; PRD §§6,8",Required design variant/annotation; not a separate product screen
+B04-S06,B04,Billing history + documents,Parent / caregiver,offline,"SUB-01; PRD §§6,8",Required design variant/annotation; not a separate product screen
+I01-S00,I01,Parent request context,Parent / caregiver,base,"INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",Base layout
+I01-S01,I01,Parent request context,Parent / caregiver,multiple children,"INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",Required design variant/annotation; not a separate product screen
+I01-S02,I01,Parent request context,Parent / caregiver,remote parent location warning,"INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",Required design variant/annotation; not a separate product screen
+I01-S03,I01,Parent request context,Parent / caregiver,location permission denied,"INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",Required design variant/annotation; not a separate product screen
+I01-S04,I01,Parent request context,Parent / caregiver,location missing,"INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",Required design variant/annotation; not a separate product screen
+I01-S05,I01,Parent request context,Parent / caregiver,location stale,"INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",Required design variant/annotation; not a separate product screen
+I01-S06,I01,Parent request context,Parent / caregiver,location inaccurate,"INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",Required design variant/annotation; not a separate product screen
+I01-S07,I01,Parent request context,Parent / caregiver,saved fallback,"INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",Required design variant/annotation; not a separate product screen
+I01-S08,I01,Parent request context,Parent / caregiver,outside service area,"INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",Required design variant/annotation; not a separate product screen
+I01-S09,I01,Parent request context,Parent / caregiver,entitlement expired,"INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",Required design variant/annotation; not a separate product screen
+I01-S10,I01,Parent request context,Parent / caregiver,entitlement unknown,"INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",Required design variant/annotation; not a separate product screen
+I01-S11,I01,Parent request context,Parent / caregiver,offline,"INC-01; LOC-01, LOC-02; SUB-02; AT-01, AT-04, AT-05",Required design variant/annotation; not a separate product screen
+I02-S00,I02,Request delivery feedback,Parent / caregiver,base,"INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",Base layout
+I02-S01,I02,Request delivery feedback,Parent / caregiver,sending,"INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",Required design variant/annotation; not a separate product screen
+I02-S02,I02,Request delivery feedback,Parent / caregiver,server received,"INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",Required design variant/annotation; not a separate product screen
+I02-S03,I02,Request delivery feedback,Parent / caregiver,delivery unconfirmed timeout,"INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",Required design variant/annotation; not a separate product screen
+I02-S04,I02,Request delivery feedback,Parent / caregiver,offline not sent,"INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",Required design variant/annotation; not a separate product screen
+I02-S05,I02,Request delivery feedback,Parent / caregiver,duplicate tap same request,"INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",Required design variant/annotation; not a separate product screen
+I02-S06,I02,Request delivery feedback,Parent / caregiver,coverage rejected,"INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",Required design variant/annotation; not a separate product screen
+I02-S07,I02,Request delivery feedback,Parent / caregiver,entitlement rejected,"INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",Required design variant/annotation; not a separate product screen
+I02-S08,I02,Request delivery feedback,Parent / caregiver,revoked credential,"INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",Required design variant/annotation; not a separate product screen
+I02-S09,I02,Request delivery feedback,Parent / caregiver,reconnect old queued action relevance review,"INC-01, INC-02; AT-02, AT-03, AT-19, AT-20",Required design variant/annotation; not a separate product screen
+I03-S00,I03,Live incident,Parent / caregiver,base,"INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",Base layout
+I03-S01,I03,Live incident,Parent / caregiver,coordinator unclaimed,"INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",Required design variant/annotation; not a separate product screen
+I03-S02,I03,Live incident,Parent / caregiver,coordinator claimed,"INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",Required design variant/annotation; not a separate product screen
+I03-S03,I03,Live incident,Parent / caregiver,no crew available,"INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",Required design variant/annotation; not a separate product screen
+I03-S04,I03,Live incident,Parent / caregiver,crew offered,"INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",Required design variant/annotation; not a separate product screen
+I03-S05,I03,Live incident,Parent / caregiver,crew declined or timed out,"INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",Required design variant/annotation; not a separate product screen
+I03-S06,I03,Live incident,Parent / caregiver,team accepted,"INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",Required design variant/annotation; not a separate product screen
+I03-S07,I03,Live incident,Parent / caregiver,team en route,"INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",Required design variant/annotation; not a separate product screen
+I03-S08,I03,Live incident,Parent / caregiver,team arrived,"INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",Required design variant/annotation; not a separate product screen
+I03-S09,I03,Live incident,Parent / caregiver,EMS provider unknown,"INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",Required design variant/annotation; not a separate product screen
+I03-S10,I03,Live incident,Parent / caregiver,offline stale status,"INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",Required design variant/annotation; not a separate product screen
+I03-S11,I03,Live incident,Parent / caregiver,subscription expires during incident,"INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",Required design variant/annotation; not a separate product screen
+I03-S12,I03,Live incident,Parent / caregiver,cancellation requested pending review,"INC-03 through INC-09; SUB-01; AT-06, AT-10, AT-11, AT-18",Required design variant/annotation; not a separate product screen
+I04-S00,I04,Additional help + follow-up,Parent / caregiver,base,"INC-02, INC-09; AT-02; PRD §14",Base layout
+I04-S01,I04,Additional help + follow-up,Parent / caregiver,followup requires review,"INC-02, INC-09; AT-02; PRD §14",Required design variant/annotation; not a separate product screen
+I04-S02,I04,Additional help + follow-up,Parent / caregiver,different incident location,"INC-02, INC-09; AT-02; PRD §14",Required design variant/annotation; not a separate product screen
+I04-S03,I04,Additional help + follow-up,Parent / caregiver,separate emergency not independently handled,"INC-02, INC-09; AT-02; PRD §14",Required design variant/annotation; not a separate product screen
+I04-S04,I04,Additional help + follow-up,Parent / caregiver,new request entitlement expired,"INC-02, INC-09; AT-02; PRD §14",Required design variant/annotation; not a separate product screen
+I04-S05,I04,Additional help + follow-up,Parent / caregiver,sending,"INC-02, INC-09; AT-02; PRD §14",Required design variant/annotation; not a separate product screen
+I04-S06,I04,Additional help + follow-up,Parent / caregiver,delivery unconfirmed,"INC-02, INC-09; AT-02; PRD §14",Required design variant/annotation; not a separate product screen
+I04-S07,I04,Additional help + follow-up,Parent / caregiver,offline,"INC-02, INC-09; AT-02; PRD §14",Required design variant/annotation; not a separate product screen
+I05-S00,I05,Incident history,Parent / caregiver,base,"INC-08, INC-09; PRD §8",Base layout
+I05-S01,I05,Incident history,Parent / caregiver,loading,"INC-08, INC-09; PRD §8",Required design variant/annotation; not a separate product screen
+I05-S02,I05,Incident history,Parent / caregiver,empty,"INC-08, INC-09; PRD §8",Required design variant/annotation; not a separate product screen
+I05-S03,I05,Incident history,Parent / caregiver,partial history,"INC-08, INC-09; PRD §8",Required design variant/annotation; not a separate product screen
+I05-S04,I05,Incident history,Parent / caregiver,access revoked,"INC-08, INC-09; PRD §8",Required design variant/annotation; not a separate product screen
+I05-S05,I05,Incident history,Parent / caregiver,offline stale history,"INC-08, INC-09; PRD §8",Required design variant/annotation; not a separate product screen
+I06-S00,I06,Incident outcome detail,Parent / caregiver,base,"INC-07, INC-08; ACC-06; PRD §14 closure",Base layout
+I06-S01,I06,Incident outcome detail,Parent / caregiver,resolved assistance and handover,"INC-07, INC-08; ACC-06; PRD §14 closure",Required design variant/annotation; not a separate product screen
+I06-S02,I06,Incident outcome detail,Parent / caregiver,cancelled after review,"INC-07, INC-08; ACC-06; PRD §14 closure",Required design variant/annotation; not a separate product screen
+I06-S03,I06,Incident outcome detail,Parent / caregiver,EMS outcome uncertain,"INC-07, INC-08; ACC-06; PRD §14 closure",Required design variant/annotation; not a separate product screen
+I06-S04,I06,Incident outcome detail,Parent / caregiver,outcome detail unavailable,"INC-07, INC-08; ACC-06; PRD §14 closure",Required design variant/annotation; not a separate product screen
+I06-S05,I06,Incident outcome detail,Parent / caregiver,retention unavailable,"INC-07, INC-08; ACC-06; PRD §14 closure",Required design variant/annotation; not a separate product screen
+I06-S06,I06,Incident outcome detail,Parent / caregiver,offline,"INC-07, INC-08; ACC-06; PRD §14 closure",Required design variant/annotation; not a separate product screen
+I07-S00,I07,Temporary-care updates,Parent / caregiver,base,"ACC-01 through ACC-07; AT-16, AT-17",Base layout
+I07-S01,I07,Temporary-care updates,Parent / caregiver,capacity review,"ACC-01 through ACC-07; AT-16, AT-17",Required design variant/annotation; not a separate product screen
+I07-S02,I07,Temporary-care updates,Parent / caregiver,no suitable place,"ACC-01 through ACC-07; AT-16, AT-17",Required design variant/annotation; not a separate product screen
+I07-S03,I07,Temporary-care updates,Parent / caregiver,authority unresolved,"ACC-01 through ACC-07; AT-16, AT-17",Required design variant/annotation; not a separate product screen
+I07-S04,I07,Temporary-care updates,Parent / caregiver,place reserved,"ACC-01 through ACC-07; AT-16, AT-17",Required design variant/annotation; not a separate product screen
+I07-S05,I07,Temporary-care updates,Parent / caregiver,intake recorded,"ACC-01 through ACC-07; AT-16, AT-17",Required design variant/annotation; not a separate product screen
+I07-S06,I07,Temporary-care updates,Parent / caregiver,temporary care active,"ACC-01 through ACC-07; AT-16, AT-17",Required design variant/annotation; not a separate product screen
+I07-S07,I07,Temporary-care updates,Parent / caregiver,authorized release recorded,"ACC-01 through ACC-07; AT-16, AT-17",Required design variant/annotation; not a separate product screen
+I07-S08,I07,Temporary-care updates,Parent / caregiver,placement unknown,"ACC-01 through ACC-07; AT-16, AT-17",Required design variant/annotation; not a separate product screen
+I07-S09,I07,Temporary-care updates,Parent / caregiver,offline,"ACC-01 through ACC-07; AT-16, AT-17",Required design variant/annotation; not a separate product screen
+I08-S00,I08,Care authorization + recipient check,Parent / caregiver,base,"FAM-02; ACC-03, ACC-06; AT-17",Base layout
+I08-S01,I08,Care authorization + recipient check,Parent / caregiver,wrong person,"FAM-02; ACC-03, ACC-06; AT-17",Required design variant/annotation; not a separate product screen
+I08-S02,I08,Care authorization + recipient check,Parent / caregiver,authority missing,"FAM-02; ACC-03, ACC-06; AT-17",Required design variant/annotation; not a separate product screen
+I08-S03,I08,Care authorization + recipient check,Parent / caregiver,authority expired,"FAM-02; ACC-03, ACC-06; AT-17",Required design variant/annotation; not a separate product screen
+I08-S04,I08,Care authorization + recipient check,Parent / caregiver,contested consent,"FAM-02; ACC-03, ACC-06; AT-17",Required design variant/annotation; not a separate product screen
+I08-S05,I08,Care authorization + recipient check,Parent / caregiver,verification pending,"FAM-02; ACC-03, ACC-06; AT-17",Required design variant/annotation; not a separate product screen
+I08-S06,I08,Care authorization + recipient check,Parent / caregiver,verification failed,"FAM-02; ACC-03, ACC-06; AT-17",Required design variant/annotation; not a separate product screen
+I08-S07,I08,Care authorization + recipient check,Parent / caregiver,verified decision pending coordinator,"FAM-02; ACC-03, ACC-06; AT-17",Required design variant/annotation; not a separate product screen
+I08-S08,I08,Care authorization + recipient check,Parent / caregiver,offline,"FAM-02; ACC-03, ACC-06; AT-17",Required design variant/annotation; not a separate product screen
+S01-S00,S01,Settings + service information,Parent / caregiver,base,FAM-01; PRD §8,Base layout
+S01-S01,S01,Settings + service information,Parent / caregiver,loading,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+S01-S02,S01,Settings + service information,Parent / caregiver,offline,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+S01-S03,S01,Settings + service information,Parent / caregiver,configuration unavailable,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+S01-S04,S01,Settings + service information,Parent / caregiver,adult session expired,FAM-01; PRD §8,Required design variant/annotation; not a separate product screen
+S02-S00,S02,Account + security,Parent / caregiver,base,"FAM-01, FAM-02; PRD §8",Base layout
+S02-S01,S02,Account + security,Parent / caregiver,reauthentication,"FAM-01, FAM-02; PRD §8",Required design variant/annotation; not a separate product screen
+S02-S02,S02,Account + security,Parent / caregiver,unverified contact change,"FAM-01, FAM-02; PRD §8",Required design variant/annotation; not a separate product screen
+S02-S03,S02,Account + security,Parent / caregiver,change pending,"FAM-01, FAM-02; PRD §8",Required design variant/annotation; not a separate product screen
+S02-S04,S02,Account + security,Parent / caregiver,session expired,"FAM-01, FAM-02; PRD §8",Required design variant/annotation; not a separate product screen
+S02-S05,S02,Account + security,Parent / caregiver,offline,"FAM-01, FAM-02; PRD §8",Required design variant/annotation; not a separate product screen
+S03-S00,S03,Privacy + data requests,Parent / caregiver,base,MEDIA-02; PRD §8,Base layout
+S03-S01,S03,Privacy + data requests,Parent / caregiver,data export request,MEDIA-02; PRD §8,Required design variant/annotation; not a separate product screen
+S03-S02,S03,Privacy + data requests,Parent / caregiver,account deletion request,MEDIA-02; PRD §8,Required design variant/annotation; not a separate product screen
+S03-S03,S03,Privacy + data requests,Parent / caregiver,correction request,MEDIA-02; PRD §8,Required design variant/annotation; not a separate product screen
+S03-S04,S03,Privacy + data requests,Parent / caregiver,request pending,MEDIA-02; PRD §8,Required design variant/annotation; not a separate product screen
+S03-S05,S03,Privacy + data requests,Parent / caregiver,legal hold review,MEDIA-02; PRD §8,Required design variant/annotation; not a separate product screen
+S03-S06,S03,Privacy + data requests,Parent / caregiver,authority denied,MEDIA-02; PRD §8,Required design variant/annotation; not a separate product screen
+S03-S07,S03,Privacy + data requests,Parent / caregiver,request failed,MEDIA-02; PRD §8,Required design variant/annotation; not a separate product screen
+S03-S08,S03,Privacy + data requests,Parent / caregiver,request fulfilled,MEDIA-02; PRD §8,Required design variant/annotation; not a separate product screen
+S03-S09,S03,Privacy + data requests,Parent / caregiver,offline,MEDIA-02; PRD §8,Required design variant/annotation; not a separate product screen
+S04-S00,S04,Notification preferences,Parent / caregiver,base,"INC-03, INC-04; PRD §8",Base layout
+S04-S01,S04,Notification preferences,Parent / caregiver,notification permission denied,"INC-03, INC-04; PRD §8",Required design variant/annotation; not a separate product screen
+S04-S02,S04,Notification preferences,Parent / caregiver,unverified channel,"INC-03, INC-04; PRD §8",Required design variant/annotation; not a separate product screen
+S04-S03,S04,Notification preferences,Parent / caregiver,delivery unavailable,"INC-03, INC-04; PRD §8",Required design variant/annotation; not a separate product screen
+S04-S04,S04,Notification preferences,Parent / caregiver,saving,"INC-03, INC-04; PRD §8",Required design variant/annotation; not a separate product screen
+S04-S05,S04,Notification preferences,Parent / caregiver,offline,"INC-03, INC-04; PRD §8",Required design variant/annotation; not a separate product screen
+S05-S00,S05,Support + account help,Parent / caregiver,base,"SUB-02; PRD §§2,12",Base layout
+S05-S01,S05,Support + account help,Parent / caregiver,support contact unavailable,"SUB-02; PRD §§2,12",Required design variant/annotation; not a separate product screen
+S05-S02,S05,Support + account help,Parent / caregiver,outside support hours,"SUB-02; PRD §§2,12",Required design variant/annotation; not a separate product screen
+S05-S03,S05,Support + account help,Parent / caregiver,offline help,"SUB-02; PRD §§2,12",Required design variant/annotation; not a separate product screen
+S05-S04,S05,Support + account help,Parent / caregiver,contact handoff failed,"SUB-02; PRD §§2,12",Required design variant/annotation; not a separate product screen
+S05-S05,S05,Support + account help,Parent / caregiver,contact handoff unknown,"SUB-02; PRD §§2,12",Required design variant/annotation; not a separate product screen
+C01-S00,C01,Child-device activation,Linked child,base,"DEV-01, DEV-02; AT-15",Base layout
+C01-S01,C01,Child-device activation,Linked child,unlinked,"DEV-01, DEV-02; AT-15",Required design variant/annotation; not a separate product screen
+C01-S02,C01,Child-device activation,Linked child,pairing pending,"DEV-01, DEV-02; AT-15",Required design variant/annotation; not a separate product screen
+C01-S03,C01,Child-device activation,Linked child,expired challenge,"DEV-01, DEV-02; AT-15",Required design variant/annotation; not a separate product screen
+C01-S04,C01,Child-device activation,Linked child,wrong child,"DEV-01, DEV-02; AT-15",Required design variant/annotation; not a separate product screen
+C01-S05,C01,Child-device activation,Linked child,device revoked,"DEV-01, DEV-02; AT-15",Required design variant/annotation; not a separate product screen
+C01-S06,C01,Child-device activation,Linked child,offline,"DEV-01, DEV-02; AT-15",Required design variant/annotation; not a separate product screen
+C02-S00,C02,Accessible child help home,Linked child,base,"DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",Base layout
+C02-S01,C02,Accessible child help home,Linked child,non-reader help adaptation,"DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",Required design variant/annotation; not a separate product screen
+C02-S02,C02,Accessible child help home,Linked child,assistive input adaptation,"DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",Required design variant/annotation; not a separate product screen
+C02-S03,C02,Accessible child help home,Linked child,active incident,"DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",Required design variant/annotation; not a separate product screen
+C02-S04,C02,Accessible child help home,Linked child,offline,"DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",Required design variant/annotation; not a separate product screen
+C02-S05,C02,Accessible child help home,Linked child,entitlement inactive,"DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",Required design variant/annotation; not a separate product screen
+C02-S06,C02,Accessible child help home,Linked child,outside coverage,"DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",Required design variant/annotation; not a separate product screen
+C02-S07,C02,Accessible child help home,Linked child,revoked device,"DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",Required design variant/annotation; not a separate product screen
+C02-S08,C02,Accessible child help home,Linked child,unlinked device,"DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",Required design variant/annotation; not a separate product screen
+C02-S09,C02,Accessible child help home,Linked child,ordinary calling unsupported,"DEV-02; INC-01, INC-03; SUB-02; AT-01, AT-03",Required design variant/annotation; not a separate product screen
+C03-S00,C03,Child request + response status,Linked child,base,"INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",Base layout
+C03-S01,C03,Child request + response status,Linked child,local sending,"INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",Required design variant/annotation; not a separate product screen
+C03-S02,C03,Child request + response status,Linked child,delivery unconfirmed,"INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",Required design variant/annotation; not a separate product screen
+C03-S03,C03,Child request + response status,Linked child,server received,"INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",Required design variant/annotation; not a separate product screen
+C03-S04,C03,Child request + response status,Linked child,coordinator owner claimed,"INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",Required design variant/annotation; not a separate product screen
+C03-S05,C03,Child request + response status,Linked child,crew offered,"INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",Required design variant/annotation; not a separate product screen
+C03-S06,C03,Child request + response status,Linked child,team assigned,"INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",Required design variant/annotation; not a separate product screen
+C03-S07,C03,Child request + response status,Linked child,team en route,"INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",Required design variant/annotation; not a separate product screen
+C03-S08,C03,Child request + response status,Linked child,followup review,"INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",Required design variant/annotation; not a separate product screen
+C03-S09,C03,Child request + response status,Linked child,accidental tap cancellation requested,"INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",Required design variant/annotation; not a separate product screen
+C03-S10,C03,Child request + response status,Linked child,offline stale status,"INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",Required design variant/annotation; not a separate product screen
+C03-S11,C03,Child request + response status,Linked child,revoked device,"INC-01 through INC-04, INC-07; AT-01, AT-02, AT-03, AT-18",Required design variant/annotation; not a separate product screen
+C04-S00,C04,Comfort activity,Linked child,base,"MEDIA-01, MEDIA-02; AT-14",Base layout
+C04-S01,C04,Comfort activity,Linked child,no comfort content,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+C04-S02,C04,Comfort activity,Linked child,audio unavailable,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+C04-S03,C04,Comfort activity,Linked child,playback interrupted,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+C04-S04,C04,Comfort activity,Linked child,offline cache not approved,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+C04-S05,C04,Comfort activity,Linked child,audience revoked,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+C04-S06,C04,Comfort activity,Linked child,non-audio alternative,"MEDIA-01, MEDIA-02; AT-14",Required design variant/annotation; not a separate product screen
+O01-S00,O01,Staff access + role landing,Staff access,base,"PRD §§3,8",Base layout
+O01-S01,O01,Staff access + role landing,Staff access,no authorized role,"PRD §§3,8",Required design variant/annotation; not a separate product screen
+O01-S02,O01,Staff access + role landing,Staff access,region mismatch,"PRD §§3,8",Required design variant/annotation; not a separate product screen
+O01-S03,O01,Staff access + role landing,Staff access,MFA pending,"PRD §§3,8",Required design variant/annotation; not a separate product screen
+O01-S04,O01,Staff access + role landing,Staff access,session expired,"PRD §§3,8",Required design variant/annotation; not a separate product screen
+O01-S05,O01,Staff access + role landing,Staff access,offline,"PRD §§3,8",Required design variant/annotation; not a separate product screen
+Q01-S00,Q01,Regional incident queue,Coordinator,base,INC-03 through INC-06; PRD §14 coordination,Base layout
+Q01-S01,Q01,Regional incident queue,Coordinator,loading,INC-03 through INC-06; PRD §14 coordination,Required design variant/annotation; not a separate product screen
+Q01-S02,Q01,Regional incident queue,Coordinator,empty,INC-03 through INC-06; PRD §14 coordination,Required design variant/annotation; not a separate product screen
+Q01-S03,Q01,Regional incident queue,Coordinator,unclaimed,INC-03 through INC-06; PRD §14 coordination,Required design variant/annotation; not a separate product screen
+Q01-S04,Q01,Regional incident queue,Coordinator,no crew,INC-03 through INC-06; PRD §14 coordination,Required design variant/annotation; not a separate product screen
+Q01-S05,Q01,Regional incident queue,Coordinator,overdue,INC-03 through INC-06; PRD §14 coordination,Required design variant/annotation; not a separate product screen
+Q01-S06,Q01,Regional incident queue,Coordinator,review flag,INC-03 through INC-06; PRD §14 coordination,Required design variant/annotation; not a separate product screen
+Q01-S07,Q01,Regional incident queue,Coordinator,offline stale feed,INC-03 through INC-06; PRD §14 coordination,Required design variant/annotation; not a separate product screen
+Q02-S00,Q02,Coordinator incident workspace,Coordinator,base,"INC-03, INC-08, LOC-01; PRD §14",Base layout
+Q02-S01,Q02,Coordinator incident workspace,Coordinator,unowned,"INC-03, INC-08, LOC-01; PRD §14",Required design variant/annotation; not a separate product screen
+Q02-S02,Q02,Coordinator incident workspace,Coordinator,owned by another,"INC-03, INC-08, LOC-01; PRD §14",Required design variant/annotation; not a separate product screen
+Q02-S03,Q02,Coordinator incident workspace,Coordinator,takeover reason,"INC-03, INC-08, LOC-01; PRD §14",Required design variant/annotation; not a separate product screen
+Q02-S04,Q02,Coordinator incident workspace,Coordinator,missing location,"INC-03, INC-08, LOC-01; PRD §14",Required design variant/annotation; not a separate product screen
+Q02-S05,Q02,Coordinator incident workspace,Coordinator,stale location,"INC-03, INC-08, LOC-01; PRD §14",Required design variant/annotation; not a separate product screen
+Q02-S06,Q02,Coordinator incident workspace,Coordinator,followup review,"INC-03, INC-08, LOC-01; PRD §14",Required design variant/annotation; not a separate product screen
+Q02-S07,Q02,Coordinator incident workspace,Coordinator,provider unknown,"INC-03, INC-08, LOC-01; PRD §14",Required design variant/annotation; not a separate product screen
+Q02-S08,Q02,Coordinator incident workspace,Coordinator,offline,"INC-03, INC-08, LOC-01; PRD §14",Required design variant/annotation; not a separate product screen
+Q03-S00,Q03,Crew review + offers,Coordinator,base,"INC-05, INC-06; AT-06, AT-07",Base layout
+Q03-S01,Q03,Crew review + offers,Coordinator,no available crew,"INC-05, INC-06; AT-06, AT-07",Required design variant/annotation; not a separate product screen
+Q03-S02,Q03,Crew review + offers,Coordinator,offer pending,"INC-05, INC-06; AT-06, AT-07",Required design variant/annotation; not a separate product screen
+Q03-S03,Q03,Crew review + offers,Coordinator,declined with reason,"INC-05, INC-06; AT-06, AT-07",Required design variant/annotation; not a separate product screen
+Q03-S04,Q03,Crew review + offers,Coordinator,offer timed out,"INC-05, INC-06; AT-06, AT-07",Required design variant/annotation; not a separate product screen
+Q03-S05,Q03,Crew review + offers,Coordinator,team accepted,"INC-05, INC-06; AT-06, AT-07",Required design variant/annotation; not a separate product screen
+Q03-S06,Q03,Crew review + offers,Coordinator,availability changed,"INC-05, INC-06; AT-06, AT-07",Required design variant/annotation; not a separate product screen
+Q03-S07,Q03,Crew review + offers,Coordinator,offline,"INC-05, INC-06; AT-06, AT-07",Required design variant/annotation; not a separate product screen
+Q04-S00,Q04,EMS handoff + evidence,Coordinator,base,"INC-04, INC-08; AT-11, AT-12",Base layout
+Q04-S01,Q04,EMS handoff + evidence,Coordinator,handoff pending,"INC-04, INC-08; AT-11, AT-12",Required design variant/annotation; not a separate product screen
+Q04-S02,Q04,EMS handoff + evidence,Coordinator,provider receipt only,"INC-04, INC-08; AT-11, AT-12",Required design variant/annotation; not a separate product screen
+Q04-S03,Q04,EMS handoff + evidence,Coordinator,provider unknown,"INC-04, INC-08; AT-11, AT-12",Required design variant/annotation; not a separate product screen
+Q04-S04,Q04,EMS handoff + evidence,Coordinator,contact confirmed,"INC-04, INC-08; AT-11, AT-12",Required design variant/annotation; not a separate product screen
+Q04-S05,Q04,EMS handoff + evidence,Coordinator,dispatch confirmed,"INC-04, INC-08; AT-11, AT-12",Required design variant/annotation; not a separate product screen
+Q04-S06,Q04,EMS handoff + evidence,Coordinator,arrival confirmed,"INC-04, INC-08; AT-11, AT-12",Required design variant/annotation; not a separate product screen
+Q04-S07,Q04,EMS handoff + evidence,Coordinator,no dispatch,"INC-04, INC-08; AT-11, AT-12",Required design variant/annotation; not a separate product screen
+Q04-S08,Q04,EMS handoff + evidence,Coordinator,closed with evidence,"INC-04, INC-08; AT-11, AT-12",Required design variant/annotation; not a separate product screen
+Q04-S09,Q04,EMS handoff + evidence,Coordinator,offline,"INC-04, INC-08; AT-11, AT-12",Required design variant/annotation; not a separate product screen
+Q05-S00,Q05,Outcome + response reconciliation,Coordinator,base,"INC-07, INC-08; ACC-06; AT-18; PRD §14 closure",Base layout
+Q05-S01,Q05,Outcome + response reconciliation,Coordinator,crew unreconciled,"INC-07, INC-08; ACC-06; AT-18; PRD §14 closure",Required design variant/annotation; not a separate product screen
+Q05-S02,Q05,Outcome + response reconciliation,Coordinator,EMS unknown,"INC-07, INC-08; ACC-06; AT-18; PRD §14 closure",Required design variant/annotation; not a separate product screen
+Q05-S03,Q05,Outcome + response reconciliation,Coordinator,placement unreconciled,"INC-07, INC-08; ACC-06; AT-18; PRD §14 closure",Required design variant/annotation; not a separate product screen
+Q05-S04,Q05,Outcome + response reconciliation,Coordinator,authority mismatch,"INC-07, INC-08; ACC-06; AT-18; PRD §14 closure",Required design variant/annotation; not a separate product screen
+Q05-S05,Q05,Outcome + response reconciliation,Coordinator,incomplete outcome,"INC-07, INC-08; ACC-06; AT-18; PRD §14 closure",Required design variant/annotation; not a separate product screen
+Q05-S06,Q05,Outcome + response reconciliation,Coordinator,cancellation review,"INC-07, INC-08; ACC-06; AT-18; PRD §14 closure",Required design variant/annotation; not a separate product screen
+Q05-S07,Q05,Outcome + response reconciliation,Coordinator,resolved after verified disposition,"INC-07, INC-08; ACC-06; AT-18; PRD §14 closure",Required design variant/annotation; not a separate product screen
+Q05-S08,Q05,Outcome + response reconciliation,Coordinator,offline,"INC-07, INC-08; ACC-06; AT-18; PRD §14 closure",Required design variant/annotation; not a separate product screen
+Q06-S00,Q06,Unrouted incident review,Administration,base,"LOC-01, LOC-02; AT-04, AT-05",Base layout
+Q06-S01,Q06,Unrouted incident review,Administration,loading,"LOC-01, LOC-02; AT-04, AT-05",Required design variant/annotation; not a separate product screen
+Q06-S02,Q06,Unrouted incident review,Administration,empty,"LOC-01, LOC-02; AT-04, AT-05",Required design variant/annotation; not a separate product screen
+Q06-S03,Q06,Unrouted incident review,Administration,missing location,"LOC-01, LOC-02; AT-04, AT-05",Required design variant/annotation; not a separate product screen
+Q06-S04,Q06,Unrouted incident review,Administration,stale location,"LOC-01, LOC-02; AT-04, AT-05",Required design variant/annotation; not a separate product screen
+Q06-S05,Q06,Unrouted incident review,Administration,ambiguous region,"LOC-01, LOC-02; AT-04, AT-05",Required design variant/annotation; not a separate product screen
+Q06-S06,Q06,Unrouted incident review,Administration,no eligible region,"LOC-01, LOC-02; AT-04, AT-05",Required design variant/annotation; not a separate product screen
+Q06-S07,Q06,Unrouted incident review,Administration,responsibility verified,"LOC-01, LOC-02; AT-04, AT-05",Required design variant/annotation; not a separate product screen
+Q06-S08,Q06,Unrouted incident review,Administration,offline,"LOC-01, LOC-02; AT-04, AT-05",Required design variant/annotation; not a separate product screen
+R01-S00,R01,Crew offers,Responder,base,"INC-05, INC-06; AT-06, AT-07",Base layout
+R01-S01,R01,Crew offers,Responder,empty,"INC-05, INC-06; AT-06, AT-07",Required design variant/annotation; not a separate product screen
+R01-S02,R01,Crew offers,Responder,offer pending,"INC-05, INC-06; AT-06, AT-07",Required design variant/annotation; not a separate product screen
+R01-S03,R01,Crew offers,Responder,expired offer,"INC-05, INC-06; AT-06, AT-07",Required design variant/annotation; not a separate product screen
+R01-S04,R01,Crew offers,Responder,declined with reason,"INC-05, INC-06; AT-06, AT-07",Required design variant/annotation; not a separate product screen
+R01-S05,R01,Crew offers,Responder,accepted,"INC-05, INC-06; AT-06, AT-07",Required design variant/annotation; not a separate product screen
+R01-S06,R01,Crew offers,Responder,team already assigned elsewhere,"INC-05, INC-06; AT-06, AT-07",Required design variant/annotation; not a separate product screen
+R01-S07,R01,Crew offers,Responder,offline,"INC-05, INC-06; AT-06, AT-07",Required design variant/annotation; not a separate product screen
+R02-S00,R02,Assigned response + care,Responder,base,"CARE-01; MEDIA-01; INC-04, INC-05; AT-13, AT-14",Base layout
+R02-S01,R02,Assigned response + care,Responder,accepted,"CARE-01; MEDIA-01; INC-04, INC-05; AT-13, AT-14",Required design variant/annotation; not a separate product screen
+R02-S02,R02,Assigned response + care,Responder,en route,"CARE-01; MEDIA-01; INC-04, INC-05; AT-13, AT-14",Required design variant/annotation; not a separate product screen
+R02-S03,R02,Assigned response + care,Responder,arrived,"CARE-01; MEDIA-01; INC-04, INC-05; AT-13, AT-14",Required design variant/annotation; not a separate product screen
+R02-S04,R02,Assigned response + care,Responder,location update unknown,"CARE-01; MEDIA-01; INC-04, INC-05; AT-13, AT-14",Required design variant/annotation; not a separate product screen
+R02-S05,R02,Assigned response + care,Responder,care audio unavailable,"CARE-01; MEDIA-01; INC-04, INC-05; AT-13, AT-14",Required design variant/annotation; not a separate product screen
+R02-S06,R02,Assigned response + care,Responder,offline,"CARE-01; MEDIA-01; INC-04, INC-05; AT-13, AT-14",Required design variant/annotation; not a separate product screen
+R02-S07,R02,Assigned response + care,Responder,assignment access ended,"CARE-01; MEDIA-01; INC-04, INC-05; AT-13, AT-14",Required design variant/annotation; not a separate product screen
+R03-S00,R03,Crew care handover,Responder,base,"INC-08; ACC-04, ACC-06; PRD §14 closure",Base layout
+R03-S01,R03,Crew care handover,Responder,recipient unverified,"INC-08; ACC-04, ACC-06; PRD §14 closure",Required design variant/annotation; not a separate product screen
+R03-S02,R03,Crew care handover,Responder,handover pending,"INC-08; ACC-04, ACC-06; PRD §14 closure",Required design variant/annotation; not a separate product screen
+R03-S03,R03,Crew care handover,Responder,incomplete assistance record,"INC-08; ACC-04, ACC-06; PRD §14 closure",Required design variant/annotation; not a separate product screen
+R03-S04,R03,Crew care handover,Responder,submitted to coordinator,"INC-08; ACC-04, ACC-06; PRD §14 closure",Required design variant/annotation; not a separate product screen
+R03-S05,R03,Crew care handover,Responder,offline,"INC-08; ACC-04, ACC-06; PRD §14 closure",Required design variant/annotation; not a separate product screen
+T01-S00,T01,Facility + places overview,Accommodation,base,"ACC-01, ACC-02, ACC-07; AT-16",Base layout
+T01-S01,T01,Facility + places overview,Accommodation,loading,"ACC-01, ACC-02, ACC-07; AT-16",Required design variant/annotation; not a separate product screen
+T01-S02,T01,Facility + places overview,Accommodation,empty,"ACC-01, ACC-02, ACC-07; AT-16",Required design variant/annotation; not a separate product screen
+T01-S03,T01,Facility + places overview,Accommodation,no suitable place,"ACC-01, ACC-02, ACC-07; AT-16",Required design variant/annotation; not a separate product screen
+T01-S04,T01,Facility + places overview,Accommodation,capacity full,"ACC-01, ACC-02, ACC-07; AT-16",Required design variant/annotation; not a separate product screen
+T01-S05,T01,Facility + places overview,Accommodation,stale capacity,"ACC-01, ACC-02, ACC-07; AT-16",Required design variant/annotation; not a separate product screen
+T01-S06,T01,Facility + places overview,Accommodation,staff unavailable,"ACC-01, ACC-02, ACC-07; AT-16",Required design variant/annotation; not a separate product screen
+T01-S07,T01,Facility + places overview,Accommodation,offline,"ACC-01, ACC-02, ACC-07; AT-16",Required design variant/annotation; not a separate product screen
+T02-S00,T02,Placement suitability + authority,Coordinator,base,"ACC-01 through ACC-03, ACC-07; AT-16",Base layout
+T02-S01,T02,Placement suitability + authority,Coordinator,no capacity,"ACC-01 through ACC-03, ACC-07; AT-16",Required design variant/annotation; not a separate product screen
+T02-S02,T02,Placement suitability + authority,Coordinator,authority unresolved,"ACC-01 through ACC-03, ACC-07; AT-16",Required design variant/annotation; not a separate product screen
+T02-S03,T02,Placement suitability + authority,Coordinator,reservation conflict,"ACC-01 through ACC-03, ACC-07; AT-16",Required design variant/annotation; not a separate product screen
+T02-S04,T02,Placement suitability + authority,Coordinator,reserved,"ACC-01 through ACC-03, ACC-07; AT-16",Required design variant/annotation; not a separate product screen
+T02-S05,T02,Placement suitability + authority,Coordinator,offline,"ACC-01 through ACC-03, ACC-07; AT-16",Required design variant/annotation; not a separate product screen
+T03-S00,T03,Staff assignment + intake,Accommodation,base,"ACC-04, ACC-05",Base layout
+T03-S01,T03,Staff assignment + intake,Accommodation,staff unassigned,"ACC-04, ACC-05",Required design variant/annotation; not a separate product screen
+T03-S02,T03,Staff assignment + intake,Accommodation,transport arrival pending,"ACC-04, ACC-05",Required design variant/annotation; not a separate product screen
+T03-S03,T03,Staff assignment + intake,Accommodation,intake discrepancy,"ACC-04, ACC-05",Required design variant/annotation; not a separate product screen
+T03-S04,T03,Staff assignment + intake,Accommodation,authority conflict,"ACC-04, ACC-05",Required design variant/annotation; not a separate product screen
+T03-S05,T03,Staff assignment + intake,Accommodation,intake complete,"ACC-04, ACC-05",Required design variant/annotation; not a separate product screen
+T03-S06,T03,Staff assignment + intake,Accommodation,offline,"ACC-04, ACC-05",Required design variant/annotation; not a separate product screen
+T04-S00,T04,Active care + staff handover,Accommodation,base,"ACC-04, ACC-05; PRD §8",Base layout
+T04-S01,T04,Active care + staff handover,Accommodation,active care,"ACC-04, ACC-05; PRD §8",Required design variant/annotation; not a separate product screen
+T04-S02,T04,Active care + staff handover,Accommodation,shift change,"ACC-04, ACC-05; PRD §8",Required design variant/annotation; not a separate product screen
+T04-S03,T04,Active care + staff handover,Accommodation,care issue escalation,"ACC-04, ACC-05; PRD §8",Required design variant/annotation; not a separate product screen
+T04-S04,T04,Active care + staff handover,Accommodation,handover pending,"ACC-04, ACC-05; PRD §8",Required design variant/annotation; not a separate product screen
+T04-S05,T04,Active care + staff handover,Accommodation,access expired,"ACC-04, ACC-05; PRD §8",Required design variant/annotation; not a separate product screen
+T04-S06,T04,Active care + staff handover,Accommodation,offline,"ACC-04, ACC-05; PRD §8",Required design variant/annotation; not a separate product screen
+T05-S00,T05,Verified release + handover,Accommodation,base,ACC-06; AT-17,Base layout
+T05-S01,T05,Verified release + handover,Accommodation,wrong recipient,ACC-06; AT-17,Required design variant/annotation; not a separate product screen
+T05-S02,T05,Verified release + handover,Accommodation,identity unverified,ACC-06; AT-17,Required design variant/annotation; not a separate product screen
+T05-S03,T05,Verified release + handover,Accommodation,authority missing,ACC-06; AT-17,Required design variant/annotation; not a separate product screen
+T05-S04,T05,Verified release + handover,Accommodation,contested release,ACC-06; AT-17,Required design variant/annotation; not a separate product screen
+T05-S05,T05,Verified release + handover,Accommodation,approved release,ACC-06; AT-17,Required design variant/annotation; not a separate product screen
+T05-S06,T05,Verified release + handover,Accommodation,released,ACC-06; AT-17,Required design variant/annotation; not a separate product screen
+T05-S07,T05,Verified release + handover,Accommodation,offline,ACC-06; AT-17,Required design variant/annotation; not a separate product screen
+N01-S00,N01,Service regions + provider configuration,Administration,base,"PRD §§5,8,12; LOC-02",Base layout
+N01-S01,N01,Service regions + provider configuration,Administration,disabled region,"PRD §§5,8,12; LOC-02",Required design variant/annotation; not a separate product screen
+N01-S02,N01,Service regions + provider configuration,Administration,unapproved configuration,"PRD §§5,8,12; LOC-02",Required design variant/annotation; not a separate product screen
+N01-S03,N01,Service regions + provider configuration,Administration,save failure,"PRD §§5,8,12; LOC-02",Required design variant/annotation; not a separate product screen
+N01-S04,N01,Service regions + provider configuration,Administration,provider unavailable,"PRD §§5,8,12; LOC-02",Required design variant/annotation; not a separate product screen
+N01-S05,N01,Service regions + provider configuration,Administration,simulation mode,"PRD §§5,8,12; LOC-02",Required design variant/annotation; not a separate product screen
+N01-S06,N01,Service regions + provider configuration,Administration,offline,"PRD §§5,8,12; LOC-02",Required design variant/annotation; not a separate product screen
+N02-S00,N02,Staff roles + crews,Administration,base,"PRD §§3,5,8,12; INC-05",Base layout
+N02-S01,N02,Staff roles + crews,Administration,staff coverage missing,"PRD §§3,5,8,12; INC-05",Required design variant/annotation; not a separate product screen
+N02-S02,N02,Staff roles + crews,Administration,qualification missing,"PRD §§3,5,8,12; INC-05",Required design variant/annotation; not a separate product screen
+N02-S03,N02,Staff roles + crews,Administration,availability stale,"PRD §§3,5,8,12; INC-05",Required design variant/annotation; not a separate product screen
+N02-S04,N02,Staff roles + crews,Administration,staff access revoked,"PRD §§3,5,8,12; INC-05",Required design variant/annotation; not a separate product screen
+N02-S05,N02,Staff roles + crews,Administration,saving,"PRD §§3,5,8,12; INC-05",Required design variant/annotation; not a separate product screen
+N02-S06,N02,Staff roles + crews,Administration,offline,"PRD §§3,5,8,12; INC-05",Required design variant/annotation; not a separate product screen
+N03-S00,N03,Commercial + entitlement administration,Administration,base,"SUB-01; PRD §§6,12",Base layout
+N03-S01,N03,Commercial + entitlement administration,Administration,billing unknown,"SUB-01; PRD §§6,12",Required design variant/annotation; not a separate product screen
+N03-S02,N03,Commercial + entitlement administration,Administration,active entitlement,"SUB-01; PRD §§6,12",Required design variant/annotation; not a separate product screen
+N03-S03,N03,Commercial + entitlement administration,Administration,expired entitlement,"SUB-01; PRD §§6,12",Required design variant/annotation; not a separate product screen
+N03-S04,N03,Commercial + entitlement administration,Administration,reconciliation pending,"SUB-01; PRD §§6,12",Required design variant/annotation; not a separate product screen
+N03-S05,N03,Commercial + entitlement administration,Administration,invalid interval,"SUB-01; PRD §§6,12",Required design variant/annotation; not a separate product screen
+N03-S06,N03,Commercial + entitlement administration,Administration,offline,"SUB-01; PRD §§6,12",Required design variant/annotation; not a separate product screen
+N04-S00,N04,Privacy + audit oversight,Administration,base,PRD §8; MEDIA-02; AT-13,Base layout
+N04-S01,N04,Privacy + audit oversight,Administration,audit unavailable,PRD §8; MEDIA-02; AT-13,Required design variant/annotation; not a separate product screen
+N04-S02,N04,Privacy + audit oversight,Administration,access denied,PRD §8; MEDIA-02; AT-13,Required design variant/annotation; not a separate product screen
+N04-S03,N04,Privacy + audit oversight,Administration,retention legal hold,PRD §8; MEDIA-02; AT-13,Required design variant/annotation; not a separate product screen
+N04-S04,N04,Privacy + audit oversight,Administration,data request pending,PRD §8; MEDIA-02; AT-13,Required design variant/annotation; not a separate product screen
+N04-S05,N04,Privacy + audit oversight,Administration,offline,PRD §8; MEDIA-02; AT-13,Required design variant/annotation; not a separate product screen

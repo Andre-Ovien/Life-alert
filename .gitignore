@@ -1,0 +1,19 @@
+.venv/
+.env
+__pycache__/
+*.py[cod]
+*.sqlite3
+private-media/
+.coverage
+.DS_Store
+.runtime/
+
+# Local secrets and database sidecars
+.env.*
+!.env.example
+*.sqlite3-*
+# Local rendered QA previews (PDFs and editable source remain versioned)
+/docs/exports/previews/
+/docs/exports/screen-handoff-previews/
+/docs/exports/verification.json
+/docs/exports/screen-handoff-verification.json

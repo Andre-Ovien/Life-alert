@@ -1,0 +1,10 @@
+{
+  "unique_screens": 65,
+  "consumer_screens": 46,
+  "operations_screens": 19,
+  "consumer_shared_access": 6,
+  "consumer_adult": 36,
+  "consumer_child": 4,
+  "screen_state_entries": 502,
+  "additional_named_states": 437
+}
