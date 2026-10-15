@@ -1,6 +1,6 @@
 # Life alert
 
-Django REST backend foundation for the Life alert care/response service. Future Android/iOS clients will use Flutter; mobile implementation is deferred.
+Django REST backend foundation for the Life alert care/response service. The Android/iOS client foundation uses Flutter under `frontend/mobile`; its routes currently use shared placeholders.
 
 Start with [the product requirements](docs/PRD.md) and [the backend/API guide](docs/BACKEND.md). This foundation has **simulated providers only**; it does not operate a live emergency, payment or messaging service.
 
@@ -26,7 +26,7 @@ In another terminal, from `backend/`:
 ../.venv/bin/python manage.py process_work
 ```
 
-Run `process_work` manually to consume local simulated notification/EMS jobs and expire crew offers. No periodic scheduler or external provider is enabled. Health endpoint: `/health/`. API base: `/api/v1/`.
+Run `process_work` manually to consume durable simulated notification/EMS work, review configured response fallbacks and expire unaccepted offers/reservations. No periodic scheduler or external provider is enabled. Liveness: `/health/`; database/migration readiness: `/health/ready/`. API base: `/api/v1/`. Run `make schema` to validate the OpenAPI contract in `docs/openapi.yaml`.
 
 SQLite is for single-process local exploration. PostgreSQL is required to validate row locking and concurrent operational workflows. See the backend guide for configuration and tests. Do not use real child data in local development.
 

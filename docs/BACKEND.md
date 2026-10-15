@@ -1,185 +1,115 @@
-# Backend foundation and API guide
+# Backend and API guide
 
-**Baseline:** October 15, 2026. Read alongside [PRD.md](PRD.md). The human selected Django and future Flutter, authorized sensible backend defaults, and confirmed accepted incidents continue after subscription expiry. Formal client validation and live operating arrangements remain pending.
+Updated October 15, 2026. The backend implements the controllable PRD workflows using local simulations and protected manual evidence. It does not operate a live emergency, payment, messaging or care service. The [completion matrix](BACKEND-COMPLETION.md) maps requirements to evidence and external launch decisions. The reviewed source of product intent remains [PRD.md](PRD.md).
 
-## What exists
+The baseline was published at `bebe4a97be12300482514ddd6fad3e35ebdb9ea4`. The subsequent backend implementation and documentation are tracked on [`codex/response-workflow-reliability`](https://github.com/Andre-Ovien/Life-alert/tree/codex/response-workflow-reliability) for GitHub review. The Flutter foundation exists separately under `frontend/mobile`; these backend changes do not alter the mobile UI or designer PDF snapshots.
 
-A modular Django REST backend with migrations, authenticated API endpoints, scoped device credentials, household/profile/contact management, private care audio, a local entitlement ledger, transactional incident acceptance, coordinator ownership/progress, independent crew/EMS/notification/placement states and audit events. All integrations are local simulations or manual evidence records. No mobile application, payment processing, outbound messaging or real emergency request is implemented.
+## Reproduce and verify
 
-Django **5.2.18 LTS** was selected for extended security support and compatibility with installed Python 3.14.6; DRF **3.18.3** and exact dependencies are pinned in `requirements.txt`. Django's [supported-version table](https://www.djangoproject.com/download/) lists 5.2 LTS through April 2028; its [Python compatibility table](https://docs.djangoproject.com/en/5.2/faq/install/) supports Python 3.14 from 5.2.8. See [DRF's official requirements](https://www.django-rest-framework.org/). Recheck security patch releases before deployment.
+Use the root README for installation. Exact dependencies are pinned in `requirements.txt`: Django/DRF, PostgreSQL driver, PyOTP, cryptography and drf-spectacular with their dependencies. Settings read shell environment variables directly; `.env.example` is reference material, not automatically loaded. No default account, child data, entitlement or active region is seeded.
 
-| Package | Responsibility |
-| --- | --- |
-| `config` | Settings, URLs, WSGI; local defaults and PostgreSQL environment selection |
-| `common` | Structural audit events, registration/session endpoints, no-store responses |
-| `families` | Household guardian relationships, child profiles, contacts, device credentials, care media, entitlement ledger |
-| `operations` | Disabled-by-default regions, on-duty/available crews, coordinator memberships, facilities, audited config API |
-| `incidents` | Atomic services, independent response records, ownership/progress, safe provider adapters and local worker |
-| `frontend/` | Flutter/client boundary notes only; no UI scaffold or dependencies |
-
-## Run and authenticate
-
-Follow the root README for the virtual environment and migrations. Run commands from `backend/` so Django's default test discovery finds the application tests. Alternatively use `make test` from the repository root.
-
-1. `GET /api/v1/session/` obtains a CSRF token and cookie.
-2. `POST /api/v1/register/` with `username`, `password`, `household_name` and the CSRF token creates a guardian household. It grants no subscription and does not verify legal authority.
-3. `POST /api/v1/session/` with `username`, `password` and CSRF token creates an adult session and returns the refreshed token. Use cookies and `X-CSRFToken` for subsequent mutations. `DELETE` logs out.
-4. A guardian creates a child, then `POST /api/v1/devices/` with `child` and `label`. The response returns a device `credential` **once**. Store it securely; the database stores only its SHA-256 digest.
-5. Child device requests use `Authorization: Device <credential>`. This credential is limited to the linked child and is revocable; it is not a parent session.
-
-An operator can create local accounts with `createsuperuser`; a configuration superuser logs in through the same session endpoint. There is no Django admin site that bypasses the audited configuration API. Ordinary `is_staff` is not sufficient to configure the service, and superuser status alone does not grant child/incident browsing.
-
-Adult native-app authentication, email verification, password recovery, staff MFA, credential rotation/expiry and production abuse prevention are deferred. Current authentication is a local foundation, not a production identity service.
-
-## API inventory
-
-All routes below are relative to `/api/v1/`. UUID identifiers are opaque; obscurity is not authorization. List endpoints normally paginate under `results`. No domain-record DELETE routes are exposed.
-
-| Route | Methods / audience | Purpose |
-| --- | --- | --- |
-| `households/`, `households/{id}/` | Guardian list/create/read | Own household only; creation links current guardian |
-| `children/`, `children/{id}/` | Guardian list/create/read/update | Own profiles; moving children between households unsupported |
-| `contacts/`, `contacts/{id}/` | Guardian list/create/read | Emergency contacts; does not grant care/release authority |
-| `devices/`, `devices/{id}/` | Guardian list/create/read | Link devices; raw credential returned once |
-| `devices/{id}/revoke/` | Guardian POST | Revoke child-device access immediately for subsequent authentication/acceptance |
-| `media/`, `media/{id}/` | Authorized list/read; guardian create/update | Purpose/audience metadata and text; no storage URLs |
-| `media/{id}/upload/` | Guardian POST multipart `audio` | Validated PCM WAV, at most 5 MiB and 180 seconds; opaque stored filename |
-| `media/{id}/audio/` | Authorized GET | Private authenticated stream with no-store response |
-| `incidents/help/` | Guardian or linked child POST | Accept eligible help, replay request or register explicit follow-up |
-| `incidents/`, `incidents/{id}/` | Scoped GET | Guardian own child, linked device minimal own state, regional coordinator, currently assigned responder |
-| `incidents/{id}/care/` | Guardian/coordinator/assigned responder GET | Relevant individual communication/support/calming fields; audited |
-| `incidents/{id}/claim-ownership/` | Regional coordinator POST | Acknowledge ownership; received becomes triage; another owner's takeover requires `takeover_reason` |
-| `incidents/{id}/progress/` | Regional coordinator GET/POST | Current owner records `action_taken`, `next_steps`; optional `review_completed` clears review flag |
-| `incidents/{id}/followups/` | Regional coordinator GET | Request IDs, original timestamps and supplied locations for incident/follow-up reconciliation |
-| `incidents/{id}/acknowledge-notification/` | Guardian/coordinator POST | `audience`: own guardian or coordinator audience; acknowledgement is separate from delivery and ownership |
-| `incidents/{id}/transition/` | Regional coordinator POST | `target`, optional `outcome`, `reconciled`; disposition requires owner or explicit takeover |
-| `incidents/{id}/request-cancellation/` | Guardian/linked child/coordinator POST | Records request; never deletes incident or cancels external response automatically |
-| `incidents/{id}/offer-team/` | Regional coordinator POST | `team`, `suitability_confirmed`; on-duty available same-region team, one live offer |
-| `my-offers/` | Crew GET | Own offer IDs/deadlines; no child identity before acceptance |
-| `my-offers/{assignment}/transition/` | Offered/assigned crew POST | `target`, and `reason` required on decline |
-| `incidents/{id}/ems-evidence/` | Regional coordinator POST | `state`, `evidence`; explicit manual record, no actual provider call |
-| `incidents/{id}/reserve-placement/` | Regional coordinator POST | `facility`, `authority_reference`, `suitability_confirmed`; atomic capacity check |
-| `incidents/{id}/placement-transition/` | Regional coordinator POST | `placement`, `target`, `handover_reference`; records reviewed intake/release/cancellation |
-| `configuration/regions/`, `teams/`, `facilities/`, `coordinators/` | Configuration superuser list/create/read/update | Audited configuration; region associations immutable after creation |
-| `configuration/entitlements/` | Configuration superuser POST | Local entitlement upsert: `household`, `active`, `starts_at`, `ends_at`; never charges money |
-| `configuration/unrouted/` | Configuration superuser GET | Minimal queue of open incidents needing regional routing |
-| `configuration/unrouted/{id}/route/` | Configuration superuser POST | `region`, `location_verified`; operator verifies responsibility, retains original location quality |
-
-Example help body (synthetic values only):
-
-```json
-{
-  "child": "<linked-child-uuid>",
-  "request_id": "<new-request-uuid-preserved-for-retries>",
-  "location": {
-    "latitude": 35.0,
-    "longitude": -75.0,
-    "accuracy_meters": 20,
-    "captured_at": "2026-10-15T10:00:00Z"
-  }
-}
-```
-
-Omit `location` entirely if unavailable. A supplied location must have all four fields. Device responses contain minimal incident state/receipt/review flags; they expose no responder instructions, location, family contacts or coordinator identity. Adult incident responses show independent crew, EMS, placement and notification statuses. HTTP receipt/201 is never an arrival or dispatch guarantee. Ordinary emergency calling belongs to the future native device calling pathway, separate from paid APIs; there is no server endpoint pretending to place an emergency call.
-
-## Transactional acceptance and entitlement
-
-Acceptance and local entitlement updates lock the **household first**. Device revocation uses the same household-first lock and rechecks the device credential under that lock. PostgreSQL therefore serializes entitlement changes, revocation and acceptance for a household.
-
-- An authorized `(child, request_id)` replay with the identical normalized location returns its original incident, including after expiry. Changed location with the same ID is rejected; retain the initial request ID/payload across retries.
-- New request IDs require current `active` entitlement and `starts_at <= server time < ends_at`.
-- A unique partial database constraint permits **one open incident per child**. A different request ID during an open incident records a durable request with its supplied location, returns `followup_requires_review`, sets `review_required` and writes an audit event. Coordinator follow-up inspection is available. It does not silently start or claim independent dispatch for a second emergency.
-- **Limitation:** truly separate simultaneous emergencies and meaningful location changes need human reconciliation. Follow-up location is retained but does not automatically replace original routing or assign another crew. Automated separate-event management and push re-alerting are deferred.
-- Accepted incident + two independent notification jobs + EMS handoff record + request mapping + audit are committed together. No parent acknowledgement gates this transaction or later crew/EMS work.
-- Accepted incidents continue after entitlement expiry; a new paid request cannot. Current entitlement renewal is reflected separately. `CONTINUE_ACCEPTED_INCIDENTS=1` is the human-confirmed default. Setting it to `0` only reports `policy_review_required`; it **does not stop accepted care**. Any different operational policy needs reviewed implementation.
-- Network failure or outside coverage never changes billing state. Missing/uncertain location is accepted for manual routing review when entitlement is active. Fresh coordinates outside all enabled pilot regions return an explicit coverage error without creating a paid incident. Retries of accepted requests still work if configuration changes.
-
-The billing adapter reads a local ledger only. Webhook verification, event ordering/reconciliation, plan products, charges/refunds and real provider integration remain unimplemented. All future ledger writers must use the household-lock service boundary.
-
-## Exact independent states
-
-### Incident lifecycle and accountable ownership
-
-| From | To | Required meaning/check |
-| --- | --- | --- |
-| `received` | `triage` | Coordinator claims review/ownership; records owner identity |
-| `triage` | `active` | Coordinator activates response, or crew accepts an offer |
-| `active` | `resolved` | Owner records nonempty outcome; response branches completed/reconciled; `reconciled=true` |
-| `received`, `triage` | `cancelled` | Coordinator disposition; any already-started response must follow reviewed cancellation checks |
-| `active` | `cancelled` | Prior cancellation request, owner disposition, nonempty outcome and reconciled response branches |
-
-`response_started_at` is independent of lifecycle state: an offer, EMS operation/evidence or placement can start while the incident is still received/triage. Once set, closure requires all assignments to be complete/declined/timed_out, all placements released/cancelled, and EMS closed/no_dispatch. Early closure explicitly closes an unstarted EMS task. Incident state never changes solely from parent notification acknowledgement.
-
-**Confirmed human responsibility:** the coordinator actively works on a solution, acknowledges ownership, arranges appropriate response, records actions/next steps and follows through to verified handover/resolution. Notification alone is neither ownership nor resolution. Current owner creates progress notes; another regional coordinator may claim ownership with an explicit takeover reason. Production supervisor escalation and staffing remain pending.
-
-No accommodation is required to resolve an incident. The outcome must explain assistance provided, actual care/caregiver handover or approved disposition, known EMS outcome and follow-up ownership. The foundation enforces a nonempty narrative plus branch reconciliation; **it does not validate real-world identity, handover evidence or the truth/completeness of the narrative**. Structured handover, follow-up tasks and exceptional care decisions require further work before production.
-
-### Crew
-
-`offered → accepted → en_route → arrived → complete`; `offered → declined` requires a reason; unaccepted `offered → timed_out` occurs when the local worker runs after the configured deadline. Acceptance checks team membership, deadline, on-duty/current availability and atomic incident ownership. Accepted teams become unavailable; completion does not automatically declare them ready again.
-
-Only on-duty available regional teams with a coordinator suitability confirmation receive offers. Skills/qualifications are configurable metadata; automatic qualification matching and travel-time ranking are not implemented. A qualified team may decline because availability changed, equipment/transport failed or a support mismatch was discovered. Decline/timeout flags human review; **automatic next-team offers, interruption/reassignment, coordinator acknowledgement deadlines and backup/supervisor notifications are deferred**. The intended fallback chain is in the PRD; the backup policy remains proposed/configurable. No accepted crew means no “on the way” status.
-
-### EMS
-
-`handoff_pending` is a coordinator task. In a simulated region the worker changes it to `provider_acknowledged`, or `unknown` on a simulated timeout. Neither is contact or dispatch.
-
-Manual evidence transitions:
-
-- `handoff_pending`, `provider_acknowledged`, `unknown` → `contact_confirmed` or `closed`; pending/acknowledged can also become `unknown`.
-- `contact_confirmed` → `dispatch_confirmed`, `no_dispatch` or `closed`.
-- `dispatch_confirmed` → `arrived` or `closed`; `arrived`/`no_dispatch` → `closed`.
-
-Every manual transition requires coordinator-provided evidence and is audited. `closed` records reconciled disposition, not an assertion that EMS was cancelled. Unknown outcomes are never blindly retried. Evidence history is partially represented by audit state changes; a production evidence ledger preserving every provider payload/reference is still needed. There is no live provider selection or callable real EMS adapter.
-
-### Notification and placement
-
-Notification delivery state: `queued → simulated` in local worker. Reserved future delivery outcomes: `delivered`/`failed`. `acknowledged_at`/`acknowledged_by` are separate fields. Coordinator acknowledgement does not claim ownership. Recipient/channel delivery, retries and provider callbacks are deferred.
-
-Placement: `reserved → intake → released` or `reserved → cancelled`. Facility locks prevent over-capacity reservations across incidents; one live placement per incident. Coordinator records authority/suitability and handover references. Facilities default disabled/capacity zero. The model reserves staff relations but staff assignment API, suitability automation, transport, detailed care events, reservation expiry, recipient identity verification and licensing/consent review are deferred. A reference is evidence asserted by an authorized operator, not independently verified legal consent.
-
-## Location, security and operational limits
-
-Location values must be finite, geographically bounded and timestamped with accuracy. Development defaults: freshness **300 seconds**, accuracy **200 meters**, future-time tolerance **30 seconds**; these are configurable local test assumptions, not client-approved thresholds. Stale/inaccurate/missing/ambiguous location requires review, with any saved address explicitly labeled as fallback. Only a single enabled matching region is auto-selected. Region rectangles are provisional; no GIS, route estimates, geocoding or travel times exist. Production service polygons need PostGIS or an approved equivalent. Care endpoints currently return the latest profile; immutable incident care-version snapshots and caregiver invitation/verified authority workflows are deferred.
-
-The configuration admin's minimal unrouted queue allows verified regional handoff without giving every coordinator global child access. Global duty ownership and real notification for unrouted incidents must be established before launch. No automated routing from an unverified saved address is performed.
-
-Private media has no public URL and is streamed after audience/object authorization. Children see only comfort-authorized media; responders see instruction-authorized media only during assigned active response; coordinators see relevant responder media for their open regional incidents. Adult guardians manage their own family. Sensitive reads/mutations are audited; API responses use `Cache-Control: private, no-store`. File content is restricted to validated WAV in this foundation; arbitrary uploads are rejected. Storage cleanup/retention, malware controls, encrypted managed storage, backup policy and streaming revocation/cache policy need production design. Disk encryption/encrypted media storage are not provisioned by this repository.
-
-Audit events store actor/device IDs and controlled structural facts, not care details, precise locations, audio or raw credentials. Progress/outcome/evidence records are sensitive domain data. No list/delete audit API is exposed. Database operators can still alter audit rows; immutable external audit storage and tamper detection are pending. Operational traces must not record authorization headers, bodies or private response content.
-
-Django session/CSRF controls and object filtering enforce role boundaries. Region coordinator/team membership is configured by a privileged operator; legal guardian verification and qualified staffing remain external obligations. Production requires reviewed identity flows, staff MFA, TLS/proxy settings, secret management, monitoring/redaction, retention, incident recovery, deployment hardening and jurisdiction/legal review. No HIPAA/COPPA applicability or compliance is asserted.
-
-## PostgreSQL configuration and verification
-
-SQLite local exploration requires no server. It does **not** provide PostgreSQL row-lock behavior and is unsuitable for concurrent incident/capacity operations. Production should use PostgreSQL; no PostGIS extensions are required by these initial models.
-
-Export `POSTGRES_DB`, `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_HOST`, `POSTGRES_PORT` before running migrations/tests. The test user must be allowed to create a separate Django test database. Never run tests against real child data or a live operations database.
+From the repository root:
 
 ```sh
-cd backend
-../.venv/bin/python manage.py test
-../.venv/bin/python manage.py check
-../.venv/bin/python manage.py makemigrations --check --dry-run
+make migrate
+make check
+make test
+make test-postgres
+make schema
 ```
 
-Tests cover entitlement/replay/follow-up semantics, cross-family and regional/device/crew access, revocation, location failure/coverage, explicit lifecycle/cancellation/reconciliation, provider receipt/timeout, care-media audience access, coordinator ownership, capacity and release authority boundaries, CSRF and audited configuration. PostgreSQL-only thread tests exercise same-key retries, distinct-key acceptance serialization, entitlement expiry racing acceptance and competing capacity reservations; these skip under SQLite. Final validation results are recorded below.
+SQLite supports single-process exploration. PostgreSQL is required for concurrent workflows. `make test-postgres` uses the installed PostgreSQL tools to create an isolated, socket-only temporary cluster, runs all tests, then stops and removes it. It does not use an existing application database. Tests use synthetic people, locations and temporary media.
 
-`process_work` is a synchronous local simulation processor. It locks open incidents before processing local jobs and can be rerun without repeating completed logical work. It has no scheduler, live queue/leases, actual delivery, provider retries or uptime promise. A production worker must claim jobs with leases, use external idempotency keys outside database transactions, recover failures and reconcile ambiguous outcomes. Timers only progress while this command runs.
+`make schema` validates and regenerates [openapi.yaml](openapi.yaml), failing on schema warnings. Authenticated clients can also retrieve `/api/v1/schema/`. The contract describes requests, response envelopes and role-dependent projections; it does not relax authorization. The server validates operational conditions beyond field shapes, such as ownership, current authority, capacity and review state. HTTP 400/401/403/404/429 responses can contain field-specific validation details.
 
-For isolated local PostgreSQL verification, `make test-postgres` uses existing `initdb`/`pg_ctl` executables to create a temporary socket-only cluster under ignored `.runtime/`, runs the complete suite, then stops and removes that generated cluster. It does not connect to or alter existing databases/services. Installing a PostgreSQL server is optional for SQLite exploration.
+## Authentication and purpose boundaries
 
-## Public status contract
+Registration uses `GET /api/v1/session/` for a CSRF cookie/token, then `POST /api/v1/register/` with `username`, `password` and `household_name`. Registration creates an adult guardian household and grants no paid service or legal authority. Cookie sign-in uses `POST /api/v1/session/`; send cookies and `X-CSRFToken` on subsequent mutations. `DELETE` logs out.
 
-Adult and linked-child incident responses include `public_status.code` and a reassuring `message`. Codes reflect evidence: `request_received`, `coordinator_review`, `contacting_response_team` (offer actually sent), `team_assigned` (acceptance), `team_en_route`, `team_arrived`, `resolved`, `cancelled`. A follow-up creation response overrides its message to `followup_requires_review`; ordinary incident retrieval still describes the original incident's team, not an independently dispatched second event. Simulated EMS/notification receipts cannot produce team travel status. The client's proposed 5–10 minute mobilization target remains pending staffing/coverage and milestone validation; no ETA/SLA is returned or enforced.
+Native adult clients use `POST /api/v1/mobile/token/` with username/password and `Authorization: Bearer <access_token>`. Access and refresh credentials are returned once and stored only as hashes. `mobile/refresh/` rotates both credentials; reuse of a consumed refresh credential revokes its session, with revocation committed before returning an error. `mobile/logout/` revokes the current bearer session or all adult sessions with `all_sessions=true`. Password recovery also revokes adult bearer sessions. These actions do not revoke a linked child device.
 
-## Validation record — October 15, 2026
+Contact and recovery endpoints are `mobile/contact-challenges/`, `mobile/recovery/` and `mobile/challenges/{contact|recovery}/complete/`. Challenges are hashed, expiring and single-use. Public recovery responses do not enumerate eligible accounts. Delivery is simulated: public responses never expose challenge secrets and no email/SMS is sent. A reviewed real delivery adapter is required before production contact verification/recovery can function. Contact proof grants no guardianship, caregiver permission or release authority.
 
-- Full isolated PostgreSQL run: **35 tests passed**, including four concurrency/transaction tests. Temporary server stopped and generated cluster removed afterward.
-- Local SQLite run: **31 tests passed, 4 PostgreSQL-only tests skipped**.
-- Local migrations applied; Django system checks, migration drift check and dependency consistency check passed. The safe local worker command completed with no outbound activity.
-- Original project symlink still resolves to this SSD repository; documents and backend files are accessible through both paths.
-- `check --deploy` intentionally reports six warnings under local settings: development secret/debug, local HTTP redirect/cookies and unset HSTS. A non-debug environment requires a private secret and enables secure cookies/redirect; TLS/HSTS/proxy/deployment review is still required. This is not deployment-ready emergency infrastructure.
-- No commits, pushes, deployments, real payment operations, outbound messages, emergency calls or mobile screens were created.
+`mobile/mfa/` returns enrollment status. `mobile/mfa/{enroll|confirm|verify|disable}/` manages TOTP. Enrollment and disable require password reauthentication; disable also requires a current factor. Enrollment secrets are returned once and encrypted in the database with Fernet using a key derived from the Django secret. Confirmation returns eight recovery codes once; only their hashes persist. TOTP counters and recovery codes cannot be replayed. Verification belongs to the current bearer or CSRF-protected cookie session, expires independently of access-token rotation, and must follow current enrollment. Password recovery does not remove MFA. Key rotation requires a reviewed migration/re-enrollment procedure; changing the Django secret without one makes existing TOTP secrets unreadable.
 
-These checks validate backend behavior against synthetic data, not real staffing, response times, provider authority, legal care consent or field safety.
+With `DEBUG=0`, MFA is enforced for configuration admins, staff, coordinators, team members, care staff and privacy/audit reviewers. Ordinary guardians and linked child devices do not acquire an incident-time MFA or parent-login dependency. Local development leaves staff enforcement off; tests explicitly exercise enforcement on.
+
+A guardian or appropriately delegated caregiver creates a device or starts `device-pairing/`. Pairing tokens are one-use, expiring and manually shared; `device-pairing/consume/` exchanges one for a child credential. Child requests use `Authorization: Device <credential>`. Rotation replaces and revokes the old credential atomically; explicit revocation and optional expiry apply during both authentication and acceptance. Mobile clients must supply secure native credential storage.
+
+Configuration superusers can administer operating records but have no automatic child/incident browsing entitlement. Coordinators are regional; crews need a current accepted assignment to read care/location; facility staff need a reviewed, active, on-duty facility membership and a current placement assignment. Ended assignments and placements remove operational access. Caregiver rights are explicit, expiring and revocable. Emergency contacts, invitations and contact verification never imply legal authority.
+
+## API groups
+
+All routes below are relative to `/api/v1/`. UUIDs are opaque identifiers, not security controls. Lists normally paginate under `count`, `next`, `previous`, `results`; the schema records bounded `results`-only operational projections. There are no domain-record DELETE endpoints.
+
+| Group | Main routes and actions | Behavior |
+| --- | --- | --- |
+| Family | `households/`, `children/`, `contacts/`, `places/` | Family isolation; individual communication/support/calming information and labeled saved locations |
+| Care versions | `children/{id}/versions/`, `readiness/` | Immutable care snapshots; updates require `expected_version`; readiness reports facts without guaranteeing eligibility |
+| Caregivers | `caregiver-invitations/`, `consume/`, `{id}/revoke/`; `caregiver-grants/`, `{id}/revoke/` | Recipient-bound invitation, explicit rights and immediate revocation |
+| Authority | `authorities/`, `{id}/review/` | Pending evidence and operator-recorded external verification with purpose, subject and validity |
+| Devices | `devices/`, `{id}/revoke/`, `{id}/rotate/`; `device-pairing/`, `{id}/revoke/`, `consume/` | Hashed credentials, one-use pairing and replacement |
+| Media | `media/`, `{id}/upload/`, `{id}/audio/` | Audience-specific metadata, private authenticated streaming and text alternatives |
+| Entitlement | `households/{id}/entitlement/`; `configuration/entitlements/`, `configuration/billing-events/` | Factual eligibility; sandbox/manual updates only; normalized event revisions, replay and stale-event handling |
+| Help | `incidents/help/`, `incidents/`, `incidents/{id}/` | Durable acceptance, idempotency, minimal child response and scoped adult state |
+| Coordination | Incident actions `claim-ownership`, `progress`, `followups`, `acknowledge-notification`, `escalations`, `escalation-transition` | Accountable owner, recorded actions/next steps, durable unowned/failed/uncertain tasks |
+| Crew | Incident `offer-team`, `response-plan`; `my-offers/`, `{id}/transition/` | Reviewed candidates, real acceptance before assignment, decline/timeout fallback and minimal pre-acceptance disclosure |
+| Location | Incident `location-updates`, `review-location`, `region-handover`; `region-handovers/`, `{id}/accept/`, `{id}/decision/` | Idempotent observations, explicit review and receiving-owner acceptance; decline/cancel retains current responsibility |
+| EMS | Incident `ems-evidence`, `ems-events` | Separate provider receipt/contact/dispatch/arrival evidence; immutable idempotent manual event ledger |
+| Care | Incident `reserve-placement`, `placement-transition`, `care-placements`; `placements/`, `{id}/assign-staff/`, `accept-handover/`, `handover-decision/`, `handovers/`, `events/`, `transition/` | Capacity, current reviewed authority, staff acceptance, intake/shift/release and thin family updates |
+| Closure | Incident `request-cancellation`, `transition` | Cancellation request does not terminate response; owner disposition reconciles active branches and tasks |
+| Privacy | `privacy-requests/`, `{id}/review/`, `export/`, `correct/`, `media-hold/` | Requester scope, explicit reviewer permission, retained decision history and legal-hold hooks |
+| Audit | `audit-events/?object_id={uuid}` | Explicit security-review permission and exact-object scope; structural facts only; reads are audited |
+| Configuration | `configuration/regions`, `teams`, `facilities`, `care-places`, `facility-staff`, `coordinators`, `response-policies`, `retention-policies`, `unrouted` | Audited admin controls; disabled/unconfigured policies do not invent approved operations |
+
+## Acceptance, location and subscription
+
+Help requests use `child`, a client-preserved UUID `request_id`, and optional `location` containing `latitude`, `longitude`, `accuracy_meters` and ISO `captured_at`. Preserve the original payload across transport retries. All supplied location fields must be valid, finite values. Missing location can enter manual routing review; saved addresses remain explicitly labeled fallback. Fresh coordinates outside enabled pilot rectangles are rejected with a coverage result. Overlapping, stale or imprecise location requires review; it is never relabeled as a live fix.
+
+Acceptance and every entitlement writer lock the household first. Credentials are rechecked under that boundary. The incident, request mapping, care snapshot, independent notification jobs, EMS work record and audit commit before the server reports receipt. Receipt means persistence, not an accepted crew, contact with EMS or dispatch.
+
+An identical authorized request replay returns its original incident even after subscription expiry. New paid request IDs require current entitlement. One open incident per child is enforced by a database constraint. Another request ID during an open incident records its own location/timestamp, sets review required and returns `followup_requires_review`. Separate simultaneous emergencies require explicit coordinator reconciliation; no extra dispatch is fabricated. Location-observation/review and regional-handover APIs support this reconciliation without treating an observation as a new paid request.
+
+Accepted care continues after entitlement expiry. `CONTINUE_ACCEPTED_INCIDENTS=0` only changes the reported policy-review flag; it cannot stop accepted care. Ordinary native emergency calling remains separate from the paid backend and needs actual device capabilities.
+
+## Workers, truthful state and escalation
+
+`make work` runs one local simulation pass. `process_work --max-jobs 100` bounds notification attempts. Notification jobs have durable attempts, bounded retries/backoff, claim leases and fencing tokens. Provider simulation occurs outside the claim/finalization transactions. A simulated receipt lets an interrupted worker reconcile without resending. Unknown outcomes block for review; exceptions retain controlled codes rather than private raw messages. Closed incidents and obsolete offers/handovers cancel unsent jobs. No scheduler, live provider or real outbound recipient is enabled.
+
+Parent, organization and EMS branches operate independently. Parent acknowledgement never gates crew or EMS work. Notification receipt/acknowledgement, coordinator ownership, crew offer/acceptance/en-route/arrival, EMS contact/dispatch/arrival and placement states remain separate. Public messages reflect recorded facts and do not promise an ETA. The proposed 5–10 minute target remains a client decision, not a system guarantee.
+
+Approved response automation requires both an enabled regional response policy with named primary/backup and explicit timing/reference, and an owner-reviewed incident plan with ordered suitable candidate teams. Care/location changes invalidate the relevant plan review. Availability, duty, membership and prior attempts are checked again at offer time. A sent offer is not an assignment; acceptance is atomic. Declines/timeouts can offer the next reviewed candidate. Exhaustion and missing ownership create durable escalation and simulated backup alerts. Human acknowledgement alone does not claim incident ownership or resolve a task.
+
+The current coordinator owner actively arranges the response and records `action_taken` and `next_steps`. Takeover requires a reason. Regional transfer requires a named eligible receiver's acceptance; decline/cancellation preserves the current owner. Existing accepted crews are retained through regional review instead of duplicated. Reconcile any pending handover when responsibility changes; incident closure cancels unaccepted regional handovers.
+
+EMS simulation produces at most provider acknowledgement or uncertainty. Manual evidence events require explicit state/evidence and optionally an idempotent event UUID/observed timestamp. Replay cannot regress a later state. A provider receipt is never EMS contact/dispatch. Unknown EMS outcomes also create one durable reconciliation task. Human reconciliation is required before any potentially duplicating external action and before that task can be resolved.
+
+## Temporary care and closure
+
+A reservation requires enabled reviewed facility/place capacity, operator suitability confirmation and a current verified placement-authority record. Operator assertions reference real external verification; the software does not establish legal authority. Facility and place locks prevent double allocation. No capacity creates a persistent task, not a booking. A configured reservation expiry cancels only pre-intake capacity and escalates; it never automatically discharges a child already in care.
+
+Named, approved on-duty receiving staff get the relevant protected care subset and must accept responsibility before intake. Intake requires transport/intake references and records intake time and belongings. Shift changes retain the current owner until the named recipient accepts. Decline/cancel records the decision, removes unaccepted recipient access and permits a replacement handover. Care event UUIDs are idempotent; supported events are support, observation and handover notes, without inventing clinical treatment scope.
+
+Release requires the matching current reviewed release-recipient authority, explicit handover reference and no pending shift handover. Release records the recipient, evidence and time, then removes facility-staff access. A parent-facing placement projection excludes belongings, private authority evidence and staff details.
+
+Cancellation requests only request review. Closure requires authorized coordinator ownership, explicit disposition, no unresolved escalations and reconciled crew/EMS/placement branches. Resolution requires a narrative plus structured `assistance`, `handover`, `ems_disposition` and `followup` details. No placement is required when the actual assistance/disposition is documented. Software cannot establish the truth of real-world handover assertions.
+
+## Media and privacy lifecycle
+
+Audio is private PCM WAV, at most 5 MiB and 180 seconds; frame completeness, duration and format are validated. Storage paths/URLs are not exposed. All API responses use `private, no-store`. Upload replacement retains the previous private blob instead of silently orphaning/deleting it. Only applicable child comfort or operational instruction audiences can read it.
+
+Privacy requests support reviewed export, versioned child correction, media deletion and adult account closure. A dedicated Django permission controls review. Approval, holds and hold removal retain decision history. Export is requester-only, purpose-scoped application data; audio, credentials, staff private identity and provider raw records are excluded and labeled. It is not a claim of complete statutory disclosure.
+
+Unknown retention policy or legal hold prevents media purging. Reviewed media deletion first archives access, then schedules physical deletion after applicable recorded bounds. `purge_reviewed_media` is dry-run by default; `--apply` processes only reviewed, due local FileSystemStorage files and retired blobs, with current holds/policy rechecked under locks. Tests purge temporary synthetic files only. No cloud/backups/cache deletion adapter exists without a selected storage/retention policy.
+
+Account closure holds while the adult has active family care, coordinator ownership, crew/placement duties or acknowledged escalation responsibility, or disabling the last active guardian would orphan a household with children. Otherwise it deactivates the adult and revokes adult bearer sessions; it does not hard-delete evidence or revoke child access. Closure serializes against new acceptance and staff responsibility acquisition; an in-flight staff mutation rechecks the adult account under the same user lock. Deactivation is not a claim of erasing retained records, exports, backups or native cached media.
+
+## Health and deployment boundary
+
+`/health/` reports process liveness and simulated-provider mode. `/health/ready/` returns 200 only when the database is reachable, migrations are current and a configured production cache is usable; failures return a generic 503 without connection details. `live_service_ready` remains false. Infrastructure readiness does not assert staffed, legally approved service readiness.
+
+`DEBUG=0` requires a private Django secret of at least 50 characters, explicit hosts and PostgreSQL. It enables secure cookies, HTTPS redirect, HSTS, verified-contact requirements, staff MFA and a shared database cache for API throttling. Provision `lifealert_throttle_cache` using `manage.py createcachetable` during reviewed deployment. MFA settings/lifetimes and simulation mechanics are in `.env.example`. Proxy trust, cross-origin client setup and edge abuse protection require the actual hosting configuration. DRF throttles are best-effort limits, not a guarantee against distributed attacks. Production `check --deploy` reports the two domain-dependent HSTS subdomain/preload warnings: those flags remain unset until ownership and TLS coverage of the actual domain and subdomains are approved.
+
+Sensitive routine request logging is suppressed; structural audit excludes raw credentials, recordings, full care payloads and precise location. The application API exposes no audit edit/delete action. Database administrators can still alter storage; production needs restricted database roles, tamper-resistant log export, encryption, access reviews, backup/restore tests and monitoring. Hosting, scheduler supervision, incident response, disaster recovery and operational service targets require real infrastructure and named owners.
+
+Client/legal/provider dependencies are listed in the completion matrix. Real billing/store products and signed webhooks, contact/notification providers, EMS partners/jurisdiction, approved service polygons/hours/eligibility, staffing/qualifications, care licensing/transport, release verification, retention/backups and production secrets/storage remain external launch gates. The local implementation makes no HIPAA/COPPA applicability or compliance claim.
