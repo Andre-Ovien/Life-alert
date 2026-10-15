@@ -1,3 +1,4 @@
+import uuid
 import hashlib
 import json
 from datetime import timedelta
@@ -6,7 +7,7 @@ from django.db import transaction
 from django.utils import timezone
 from rest_framework.exceptions import PermissionDenied, ValidationError, NotFound
 from common.audit import audit
-from families.access import require_guardian, is_device
+from families.access import require_guardian, is_device, require_child_access
 from families.models import Child, Device, Household, Entitlement
 from operations.models import Region, Team, Facility
 from .access import require_coordinator
@@ -56,10 +57,10 @@ def create_incident(actor, child_id, key, location):
     Household.objects.select_for_update().get(pk=child.household_id)
     if is_device(actor):
         device = Device.objects.select_for_update().get(pk=actor.device.pk)
-        if device.revoked_at or device.child_id != child.id:
+        if device.revoked_at or (device.expires_at and device.expires_at<=timezone.now()) or device.child_id != child.id:
             raise PermissionDenied('Device not authorized.')
     else:
-        require_guardian(actor, child.household_id)
+        require_child_access(actor,child,'request_help')
     serialized = json.loads(json.dumps(location, default=lambda value: value.isoformat()))
     fingerprint = hashlib.sha256(json.dumps(serialized, sort_keys=True).encode()).hexdigest()
     previous = HelpRequest.objects.filter(child=child, key=key).select_related('incident').first()
@@ -80,7 +81,10 @@ def create_incident(actor, child_id, key, location):
         audit(actor, 'incident.followup_requires_review', current, request_id=str(key))
         return current, 'followup_requires_review'
     quality, region = location_context(location, at)
+    from families.services import ensure_version
+    care_version = ensure_version(child.id,actor)
     incident = Incident.objects.create(
+        care_version=care_version,
         child=child, region=region, accepted_at=at, accepted_entitlement_until=entitlement.ends_at,
         location=serialized, location_quality=quality,
         saved_address_fallback=child.saved_address if quality != 'fresh' else '',
@@ -91,6 +95,8 @@ def create_incident(actor, child_id, key, location):
     Notification.objects.bulk_create([
         Notification(incident=incident, audience='guardian'), Notification(incident=incident, audience='coordinator')])
     EMSOperation.objects.create(incident=incident)
+    from .workflow import enqueue_notifications
+    enqueue_notifications(incident)
     audit(actor, 'incident.accepted', incident, location_quality=quality)
     return incident, 'accepted'
 
@@ -99,7 +105,7 @@ def create_incident(actor, child_id, key, location):
 def revoke_device(actor, pk):
     device = Device.objects.select_related('child').get(pk=pk)
     Household.objects.select_for_update().get(pk=device.child.household_id)
-    require_guardian(actor, device.child.household_id)
+    require_child_access(actor,device.child,'manage_devices')
     device = Device.objects.select_for_update().get(pk=pk)
     device.revoked_at = timezone.now()
     device.save(update_fields=['revoked_at'])
@@ -112,7 +118,7 @@ def branches_reconciled(incident):
 
 
 @transaction.atomic
-def transition(actor, pk, target, outcome='', reconciled=False):
+def transition(actor, pk, target, outcome='', reconciled=False, outcome_details=None):
     incident = lock_incident(pk)
     require_coordinator(actor, incident)
     allowed = {'received': {'triage', 'cancelled'}, 'triage': {'active', 'cancelled'}, 'active': {'resolved', 'cancelled'}}
@@ -121,6 +127,8 @@ def transition(actor, pk, target, outcome='', reconciled=False):
     if target == 'triage':
         incident.coordinator_owner = actor
     if target in ['resolved', 'cancelled']:
+        if incident.escalations.exclude(status='resolved').exists():
+            raise ValidationError('Resolve outstanding response escalations before closing.')
         if incident.coordinator_owner_id not in [None, actor.pk]:
             raise PermissionDenied('Claim coordinator ownership before disposition.')
         incident.coordinator_owner = actor
@@ -135,6 +143,14 @@ def transition(actor, pk, target, outcome='', reconciled=False):
             incident.ems.state = 'closed'
             incident.ems.evidence = 'Closed before response started by coordinator disposition'
             incident.ems.save()
+        if target=='resolved':
+            required={'assistance','handover','ems_disposition','followup'}
+            if not isinstance(outcome_details,dict) or set(outcome_details)!=required or any(not isinstance(value,str) or not value.strip() or len(value)>2000 for value in outcome_details.values()):
+                raise ValidationError({'outcome_details':'Record assistance, verified handover/disposition, actual EMS disposition and follow-up ownership.'})
+            incident.outcome_details=outcome_details
+        from .models import IncidentHandover
+        IncidentHandover.objects.filter(incident=incident,status='pending').update(status='cancelled')
+        incident.closed_at=timezone.now();incident.closed_by=actor
         incident.outcome = outcome
     if target == 'active':
         incident.response_started_at = incident.response_started_at or timezone.now()
@@ -154,7 +170,8 @@ def request_cancellation(actor, pk):
     else:
         from families.access import guardian
         from .access import coordinator
-        if not (guardian(actor, incident.child.household_id) or coordinator(actor, incident)):
+        from families.access import child_access
+        if not (child_access(actor,incident.child,'request_help') or coordinator(actor, incident)):
             raise PermissionDenied()
     if incident.state not in OPEN_STATES:
         raise ValidationError('Incident is closed.')
@@ -178,6 +195,9 @@ def offer_team(actor, pk, team_id, suitability_confirmed):
     assignment = Assignment.objects.create(incident=incident, team=team, deadline=timezone.now()+timedelta(seconds=settings.CREW_OFFER_SECONDS))
     incident.response_started_at = incident.response_started_at or timezone.now()
     incident.save(update_fields=['response_started_at'])
+    from .workflow import enqueue_notifications
+    Notification.objects.get_or_create(incident=incident,audience='crew',context_key='offer:'+str(assignment.id),defaults={'recipient_team':team})
+    enqueue_notifications(incident)
     audit(actor, 'crew.offered', incident, assignment_id=str(assignment.id))
     return assignment
 
@@ -185,6 +205,8 @@ def offer_team(actor, pk, team_id, suitability_confirmed):
 @transaction.atomic
 def assignment_transition(actor, pk, assignment_id, target, reason=''):
     incident = lock_incident(pk)
+    from .access import require_active_adult
+    require_active_adult(actor)
     assignment = Assignment.objects.select_for_update().select_related('team').get(pk=assignment_id, incident=incident)
     if is_device(actor) or not assignment.team.members.filter(pk=actor.pk).exists():
         raise PermissionDenied('Offered/assigned team member required.')
@@ -204,6 +226,8 @@ def assignment_transition(actor, pk, assignment_id, target, reason=''):
         incident.state = 'active'
         incident.save(update_fields=['state'])
     if target == 'declined':
+        from .workflow import escalate
+        escalate(incident, 'crew_declined', 'assignment:'+str(assignment.id))
         incident.review_required = True
         incident.save(update_fields=['review_required'])
     assignment.state = target
@@ -216,12 +240,19 @@ def assignment_transition(actor, pk, assignment_id, target, reason=''):
 
 
 @transaction.atomic
-def record_ems(actor, pk, state, evidence):
+def record_ems(actor, pk, state, evidence, event_id=None, observed_at=None):
     incident = lock_incident(pk)
     require_coordinator(actor, incident)
     if incident.state not in OPEN_STATES or not evidence.strip():
         raise ValidationError('Open incident and evidence required.')
     operation = incident.ems
+    from .models import EMSEvidenceEvent
+    event_id=event_id or uuid.uuid4()
+    fingerprint=hashlib.sha256(json.dumps({'state':state,'evidence':evidence,'observed_at':observed_at.isoformat() if observed_at else None},sort_keys=True).encode()).hexdigest()
+    previous=EMSEvidenceEvent.objects.filter(operation=operation,event_id=event_id).first()
+    if previous:
+        if previous.fingerprint!=fingerprint:raise ValidationError('EMS evidence event ID reused with different data.')
+        return operation
     allowed = {
         'handoff_pending': {'contact_confirmed', 'unknown', 'closed'},
         'provider_acknowledged': {'contact_confirmed', 'unknown', 'closed'},
@@ -231,75 +262,107 @@ def record_ems(actor, pk, state, evidence):
     }
     if state not in allowed.get(operation.state, set()):
         raise ValidationError('Invalid EMS evidence transition.')
+    EMSEvidenceEvent.objects.create(operation=operation,event_id=event_id,fingerprint=fingerprint,state=state,evidence=evidence,observed_at=observed_at or timezone.now(),actor=actor)
     operation.state = state
     operation.evidence = evidence
     operation.save()
     incident.response_started_at = incident.response_started_at or timezone.now()
     incident.save(update_fields=['response_started_at'])
+    if state=='unknown':
+        from .workflow import escalate
+        escalate(incident,'ems_unknown','ems:'+str(operation.id))
     audit(actor, 'ems.evidence_recorded', incident, state=state)
     return operation
 
 
+class CapacityUnavailable(ValidationError):
+    default_detail='No capacity; coordinator must arrange alternatives.'
+    default_code='capacity_unavailable'
+
+
+def reserve_placement(actor, pk, facility_id, authority_reference, suitability_confirmed, authority=None, care_place=None):
+    try:
+        return _reserve_placement(actor,pk,facility_id,authority_reference,suitability_confirmed,authority,care_place)
+    except CapacityUnavailable:
+        from .workflow import escalate
+        with transaction.atomic():
+            incident=lock_incident(pk);require_coordinator(actor,incident)
+            escalate(incident,'care_capacity','care-capacity:'+str(pk)+':'+str(facility_id))
+        raise
+
+
 @transaction.atomic
-def reserve_placement(actor, pk, facility_id, authority_reference, suitability_confirmed):
-    incident = lock_incident(pk)
-    require_coordinator(actor, incident)
-    facility = Facility.objects.select_for_update().filter(pk=facility_id, region_id=incident.region_id, enabled=True).first()
-    if incident.state not in ['triage', 'active'] or not facility or not authority_reference.strip() or not suitability_confirmed:
+def _reserve_placement(actor,pk,facility_id,authority_reference,suitability_confirmed,authority=None,care_place=None):
+    from .care import approved_authority
+    from operations.models import CarePlace
+    incident=lock_incident(pk);require_coordinator(actor,incident)
+    facility=Facility.objects.select_for_update().filter(pk=facility_id,region_id=incident.region_id,enabled=True).first()
+    if incident.state not in ['triage','active'] or not facility or not authority_reference.strip() or not suitability_confirmed:
         raise ValidationError('Triage, suitable facility and verified authority reference required.')
-    if incident.placements.filter(state__in=['reserved', 'intake']).exists():
-        raise ValidationError('Incident already has a live placement.')
-    if Placement.objects.filter(facility=facility, state__in=['reserved', 'intake']).count() >= facility.capacity:
-        raise ValidationError('No capacity; coordinator must arrange alternatives.')
-    placement = Placement.objects.create(incident=incident, facility=facility, authority_reference=authority_reference)
-    incident.response_started_at = incident.response_started_at or timezone.now()
-    incident.save(update_fields=['response_started_at'])
-    audit(actor, 'placement.reserved', incident, placement_id=str(placement.id))
+    proof=approved_authority(incident.child_id,'placement',authority,authority_reference)
+    if incident.placements.filter(state__in=['reserved','intake']).exists():raise ValidationError('Incident already has a live placement.')
+    if Placement.objects.filter(facility=facility,state__in=['reserved','intake']).count()>=facility.capacity:raise CapacityUnavailable()
+    selected=None
+    if care_place:
+        selected=CarePlace.objects.select_for_update().filter(pk=care_place,facility=facility,enabled=True).first()
+        if not selected:raise ValidationError('Enabled place in selected facility required.')
+        if Placement.objects.filter(care_place=selected,state__in=['reserved','intake']).exists():raise CapacityUnavailable()
+    elif facility.places.filter(enabled=True).exists():
+        occupied=Placement.objects.filter(facility=facility,state__in=['reserved','intake'],care_place__isnull=False).values('care_place_id')
+        selected=facility.places.select_for_update().filter(enabled=True).exclude(pk__in=occupied).order_by('label').first()
+        if not selected:raise CapacityUnavailable()
+    placement=Placement.objects.create(incident=incident,facility=facility,authority_reference=authority_reference,authority=proof,care_place=selected,
+        reserved_until=timezone.now()+timedelta(seconds=facility.reservation_seconds) if facility.reservation_seconds else None)
+    incident.response_started_at=incident.response_started_at or timezone.now();incident.save(update_fields=['response_started_at'])
+    audit(actor,'placement.reserved',incident,placement_id=str(placement.id),authority_id=str(proof.id))
     return placement
 
 
+def placement_transition(actor,pk,placement_id,target,handover_reference,recipient=None,authority=None,transport_reference='',intake_reference='',belongings=None):
+    from .care import transition_care
+    return transition_care(actor,pk,placement_id,target,handover_reference,recipient,authority,transport_reference,intake_reference,belongings)
+
+
+def process_simulated_work(limit=100):
+    from .workflow import process_notification_jobs
+    processed = process_notification_jobs(limit=limit)
+    # Keep independent EMS and crew work progressing even if a notification
+    # fails/blocks. Each incident has a short transaction; no global batch lock.
+    incident_ids = list(Incident.objects.filter(state__in=OPEN_STATES).order_by('id').values_list('id', flat=True))
+    for pk in incident_ids:
+        _process_incident_tasks(pk)
+    return processed
+
+
 @transaction.atomic
-def placement_transition(actor, pk, placement_id, target, handover_reference):
+def _process_incident_tasks(pk):
+    from .workflow import escalate
     incident = lock_incident(pk)
-    require_coordinator(actor, incident)
-    placement = Placement.objects.select_for_update().get(pk=placement_id, incident=incident)
-    allowed = {'reserved': {'intake', 'cancelled'}, 'intake': {'released'}}
-    if incident.state not in OPEN_STATES or target not in allowed.get(placement.state, set()) or not handover_reference.strip():
-        raise ValidationError('Valid placement transition and verified handover/authority reference required.')
-    placement.state = target
-    placement.handover_reference = handover_reference
-    placement.save()
-    audit(actor, 'placement.transition', incident, placement_id=str(placement.id), target=target)
-    return placement
-
-
-@transaction.atomic
-def process_simulated_work():
-    # Local polling foundation: no network operations. A live worker must use
-    # claim/lease + external idempotency, with no network under a DB transaction.
-    incident_ids = list(Incident.objects.select_for_update().filter(state__in=OPEN_STATES).order_by('id').values_list('id', flat=True))
-    for notification in Notification.objects.select_for_update().filter(state='queued', incident_id__in=incident_ids):
-        notification.state = SimulatedNotifications().send(notification.id)
-        notification.save(update_fields=['state'])
-    for operation in EMSOperation.objects.select_for_update(of=('self',)).select_related('incident__region').filter(state='handoff_pending', incident_id__in=incident_ids):
-        region = operation.incident.region
-        if not region or region.ems_mode != 'simulated':
-            continue  # Manual handoff remains visible and pending.
+    if incident.state not in OPEN_STATES:
+        return
+    operation = EMSOperation.objects.select_for_update().get(incident=incident)
+    if operation.state == 'handoff_pending' and incident.region and incident.region.ems_mode == 'simulated':
+        # This adapter is local and has no external side effect. EMS unknown
+        # outcomes still stop for human reconciliation rather than auto-retry.
         try:
             result = SimulatedEMS().submit(operation.id)
             operation.state, operation.evidence = result.state, result.evidence
         except TimeoutError:
             operation.state, operation.evidence = 'unknown', 'SIMULATION: timeout; reconcile before retry'
         operation.save()
-        incident = operation.incident
         incident.response_started_at = incident.response_started_at or timezone.now()
         incident.save(update_fields=['response_started_at'])
+        if operation.state=='unknown':escalate(incident,'ems_unknown','ems:'+str(operation.id))
         audit(None, 'ems.simulated', incident, state=operation.state)
-    for offer in Assignment.objects.select_for_update().filter(state='offered', deadline__lte=timezone.now(), incident_id__in=incident_ids):
+    for offer in Assignment.objects.select_for_update().filter(incident=incident, state='offered', deadline__lte=timezone.now()):
         offer.state = 'timed_out'
         offer.save(update_fields=['state'])
-        Incident.objects.filter(pk=offer.incident_id).update(review_required=True)
-        audit(None, 'crew.offer_timed_out', offer.incident)
+        escalate(incident, 'crew_timed_out', 'assignment:'+str(offer.id))
+        audit(None, 'crew.offer_timed_out', incident)
+    from .care import expire_reservations
+    expire_reservations(incident.id)
+    from .response_policy import tick_response_policy
+    tick_response_policy(incident.id)
 
 
 def continuation_status(incident):
@@ -355,7 +418,7 @@ def acknowledge_notification(actor, pk, audience):
         require_guardian(actor, incident.child.household_id)
     else:
         require_coordinator(actor, incident)
-    notification = Notification.objects.select_for_update().get(incident=incident, audience=audience)
+    notification = Notification.objects.select_for_update().get(incident=incident, audience=audience,context_key='')
     if not notification.acknowledged_at:
         notification.acknowledged_at = timezone.now()
         notification.acknowledged_by = actor

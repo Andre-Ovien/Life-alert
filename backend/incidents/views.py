@@ -1,3 +1,5 @@
+from .serializers import LocationSerializer
+from drf_spectacular.utils import extend_schema
 from django.shortcuts import get_object_or_404
 from rest_framework import mixins, viewsets, serializers
 from rest_framework.decorators import action
@@ -8,6 +10,40 @@ from .access import visible_incidents
 from .models import Assignment, Placement
 from .serializers import (HelpSerializer, IncidentSerializer, LifecycleSerializer, OfferSerializer, AssignmentTransitionSerializer, EMSSerializer, ReserveSerializer, PlacementTransitionSerializer)
 from . import services
+
+class IncidentViewAcknowledgeNotificationInput(serializers.Serializer):
+    audience = serializers.ChoiceField(choices=['guardian', 'coordinator'])
+
+class IncidentViewClaimInput(serializers.Serializer):
+    takeover_reason = serializers.CharField(required=False, default='', allow_blank=True, max_length=500)
+
+class IncidentViewProgressInput(serializers.Serializer):
+    action_taken = serializers.CharField(max_length=2000)
+    next_steps = serializers.CharField(max_length=2000)
+    review_completed = serializers.BooleanField(required=False, default=False)
+
+class IncidentViewLocationUpdatesInput(serializers.Serializer):
+    request_id = serializers.UUIDField()
+    location = LocationSerializer()
+
+class IncidentViewReviewLocationInput(serializers.Serializer):
+    update = serializers.UUIDField()
+    accept = serializers.BooleanField()
+    reference = serializers.CharField(max_length=200)
+
+class IncidentViewRegionHandoverInput(serializers.Serializer):
+    target = serializers.UUIDField()
+    reference = serializers.CharField(max_length=200)
+
+class IncidentViewResponsePlanInput(serializers.Serializer):
+    enabled = serializers.BooleanField()
+    teams = serializers.ListField(child=serializers.UUIDField(), max_length=100)
+    review_reference = serializers.CharField(max_length=200)
+
+class IncidentViewEscalationTransitionInput(serializers.Serializer):
+    escalation = serializers.UUIDField()
+    target = serializers.ChoiceField(choices=['acknowledged', 'resolved'])
+    note = serializers.CharField(max_length=2000)
 
 class IncidentView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     serializer_class = IncidentSerializer
@@ -51,11 +87,11 @@ class IncidentView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.Ge
     def request_cancellation(self, request, pk=None):
         self.get_object()
         return Response(self.payload(services.request_cancellation(request.user, pk)))
+    @extend_schema(request=IncidentViewAcknowledgeNotificationInput, methods=["POST"])
     @action(detail=True, methods=['post'], url_path='acknowledge-notification')
     def acknowledge_notification(self, request, pk=None):
         self.get_object()
-        class Input(serializers.Serializer):
-            audience = serializers.ChoiceField(choices=['guardian','coordinator'])
+        Input = IncidentViewAcknowledgeNotificationInput
         serializer = Input(data=request.data)
         serializer.is_valid(raise_exception=True)
         obj = services.acknowledge_notification(request.user, pk, serializer.validated_data['audience'])
@@ -67,14 +103,15 @@ class IncidentView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.Ge
         require_coordinator(request.user, incident)
         audit(request.user, 'incident.followups_read', incident)
         return Response({'results': list(incident.helprequest_set.order_by('created_at').values('id','key','location','created_at')[:100])})
+    @extend_schema(request=IncidentViewClaimInput, methods=["POST"])
     @action(detail=True, methods=['post'], url_path='claim-ownership')
     def claim(self, request, pk=None):
         self.get_object()
-        class Input(serializers.Serializer):
-            takeover_reason = serializers.CharField(required=False, default='', allow_blank=True, max_length=500)
+        Input = IncidentViewClaimInput
         serializer = Input(data=request.data)
         serializer.is_valid(raise_exception=True)
         return Response(self.payload(services.claim_ownership(request.user, pk, **serializer.validated_data)))
+    @extend_schema(request=IncidentViewProgressInput, methods=["POST"])
     @action(detail=True, methods=['get','post'], url_path='progress')
     def progress(self, request, pk=None):
         incident = self.get_object()
@@ -83,14 +120,117 @@ class IncidentView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.Ge
         if request.method == 'GET':
             audit(request.user, 'incident.progress_read', incident)
             return Response({'results': list(incident.progress_notes.order_by('created_at').values('id','author','created_at','action_taken','next_steps')[:100])})
-        class Input(serializers.Serializer):
-            action_taken = serializers.CharField(max_length=2000)
-            next_steps = serializers.CharField(max_length=2000)
-            review_completed = serializers.BooleanField(required=False, default=False)
+        Input = IncidentViewProgressInput
         serializer = Input(data=request.data)
         serializer.is_valid(raise_exception=True)
         note = services.record_progress(request.user, pk, **serializer.validated_data)
         return Response({'id': note.id}, status=201)
+    @action(detail=True,methods=['get'],url_path='care-placements')
+    def care_placements(self,request,pk=None):
+        incident=self.get_object()
+        from .access import coordinator
+        from families.access import child_access
+        from rest_framework.exceptions import PermissionDenied
+        if is_device(request.user) or not (coordinator(request.user,incident) or child_access(request.user,incident.child,'view_incidents')):raise PermissionDenied()
+        audit(request.user,'care.family_updates_read',incident)
+        page=self.paginate_queryset(incident.placements.select_related('facility').order_by('created_at','id'))
+        return self.get_paginated_response([{'id':item.id,'state':item.state,'facility':item.facility.name,'reserved_until':item.reserved_until,
+            'handover_recorded':bool(item.handover_reference),'care_authority_recorded':bool(item.authority_id)} for item in page])
+    @extend_schema(request=IncidentViewLocationUpdatesInput, methods=["POST"])
+    @action(detail=True,methods=['get','post'],url_path='location-updates')
+    def location_updates(self,request,pk=None):
+        incident=self.get_object()
+        from .models import LocationUpdate
+        if request.method=='POST':
+            from .serializers import LocationSerializer
+            Input = IncidentViewLocationUpdatesInput
+            s=Input(data=request.data);s.is_valid(raise_exception=True)
+            from .evidence import report_location
+            obj=report_location(request.user,incident.id,**s.validated_data)
+            return Response({'id':obj.id,'status':obj.status,'quality':obj.quality},status=201)
+        from .access import coordinator
+        from families.access import child_access
+        from rest_framework.exceptions import PermissionDenied
+        query=LocationUpdate.objects.filter(incident=incident).order_by('created_at','id')
+        if is_device(request.user):
+            query=query.filter(device_id=request.user.device.id)
+        elif not (coordinator(request.user,incident) or child_access(request.user,incident.child,'view_incidents')):
+            raise PermissionDenied()
+        audit(request.user,'incident.location_updates_read',incident)
+        page=self.paginate_queryset(query)
+        if is_device(request.user):
+            return self.get_paginated_response([{'id':item.id,'status':item.status,'quality':item.quality} for item in page])
+        return self.get_paginated_response([{'id':item.id,'status':item.status,'quality':item.quality,'location':item.location,
+            'created_at':item.created_at,'matched_region':item.matched_region_id,'review_reference':item.review_reference} for item in page])
+    @extend_schema(request=IncidentViewReviewLocationInput, methods=["POST"])
+    @action(detail=True,methods=['post'],url_path='review-location')
+    def review_location(self,request,pk=None):
+        incident=self.get_object()
+        Input = IncidentViewReviewLocationInput
+        s=Input(data=request.data);s.is_valid(raise_exception=True);d=s.validated_data
+        from .evidence import review_location
+        obj=review_location(request.user,incident.id,d['update'],d['accept'],d['reference'])
+        return Response({'id':obj.id,'status':obj.status})
+    @extend_schema(request=IncidentViewRegionHandoverInput, methods=["POST"])
+    @action(detail=True,methods=['post'],url_path='region-handover')
+    def region_handover(self,request,pk=None):
+        incident=self.get_object()
+        Input = IncidentViewRegionHandoverInput
+        s=Input(data=request.data);s.is_valid(raise_exception=True)
+        from .evidence import request_handover
+        obj=request_handover(request.user,incident.id,s.validated_data['target'],s.validated_data['reference'])
+        return Response({'id':obj.id,'status':obj.status},status=201)
+    @action(detail=True,methods=['get'],url_path='ems-events')
+    def ems_events(self,request,pk=None):
+        incident=self.get_object()
+        from .access import require_coordinator
+        require_coordinator(request.user,incident)
+        audit(request.user,'ems.events_read',incident)
+        page=self.paginate_queryset(incident.ems.events.order_by('created_at','id'))
+        return self.get_paginated_response([{'event_id':item.event_id,'state':item.state,'evidence':item.evidence,
+            'observed_at':item.observed_at,'actor':item.actor_id,'source':item.source} for item in page])
+    @extend_schema(request=IncidentViewResponsePlanInput, methods=["POST"])
+    @action(detail=True,methods=['get','post'],url_path='response-plan')
+    def response_plan(self,request,pk=None):
+        incident=self.get_object()
+        from .access import require_coordinator
+        require_coordinator(request.user,incident)
+        from .models import ResponsePlan
+        def payload(plan):
+            return {'id':plan.id,'enabled':plan.enabled,'reviewed_care_version':plan.reviewed_care_version,
+                'teams':list(plan.candidates.order_by('priority').values_list('team_id',flat=True))}
+        if request.method=='GET':
+            plan=ResponsePlan.objects.filter(incident=incident).first()
+            audit(request.user,'response.plan_read',incident)
+            return Response(payload(plan) if plan else {'enabled':False,'teams':[]})
+        Input = IncidentViewResponsePlanInput
+        s=Input(data=request.data);s.is_valid(raise_exception=True);d=s.validated_data
+        from .response_policy import configure_plan
+        plan=configure_plan(request.user,incident.id,d['enabled'],d['teams'],d['review_reference'])
+        return Response(payload(plan))
+    @action(detail=True, methods=['get'])
+    def escalations(self, request, pk=None):
+        incident = self.get_object()
+        from .access import require_coordinator
+        require_coordinator(request.user, incident)
+        audit(request.user, 'response.escalations_read', incident)
+        page = self.paginate_queryset(incident.escalations.order_by('created_at', 'id'))
+        return self.get_paginated_response([{
+            'id': task.id, 'kind': task.kind, 'status': task.status,
+            'created_at': task.created_at, 'acknowledged_at': task.acknowledged_at,
+            'resolved_at': task.resolved_at, 'resolution_note': task.resolution_note,
+        } for task in page])
+    @extend_schema(request=IncidentViewEscalationTransitionInput, methods=["POST"])
+    @action(detail=True, methods=['post'], url_path='escalation-transition')
+    def escalation_transition(self, request, pk=None):
+        incident = self.get_object()
+        Input = IncidentViewEscalationTransitionInput
+        serializer = Input(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        from .workflow import transition_escalation
+        d = serializer.validated_data
+        obj = transition_escalation(request.user, incident.id, d['escalation'], d['target'], d['note'])
+        return Response({'id': obj.id, 'status': obj.status})
     @action(detail=True, methods=['post'], url_path='offer-team')
     def offer_team(self, request, pk=None):
         self.get_object()
@@ -103,14 +243,17 @@ class IncidentView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.Ge
     def care(self, request, pk=None):
         incident = self.get_object()
         from rest_framework.exceptions import PermissionDenied
-        from families.access import guardian
+        from families.access import guardian, child_access
         from .access import coordinator, responder
-        if is_device(request.user) or not (guardian(request.user, incident.child.household_id) or coordinator(request.user, incident) or responder(request.user, incident)):
+        if is_device(request.user) or not (child_access(request.user,incident.child,'view_care') or coordinator(request.user, incident) or responder(request.user, incident)):
             raise PermissionDenied()
         child = incident.child
         audit(request.user, 'incident.care_read', incident)
-        return Response({'name': child.name, 'communication': child.communication, 'support_needs': child.support_needs,
-                         'calming_preferences': child.calming_preferences})
+        data = incident.care_version.payload if incident.care_version_id else {
+            key:getattr(child,key) for key in ['name','communication','support_needs','calming_preferences']}
+        latest=child.care_versions.filter(number=child.current_version).first()
+        return Response({**data,'latest_care':latest.payload if latest else None,'care_version':incident.care_version.number if incident.care_version_id else None,
+            'latest_version':child.current_version,'snapshot_is_current':bool(incident.care_version_id and incident.care_version.number==child.current_version)})
     @action(detail=True, methods=['post'], url_path='ems-evidence')
     def ems_evidence(self, request, pk=None):
         self.get_object()
@@ -124,7 +267,7 @@ class IncidentView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.Ge
         serializer = ReserveSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         d = serializer.validated_data
-        obj = services.reserve_placement(request.user, pk, d['facility'], d['authority_reference'], d['suitability_confirmed'])
+        obj = services.reserve_placement(request.user, pk, d['facility'], d['authority_reference'], d['suitability_confirmed'],d.get('authority'),d.get('care_place'))
         return Response({'id': obj.id, 'state': obj.state}, status=201)
     @action(detail=True, methods=['post'], url_path='placement-transition')
     def placement_transition(self, request, pk=None):
@@ -133,7 +276,7 @@ class IncidentView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.Ge
         serializer.is_valid(raise_exception=True)
         d = serializer.validated_data
         get_object_or_404(Placement, pk=d['placement'], incident=incident)
-        obj = services.placement_transition(request.user, pk, d['placement'], d['target'], d['handover_reference'])
+        obj = services.placement_transition(request.user, pk, d['placement'], d['target'], d['handover_reference'],d.get('recipient'),d.get('authority'),d['transport_reference'],d['intake_reference'],d['belongings'])
         return Response({'id': obj.id, 'state': obj.state})
 
 class MyOffersView(viewsets.GenericViewSet):
@@ -153,3 +296,35 @@ class MyOffersView(viewsets.GenericViewSet):
         serializer.is_valid(raise_exception=True)
         obj = services.assignment_transition(request.user, assignment.incident_id, pk, serializer.validated_data['target'], serializer.validated_data['reason'])
         return Response({'id': obj.id, 'state': obj.state})
+
+class RegionHandoverViewDecisionInput(serializers.Serializer):
+    target = serializers.ChoiceField(choices=['declined', 'cancelled'])
+    reference = serializers.CharField(max_length=200)
+
+class RegionHandoverView(mixins.ListModelMixin,viewsets.GenericViewSet):
+    def get_queryset(self):
+        from django.db.models import Q
+        from .models import IncidentHandover
+        if is_device(self.request.user):return IncidentHandover.objects.none()
+        return IncidentHandover.objects.filter(Q(target__user=self.request.user)|Q(incident__coordinator_owner=self.request.user)).order_by('created_at','id')
+    def list(self,request,*args,**kwargs):
+        page=self.paginate_queryset(self.get_queryset())
+        for item in page:audit(request.user,'incident.region_handover_read',item.incident,handover_id=str(item.id))
+        return self.get_paginated_response([{'id':item.id,'incident':item.incident_id,'source_region':item.source_region_id,
+            'target':item.target_id,'status':item.status,'reference':item.reference} for item in page])
+    @action(detail=True,methods=['post'])
+    def accept(self,request,pk=None):
+        item=self.get_object()
+        from .evidence import accept_handover
+        item=accept_handover(request.user,item.id)
+        return Response({'id':item.id,'status':item.status})
+
+    @extend_schema(request=RegionHandoverViewDecisionInput, methods=["POST"])
+    @action(detail=True,methods=['post'])
+    def decision(self,request,pk=None):
+        item=self.get_object()
+        Input = RegionHandoverViewDecisionInput
+        s=Input(data=request.data);s.is_valid(raise_exception=True)
+        from .evidence import end_handover
+        item=end_handover(request.user,item.id,**s.validated_data)
+        return Response({'id':item.id,'status':item.status})

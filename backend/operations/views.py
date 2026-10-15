@@ -1,3 +1,4 @@
+from drf_spectacular.utils import extend_schema
 """Configuration-only administrative boundary, separate from child-data access."""
 from django.db import transaction
 from rest_framework import serializers, mixins, viewsets
@@ -13,7 +14,8 @@ from .models import Region, Team, Facility, Coordinator
 
 class ConfigurationAdmin(BasePermission):
     def has_permission(self, request, view):
-        return not is_device(request.user) and request.user.is_authenticated and request.user.is_superuser
+        from common.mfa import StaffMFAPermission
+        return not is_device(request.user) and request.user.is_authenticated and request.user.is_superuser and StaffMFAPermission().has_permission(request, view)
 
 class RegionSerializer(serializers.ModelSerializer):
     def validate(self, data):
@@ -43,13 +45,13 @@ class TeamSerializer(serializers.ModelSerializer):
 class FacilitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Facility
-        fields = ['id','name','region','enabled','capacity','suitability']
+        fields = ['id','name','region','enabled','capacity','reservation_seconds','suitability']
         read_only_fields = ['id']
 
 class CoordinatorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Coordinator
-        fields = ['id','user','region']
+        fields = ['id','user','region','on_duty']
         read_only_fields = ['id']
 
 class ConfigView(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.CreateModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet):
@@ -114,6 +116,10 @@ class EntitlementView(viewsets.GenericViewSet):
         audit(request.user, 'entitlement.configured', obj, active=obj.active)
         return Response(EntitlementSerializer(obj).data)
 
+class UnroutedViewRouteInput(serializers.Serializer):
+    region = serializers.PrimaryKeyRelatedField(queryset=Region.objects.filter(enabled=True))
+    location_verified = serializers.BooleanField()
+
 class UnroutedView(viewsets.GenericViewSet):
     permission_classes = [ConfigurationAdmin]
     def list(self, request):
@@ -121,12 +127,11 @@ class UnroutedView(viewsets.GenericViewSet):
         objects = Incident.objects.filter(region__isnull=True, state__in=OPEN_STATES).order_by('accepted_at')[:50]
         # Operational IDs and location quality only, no child content.
         return Response({'results': [{'id': obj.id, 'location_quality': obj.location_quality, 'accepted_at': obj.accepted_at} for obj in objects]})
+    @extend_schema(request=UnroutedViewRouteInput, methods=["POST"])
     @action(detail=True, methods=['post'])
     @transaction.atomic
     def route(self, request, pk=None):
-        class Input(serializers.Serializer):
-            region = serializers.PrimaryKeyRelatedField(queryset=Region.objects.filter(enabled=True))
-            location_verified = serializers.BooleanField()
+        Input = UnroutedViewRouteInput
         serializer = Input(data=request.data)
         serializer.is_valid(raise_exception=True)
         if not serializer.validated_data['location_verified']:
@@ -140,3 +145,57 @@ class UnroutedView(viewsets.GenericViewSet):
         obj.save(update_fields=['region'])
         audit(request.user, 'incident.region_verified', obj, region_id=str(obj.region_id))
         return Response({'id': obj.id, 'region': obj.region_id})
+
+class ResponsePolicySerializer(serializers.ModelSerializer):
+    class Meta:
+        from .models import ResponsePolicy
+        model=ResponsePolicy
+        fields=['id','region','enabled','primary','backup','ownership_seconds','offer_seconds','review_reference']
+        read_only_fields=['id']
+    def validate(self,data):
+        obj=self.instance
+        def value(key):return data.get(key,getattr(obj,key,None))
+        if value('enabled'):
+            if not value('review_reference') or not value('ownership_seconds') or not value('offer_seconds'):
+                raise serializers.ValidationError('Explicit reviewed ownership/offer timings are required to enable simulation policy.')
+            primary,backup=value('primary'),value('backup')
+            if not primary or not backup or primary==backup:
+                raise serializers.ValidationError('Distinct primary and backup coordinators required.')
+            for person in [primary,backup]:
+                if person.region_id!=value('region').id or not person.on_duty or not person.user.is_active:
+                    raise serializers.ValidationError('Active on-duty coordinators in the policy region are required.')
+        return data
+
+class ResponsePolicyView(ConfigView):
+    from .models import ResponsePolicy
+    queryset=ResponsePolicy.objects.all().order_by('created_at','id')
+    serializer_class=ResponsePolicySerializer
+
+class CarePlaceSerializer(serializers.ModelSerializer):
+    class Meta:
+        from .models import CarePlace
+        model=CarePlace
+        fields=['id','facility','label','enabled','suitability']
+        read_only_fields=['id']
+
+class CarePlaceView(ConfigView):
+    from .models import CarePlace
+    queryset=CarePlace.objects.all().order_by('created_at','id')
+    serializer_class=CarePlaceSerializer
+
+class FacilityStaffSerializer(serializers.ModelSerializer):
+    class Meta:
+        from .models import FacilityStaff
+        model=FacilityStaff
+        fields=['id','facility','user','active','on_duty','review_reference']
+        read_only_fields=['id']
+    def validate(self,data):
+        obj=self.instance
+        if data.get('active',getattr(obj,'active',False)) and not data.get('review_reference',getattr(obj,'review_reference','')):
+            raise serializers.ValidationError('Reviewed staff qualification/authority reference required.')
+        return data
+
+class FacilityStaffView(ConfigView):
+    from .models import FacilityStaff
+    queryset=FacilityStaff.objects.all().order_by('created_at','id')
+    serializer_class=FacilityStaffSerializer

@@ -210,15 +210,24 @@ class FoundationTests(TestCase):
         facility=Facility.objects.create(region=self.region,name='Synthetic facility',enabled=True,capacity=1)
         with self.assertRaisesMessage(Exception,'verified authority'):
             services.reserve_placement(self.coord,obj.id,facility.id,'',True)
+        from families.models import AuthorityRecord
+        from operations.models import FacilityStaff
+        from incidents.care import assign_staff,accept_staff_handover
+        for child,reference in [(self.child,'verified-authority-reference'),(self.sibling,'authority-ref')]:
+            AuthorityRecord.objects.create(child=child,subject=self.guardian,purpose='placement',status='verified',evidence_reference=reference,verification_reference='Synthetic reviewed authority',verified_by=self.coord,verified_at=timezone.now(),valid_until=timezone.now()+timedelta(days=1))
+        release=AuthorityRecord.objects.create(child=self.child,subject=self.guardian,purpose='release',status='verified',evidence_reference='Synthetic release evidence',verification_reference='Synthetic verified recipient',verified_by=self.coord,verified_at=timezone.now(),valid_until=timezone.now()+timedelta(days=1))
         place=services.reserve_placement(self.coord,obj.id,facility.id,'verified-authority-reference',True)
+        FacilityStaff.objects.create(facility=facility,user=self.responder,active=True,on_duty=True,review_reference='Synthetic reviewed staff')
+        handover=assign_staff(self.coord,place.id,self.responder,'Synthetic intake handover')
+        accept_staff_handover(self.responder,place.id,handover.id)
         other=services.create_incident(self.guardian,self.sibling.id,uuid.uuid4(),self.location)[0]
         self.triage(other)
         with self.assertRaisesMessage(Exception,'No capacity'):
             services.reserve_placement(self.coord,other.id,facility.id,'authority-ref',True)
-        services.placement_transition(self.coord,obj.id,place.id,'intake','verified-intake-handover')
+        services.placement_transition(self.coord,obj.id,place.id,'intake','verified-intake-handover',transport_reference='Approved synthetic transport',intake_reference='Synthetic intake record')
         with self.assertRaisesMessage(Exception,'Regional coordinator'):
             services.placement_transition(self.guardian,obj.id,place.id,'released','contact-is-not-release-authority')
-        services.placement_transition(self.coord,obj.id,place.id,'released','verified-recipient-and-authority')
+        services.placement_transition(self.coord,obj.id,place.id,'released','verified-recipient-and-authority',recipient=self.guardian,authority=release.id)
         self.assertEqual(Placement.objects.get(pk=place.id).state,'released')
 
     def test_media_purpose_and_family_boundaries(self):
@@ -315,7 +324,7 @@ class FoundationTests(TestCase):
         with self.assertRaisesMessage(Exception,'reconciled'):
             services.transition(self.coord,obj.id,'resolved',outcome='No accommodation needed')
         services.record_ems(self.coord,obj.id,'closed','Verified EMS disposition, no outstanding external response')
-        resolved=services.transition(self.coord,obj.id,'resolved',outcome='Assistance provided, authorized caregiver handover verified, follow-up assigned',reconciled=True)
+        resolved=services.transition(self.coord,obj.id,'resolved',outcome='Assistance provided, authorized caregiver handover verified, follow-up assigned',reconciled=True,outcome_details={'assistance':'Support provided','handover':'Authorized guardian handover verified','ems_disposition':'No outstanding external response','followup':'Coordinator records no further follow-up needed'})
         self.assertEqual(resolved.state,'resolved')
 
 
@@ -423,6 +432,9 @@ class PostgreSQLConcurrencyTests(TransactionTestCase):
             services.transition(self.coord,obj.id,'triage')
             incidents.append(obj)
         facility=Facility.objects.create(region=self.region,name='One place',capacity=1,enabled=True)
+        from families.models import AuthorityRecord
+        for child in [self.child,self.sibling]:
+            AuthorityRecord.objects.create(child=child,subject=self.guardian,purpose='placement',status='verified',evidence_reference='synthetic-authority',verification_reference='Synthetic reviewed authority',verified_by=self.coord,verified_at=timezone.now(),valid_until=timezone.now()+timedelta(days=1))
         barrier=Barrier(2)
         def work(obj):
             try:

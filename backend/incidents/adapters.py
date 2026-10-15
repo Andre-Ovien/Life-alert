@@ -14,9 +14,32 @@ class SimulatedEMS:
             raise TimeoutError('Simulated provider timeout')
         return ProviderResult('provider_acknowledged', 'SIMULATION: receipt only; no contact or dispatch')
 
+class RetryableNotificationFailure(Exception):
+    pass
+
+class UnknownNotificationOutcome(Exception):
+    pass
+
+class PermanentNotificationFailure(Exception):
+    pass
+
 class SimulatedNotifications:
     def send(self, notification_id):
-        return 'simulated'  # Never "delivered" or human acknowledgement.
+        from .models import SimulatedDeliveryReceipt
+        # Check durable receipt before failure injection. Reusing the same key
+        # after a crash never repeats the logical simulated delivery.
+        if SimulatedDeliveryReceipt.objects.filter(notification_id=notification_id).exists():
+            return 'simulated'
+        outcome = settings.SIM_NOTIFICATION_OUTCOME
+        if outcome == 'retryable_failure':
+            raise RetryableNotificationFailure()
+        if outcome == 'unknown':
+            raise UnknownNotificationOutcome()
+        if outcome != 'success':
+            raise PermanentNotificationFailure()
+        SimulatedDeliveryReceipt.objects.get_or_create(notification_id=notification_id,
+            defaults={'operation_id': notification_id})
+        return 'simulated'  # Not real delivery or acknowledgement.
 
 class LocalBilling:
     """Local entitlement ledger only; no payment processing or public activation."""

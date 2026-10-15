@@ -11,7 +11,7 @@ if not DEBUG and SECRET_KEY == 'local-development-only-not-for-deployment':
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,testserver').split(',')
 INSTALLED_APPS = [
     'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions',
-    'rest_framework', 'common', 'families', 'operations', 'incidents',
+    'rest_framework', 'drf_spectacular', 'common', 'families', 'operations', 'incidents',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware',
@@ -36,13 +36,14 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'common.schema.ContractSchema',
     'EXCEPTION_HANDLER': 'common.exceptions.api_exception_handler',
-    'DEFAULT_AUTHENTICATION_CLASSES': ['families.authentication.DeviceAuthentication', 'rest_framework.authentication.SessionAuthentication'],
-    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated'],
+    'DEFAULT_AUTHENTICATION_CLASSES': ['families.authentication.DeviceAuthentication', 'common.identity.AdultBearerAuthentication', 'rest_framework.authentication.SessionAuthentication'],
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated', 'common.mfa.StaffMFAPermission'],
     'DEFAULT_RENDERER_CLASSES': ['rest_framework.renderers.JSONRenderer'],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination', 'PAGE_SIZE': 50,
     'DEFAULT_THROTTLE_CLASSES': ['rest_framework.throttling.UserRateThrottle'],
-    'DEFAULT_THROTTLE_RATES': {'user': '120/min'},
+    'DEFAULT_THROTTLE_RATES': {'user': '120/min','identity':'10/min','recovery':'5/hour','pairing':'10/min'},
 }
 USE_TZ = True
 TIME_ZONE = 'UTC'
@@ -66,3 +67,59 @@ if not DEBUG:
 LOGGING = {'version': 1, 'disable_existing_loggers': False,
            'handlers': {'null': {'class': 'logging.NullHandler'}},
            'loggers': {'django.request': {'handlers': ['null'], 'propagate': False}}}
+
+# Local simulation mechanics only; these are not operational SLA targets.
+SIM_NOTIFICATION_MAX_ATTEMPTS = int(os.environ.get('SIM_NOTIFICATION_MAX_ATTEMPTS', '3'))
+SIM_NOTIFICATION_RETRY_SECONDS = int(os.environ.get('SIM_NOTIFICATION_RETRY_SECONDS', '5'))
+SIM_NOTIFICATION_LEASE_SECONDS = int(os.environ.get('SIM_NOTIFICATION_LEASE_SECONDS', '60'))
+SIM_NOTIFICATION_OUTCOME = os.environ.get('SIM_NOTIFICATION_OUTCOME', 'success')
+if min(SIM_NOTIFICATION_MAX_ATTEMPTS, SIM_NOTIFICATION_RETRY_SECONDS, SIM_NOTIFICATION_LEASE_SECONDS) < 1:
+    raise ImproperlyConfigured('Simulation attempt/retry/lease values must be positive.')
+
+CAREGIVER_INVITE_SECONDS = int(os.environ.get('CAREGIVER_INVITE_SECONDS', '86400'))
+
+# Security lifetimes, not emergency-response promises. All are configurable.
+ADULT_ACCESS_SECONDS = int(os.environ.get('ADULT_ACCESS_SECONDS','3600'))
+ADULT_REFRESH_SECONDS = int(os.environ.get('ADULT_REFRESH_SECONDS','604800'))
+ACCOUNT_CHALLENGE_SECONDS = int(os.environ.get('ACCOUNT_CHALLENGE_SECONDS','1800'))
+REQUIRE_VERIFIED_ADULT_CONTACT = not DEBUG
+
+if min(CAREGIVER_INVITE_SECONDS, ADULT_ACCESS_SECONDS, ADULT_REFRESH_SECONDS, ACCOUNT_CHALLENGE_SECONDS) < 1:
+    raise ImproperlyConfigured('Identity lifetimes must be positive.')
+
+DEVICE_PAIRING_SECONDS = int(os.environ.get('DEVICE_PAIRING_SECONDS','600'))
+# 0 preserves explicit revocation-based child access; a nonzero expiry is optional.
+DEVICE_TOKEN_SECONDS = int(os.environ.get('DEVICE_TOKEN_SECONDS','0'))
+if DEVICE_PAIRING_SECONDS < 1 or DEVICE_TOKEN_SECONDS < 0:
+    raise ImproperlyConfigured('Device pairing/credential lifetimes are invalid.')
+
+ENFORCE_STAFF_MFA = not DEBUG
+STAFF_MFA_SECONDS = int(os.environ.get("STAFF_MFA_SECONDS", "43200"))
+STAFF_MFA_ENROLL_SECONDS = int(os.environ.get("STAFF_MFA_ENROLL_SECONDS", "600"))
+if min(STAFF_MFA_SECONDS, STAFF_MFA_ENROLL_SECONDS) < 1:
+    raise ImproperlyConfigured("MFA lifetimes must be positive.")
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Life alert local backend',
+    'DESCRIPTION': 'Local simulation and manual evidence API. No live messaging, payment or emergency dispatch.',
+    'VERSION': '0.3.0',
+    'COMPONENT_SPLIT_REQUEST': True,
+    'SERVE_INCLUDE_SCHEMA': False,
+    'SERVE_PERMISSIONS': ['rest_framework.permissions.IsAuthenticated', 'common.mfa.StaffMFAPermission'],
+    'ENUM_NAME_OVERRIDES': {'PrivacyRequestKind':['export','correction','media_delete','account_close'], 'CareEventKind':['support','observation','handover_note'], 'HandoverDecision':['declined','cancelled'], 'IncidentTransition':['triage','active','resolved','cancelled'], 'EscalationTransition':['acknowledged','resolved'], 'AssignmentTransition':['accepted','declined','en_route','arrived','complete'], 'PlacementTransition':['intake','released','cancelled']},
+}
+
+# A shared throttle store is required across production API workers. Provision it
+# with createcachetable; this is separate from migration readiness.
+if not DEBUG:
+    if len(SECRET_KEY) < 50:
+        raise ImproperlyConfigured('Use a private DJANGO_SECRET_KEY of at least 50 characters.')
+    if not os.environ.get('DJANGO_ALLOWED_HOSTS') or '*' in ALLOWED_HOSTS:
+        raise ImproperlyConfigured('Set explicit production DJANGO_ALLOWED_HOSTS.')
+    if DATABASES['default']['ENGINE'] != 'django.db.backends.postgresql':
+        raise ImproperlyConfigured('Production requires PostgreSQL row locking.')
+    CACHES = {'default': {'BACKEND':'django.core.cache.backends.db.DatabaseCache',
+                          'LOCATION':'lifealert_throttle_cache'}}
+SECURE_HSTS_SECONDS = 0 if DEBUG else 31536000
+SESSION_COOKIE_SAMESITE = 'Lax'
+CSRF_COOKIE_SAMESITE = 'Lax'

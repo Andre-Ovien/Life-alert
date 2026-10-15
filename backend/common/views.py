@@ -1,3 +1,4 @@
+from drf_spectacular.utils import extend_schema
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError as DjangoValidationError
@@ -41,6 +42,10 @@ class RegisterView(APIView):
         # Registration does not grant subscription or assert legal authority.
         return Response({'household': household.id}, status=201)
 
+class SessionViewPostInput(serializers.Serializer):
+    username = serializers.CharField(max_length=150)
+    password = serializers.CharField(max_length=128)
+
 @method_decorator(csrf_protect, name='dispatch')
 class SessionView(APIView):
     permission_classes = [AllowAny]
@@ -49,10 +54,9 @@ class SessionView(APIView):
     def get(self, request):
         from django.middleware.csrf import get_token
         return Response({'csrf_token': get_token(request), 'authentication': 'session'})
+    @extend_schema(request=SessionViewPostInput, methods=["POST"])
     def post(self, request):
-        class Input(serializers.Serializer):
-            username = serializers.CharField(max_length=150)
-            password = serializers.CharField(max_length=128)
+        Input = SessionViewPostInput
         serializer = Input(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = authenticate(request=request, **serializer.validated_data)

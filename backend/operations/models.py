@@ -19,6 +19,7 @@ class Region(Record):
         ]
 
 class Coordinator(Record):
+    on_duty = models.BooleanField(default=False)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     region = models.ForeignKey(Region, on_delete=models.PROTECT)
     class Meta:
@@ -36,5 +37,32 @@ class Facility(Record):
     region = models.ForeignKey(Region, on_delete=models.PROTECT)
     name = models.CharField(max_length=120)
     enabled = models.BooleanField(default=False)
+    reservation_seconds=models.PositiveIntegerField(null=True)
     capacity = models.PositiveIntegerField(default=0)
     suitability = models.TextField(blank=True)
+
+class ResponsePolicy(Record):
+    region = models.OneToOneField(Region,on_delete=models.PROTECT,related_name='response_policy')
+    enabled = models.BooleanField(default=False)
+    primary = models.ForeignKey(Coordinator,null=True,on_delete=models.PROTECT,related_name='primary_policies')
+    backup = models.ForeignKey(Coordinator,null=True,on_delete=models.PROTECT,related_name='backup_policies')
+    ownership_seconds = models.PositiveIntegerField(null=True)
+    offer_seconds = models.PositiveIntegerField(null=True)
+    review_reference = models.CharField(max_length=200,blank=True)
+
+class CarePlace(Record):
+    facility=models.ForeignKey(Facility,on_delete=models.PROTECT,related_name='places')
+    label=models.CharField(max_length=100)
+    enabled=models.BooleanField(default=False)
+    suitability=models.TextField(blank=True)
+    class Meta:
+        constraints=[models.UniqueConstraint(fields=['facility','label'],name='unique_facility_place_label')]
+
+class FacilityStaff(Record):
+    facility=models.ForeignKey(Facility,on_delete=models.PROTECT)
+    user=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)
+    active=models.BooleanField(default=False)
+    on_duty=models.BooleanField(default=False)
+    review_reference=models.CharField(max_length=200,blank=True)
+    class Meta:
+        constraints=[models.UniqueConstraint(fields=['facility','user'],name='unique_facility_staff')]

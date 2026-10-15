@@ -1,4 +1,4 @@
-.PHONY: test test-postgres check migrate work
+.PHONY: test test-postgres check migrate work schema
 
 test:
 	cd backend && ../.venv/bin/python manage.py test
@@ -16,3 +16,6 @@ work:
 
 test-postgres:
 	.venv/bin/python scripts/test_postgres.py
+
+schema:
+	.venv/bin/python backend/manage.py spectacular --file docs/openapi.yaml --validate --fail-on-warn
